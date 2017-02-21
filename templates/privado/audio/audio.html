@@ -1,0 +1,33 @@
+    {% extends 'privado/base.html' %}
+    {% load staticfiles %}
+    {% block titulo %}
+    Pdf
+    {% endblock %}
+    {% block pagina %}
+    Audio<small>Opciones</small>
+    {% endblock %}
+    {% block miga %}
+    <li><a href="/"><i class="fa fa-dashboard active"></i> Administración</a></li><li><i class="fa fa-file-pdf-o"></i> Audio</li>
+    {% endblock %}
+    {% block contenido %}
+    <div class="col-xs-12 col-sm-6 col-lg-4 col-lg-offset-2 text-center">
+        <h2>Crear AUDIO</h2>
+        <span class="circulo col-xs-12 col-sm-6 col-lg-4 col-xs-offset-4 col-sm-offset-2 col-lg-offset-3">
+            <i class="fa fa-file-audio-o"></i>
+        </span>
+        <div class="col-xs-12">
+            <br>
+            <a href="/administrador/audio/nuevo/" class="btn btn-sm btn-success"><i class="fa fa-plus fa-4x"></i></a>
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-lg-4 text-center">
+        <h2>Ver AUDIO</h2>
+        <span class="circulo col-xs-12 col-sm-6 col-lg-4 col-xs-offset-4 col-sm-offset-2 col-lg-offset-3">
+            <i class="fa fa-list-alt"></i>
+        </span>
+        <div class="col-xs-12">
+            <br>
+            <a href="/administrador/audio/lista/" class="btn btn-sm btn-info"><i class="fa fa-list-alt fa-4x"></i></a>
+        </div>
+    </div>
+    {% endblock %}

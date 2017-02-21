@@ -1,0 +1,77 @@
+{% extends 'privado/base.html' %}
+{% load staticfiles %}
+{% block titulo %}
+Perfil
+{% endblock %}
+{% block pagina %}
+Perfil<small>Detalle</small>
+{% endblock %}
+{% block miga %}
+<li><a href="/"><i class="fa fa-dashboard active"></i> Administración</a></li><li href=""><i class="fa fa-user"></i> Texto</li>
+{% endblock %}
+{% block contenido %}
+<div class="col-xs-12 col-sm-10 col-lg-8 col-sm-offset-1 col-lg-offset-2">
+    <!-- Widget: user widget style 1 -->
+    <div class="box box-widget widget-user">
+        <!-- Add the bg color to the header using any of the bg-* classes -->
+        <div class="widget-user-header bg-black" style="background: url('{% static 'administrador/img/bg-perfil.jpg' %}') center center;">
+            <h3 class="widget-user-username">
+                {{ request.user.get_full_name }}
+            </h3>
+        </div>
+        <div class="widget-user-image">
+            <img class="img-circle" src="/media{{ avatar }}" alt="User Avatar">
+        </div>
+        <div class="box-footer">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="description-block">
+                        <h5 class="description-header">Usuario</h5>
+                        <span class="description-text">{{ object.usuario }}</span>
+                    </div>
+                    <!-- /.description-block -->
+                </div>
+                <!-- /.col -->
+                <div class="col-sm-6">
+                    <div class="description-block">
+                        <h5 class="description-header">Sede</h5>
+                        <span class="description-text">{{ object.sede }}</span>
+                    </div>
+                    <!-- /.description-block -->
+                </div>
+                <!-- /.col -->
+                <div class="col-sm-6">
+                    <div class="description-block">
+                        <h5 class="description-header">Código</h5>
+                        <span class="description-text">{{ object.codigo }}</span>
+                    </div>
+                    <!-- /.description-block -->
+                </div>
+                <!-- /.col -->
+                <!-- /.col -->
+                <div class="col-sm-6">
+                    <div class="description-block">
+                        <h5 class="description-header">Carrera(s)</h5>
+                        <span class="description-text">
+                            {% for carrera in object.carrera.all %}
+                                {{ carrera.nombre }}
+                            {% endfor %}
+                        </span>
+                    </div>
+                    <!-- /.description-block -->
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <div class="box-footer">
+            <div class="row">
+                <div class="col-xs-6 col-xs-offset-3">
+                    <a href="/actualizar/clave/" class="btn btn-primary btn-lg btn-block">Actualizar contraseña <i class="fa fa-pencil-square-o"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.widget-user -->
+</div>
+{% endblock %}

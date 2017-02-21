@@ -1,0 +1,52 @@
+{% extends 'publico/base.html' %}
+{% block titulo %}
+Lo más buscado
+{% endblock %}
+{% block pagina %}
+Lo más
+<small>Buscado</small>
+{% endblock %}
+{% block contenido %}
+    <div class="col-xs-12">
+        <div class="box">
+            <div class="box-header">
+                <h3 class="box-title">TOP 10</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body table-responsive no-padding">
+                <table class="table table-hover table-striped">
+                    <tr>
+                        <th>Titulo</th>
+                        <th>Autor</th>
+                        <th>Visualizaciones</th>
+                        <th>Creación</th>
+                        <th>Actualización</th>
+                        <th>Acciones</th>
+                    </tr>
+                    {% for video in videos %}
+                        <tr>
+                            <td class="col-xs-4">{{ video.nombre }}</td>
+                            <td class="col-xs-3">{{ video.propietario }}</td>
+                            <td class="col-xs-2">{{ video.contador }}</td>
+                            <td class="col-xs-1">{{ video.fecha|date:"d/M/Y"|lower }}</td>
+                            <td class="col-xs-1">{{ video.actualizado|date:"d/M/Y"|lower }}</td>
+                            <td class="col-xs-1">
+                                <a href="/administrador/video/detalle/{{ video.id }}" class="btn btn-success"><i class="fa fa-eye"></i></a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    <tr class="info">
+                        <td class="col-xs-4"></td>
+                        <td class="col-xs-3 text-right"><b>TOTAL:</b></td>
+                        <td class="col-xs-2">{{ total }}</td>
+                        <td class="col-xs-1"></td>
+                        <td class="col-xs-1"></td>
+                        <td class="col-xs-1"></td>
+                    </tr>
+                </table>
+            </div>
+            <!-- /.box-body -->
+        </div>
+        <!-- /.box -->
+    </div>
+{% endblock %}

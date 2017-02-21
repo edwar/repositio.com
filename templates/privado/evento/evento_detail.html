@@ -1,0 +1,106 @@
+{% extends 'privado/base.html' %}
+{% load staticfiles %}
+{% block titulo %}
+Evento
+{% endblock %}
+{% block pagina %}
+Evento<small>Detalle</small>
+{% endblock %}
+{% block miga %}
+<li><a href="/"><i class="fa fa-dashboard active"></i> Administración</a></li><li><a href="/administrador/evento/"><i class="fa fa-calendar"></i> Evento</a></li><li><i class="fa fa-info-circle"></i> Detalle</li>
+{% endblock %}
+{% block contenido %}
+    <div class="col-xs-8 col-xs-offset-2">
+        <!-- Widget: user widget style 1 -->
+        <div class="box box-widget widget-user">
+            <!-- Add the bg color to the header using any of the bg-* classes -->
+            <div class="widget-user-header bg-aqua-active evento-header text-center">
+                <h1 class="widget-user-username">{{ object.nombre }}</h1>
+                <h5 class="widget-user-desc">Detalle del EVENTO</h5>
+            </div>
+            <div class="widget-user-image">
+                <img class="img-circle" src="{% static 'administrador/img/evento.png' %}" alt="Pdf Icon">
+            </div>
+            <div class="box-footer">
+                <div class="row">
+                    <div class="col-sm-6 border-right">
+                        <div class="description-block">
+                            <h5 class="description-header">Encargado</h5>
+                            <span class="description-text">{{object.encargado|lower}}</span>
+                        </div>
+                        <!-- /.description-block -->
+                    </div>
+                    <div class="col-xs-6 border-right">
+                        <div class="description-block">
+                            <h5 class="description-header">Tipo</h5>
+                            <span class="description-text">{{ object.tipo }}</span>
+                        </div>
+                        <!-- /.description-block -->
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-3 col-sm-offset-3 border-right">
+                        <div class="description-block">
+                            <h5 class="description-header">Inicia</h5>
+                            <span class="description-text">{{object.inicio}}</span>
+                        </div>
+                        <!-- /.description-block -->
+                    </div>
+                    <div class="col-xs-3">
+                        <div class="description-block">
+                            <h5 class="description-header">Culmina</h5>
+                            <span class="description-text">{{ object.fin }}</span>
+                        </div>
+                        <!-- /.description-block -->
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 border-right">
+                        <div class="description-block">
+                            <div class="row">
+                                <div class="file-drop-disabled col-xs-4 col-xs-offset-4">
+                                    <div class="file-preview-thumbnails">
+                                        <div class="file-live-thumbs">
+                                            <div class="file-preview-frame" id="preview-1484797062289-0" data-fileindex="0" data-template="pdf" title="1 _ Perfil y Actualizar Datos.pdf" style="width:160px;height:160px;">
+                                                <div class="kv-file-content">
+                                                    <embed class="kv-preview-data" src="http://www.repositio.com/media/{{ object.cronograma }}" width="160px" height="160px" type="application/pdf" internalinstanceid="107">
+                                                </div>
+                                                <div class="file-thumbnail-footer">
+                                                <div class="file-footer-caption" title="1 _ Perfil y Actualizar Datos.pdf">{{ object.nombre }}  <br><samp> ({{ object.cronograma.size|filesizeformat }})</samp></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-6 col-xs-offset-3">
+                                <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#filemodal">Ver <i class="fa fa-file-pdf-o"></i></button>
+                                <a href="/administrador/evento/detalle/{{ object.id }}/lista/" type="button" class="btn btn-info btn-block">Lista de chequeo <i class="fa fa-file-pdf-o"></i></a>
+                            </div>
+                            <div id="filemodal" class="modal fade" tabindex="-1" aria-labelledby="kvFileinputModalLabel">
+                                <div class="modal-dialog modal-lg" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <div class="kv-zoom-actions pull-right"><button type="button" class="btn btn-default btn-close" title="Close detailed preview" data-dismiss="modal" aria-hidden="true"><i class="glyphicon glyphicon-remove"></i></button></div>
+                                            <h3 class="modal-title"><small><span class="kv-zoom-title">{{ object.nombre }} - ({{ object.cronograma.size|filesizeformat }})</span></small></h3>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="floating-buttons"></div>
+                                            <div class="kv-zoom-body file-zoom-content">
+                                                <embed class="kv-preview-data file-zoom-detail" src="http://www.repositio.com/media/{{ object.cronograma }}#toolbar=0&navpanes=0&scrollbar=0" type="application/pdf" internalinstanceid="19" style="width: 100%; height: 100%; min-height: 480px;">
+                                            </div>
+                                            <button type="button" class="btn btn-navigate btn-prev" title="View previous file" disabled="disabled"><i class="glyphicon glyphicon-triangle-left"></i></button> <button type="button" class="btn btn-navigate btn-next" title="View next file" disabled="disabled"><i class="glyphicon glyphicon-triangle-right"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.description-block -->
+                    </div>
+                </div>
+            </div>
+            <!-- /.row -->
+        </div>
+    </div>
+    <!-- /.widget-user -->
+{% endblock %}

@@ -1,0 +1,91 @@
+{% extends 'privado/base.html' %}
+{% load staticfiles %}
+{% block titulo %}
+Pdf
+{% endblock %}
+{% block pagina %}
+Pdf<small>Crear</small>
+{% endblock %}
+{% block miga %}
+<li><a href="/"><i class="fa fa-dashboard active"></i> Administración</a></li><li href="#"><i class="fa fa-file-pdf-o"></i> Pdf</li><li><i class="fa fa-plus-square"></i> Crear</li>
+{% endblock %}
+{% block contenido %}
+    <div class="col-xs-12">
+        <div class="box">
+            <div class="box-header">
+                <h3 class="box-title">Lista de Eventos</h3>
+            </div>
+            <div class="box-body table-responsive no-padding">
+                <form method="post" action=".">{% csrf_token %}
+                    <div class="box-body">
+                        {{ form.non_field_errors }}
+                        <div class="form-group col-sm-3">
+                            {{ form.nombre.label_tag }}
+                            {{ form.nombre }}
+                            {% if form.nombre.errors %}
+                            <div class="alert alert-danger alert-dismissable fade in">
+                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                <strong>{{ form.nombre.errors.as_text }}</strong>
+                            </div>
+                            {% endif %}
+                        </div>
+                        <div class="form-group col-sm-3">
+                            {{ form.prioridad.label_tag }}
+                            {{ form.prioridad }}
+                            {% if form.prioridad.errors %}
+                            <div class="alert alert-danger alert-dismissable fade in">
+                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                <strong>{{ form.prioridad.errors.as_text }}</strong>
+                            </div>
+                            {% endif %}
+                        </div>
+                        <div class="form-group col-sm-3">
+                            {{ form.hecho.label_tag }}<br>
+                            {{ form.hecho }}
+                            {% if form.hecho.errors %}
+                            <div class="alert alert-danger alert-dismissable fade in">
+                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                <strong>{{ form.hecho.errors.as_text }}</strong>
+                            </div>
+                            {% endif %}
+                        </div>
+                        <div class="form-group col-sm-3">
+                            <button class="btn btn-lg btn-block btn-success" type="submit">Crear tarea</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xs-12">
+        <div class="box">
+            <div class="box-header">
+                <h3 class="box-title">Lista de Eventos</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body table-responsive no-padding">
+                <table class="table table-hover table-striped">
+                <tr>
+                    <th>Tarea</th>
+                    <th>Creada</th>
+                    <th>Prioridad</th>
+                    <th>Estado</th>
+                    <th>accion</th>
+                </tr>
+                    {% for tarea in tareas %}
+                        <tr>
+                            <td>{{ tarea.nombre }}</td>
+                            <td>{{ tarea.fecha|date:"d/M/Y"|lower }}</td>
+                            <td>{% if tarea.prioridad == 1 %}Baja{% elif tarea.prioridad == 2 %}Normal{% elif tarea.prioridad == 3 %}Alta{% endif %}</td>
+                            <td>{% if tarea.hecho %} <i class="fa fa-check-circle-o fa-2x" style="color: #12e85d"></i> {% else %} <i class="fa fa-times-circle fa-2x" style="color: red"></i> {% endif %}</td>
+                            <td>{% if tarea.hecho %} <a href="/administrador/lista/{{ tarea.id }}" class="btn btn-danger btn-block">Reabrie <i class="fa fa-reply-all"></i></a> {% else %} <a href="/administrador/lista/{{ tarea.id }}" class="btn btn-success btn-block">Cerrar <i class="fa fa-check"></i></a> {% endif %}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+            <!-- /.box-body -->
+        </div>
+        <!-- /.box -->
+    </div>
+{% endblock %}

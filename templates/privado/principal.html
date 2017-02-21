@@ -1,0 +1,113 @@
+{% extends 'privado/base.html' %}
+{% load staticfiles %}
+{% block titulo %}
+Inicio
+{% endblock %}
+{% block pagina %}
+Inicio
+{% endblock %}
+{% block miga %}
+<li><a href="/"><i class="fa fa-dashboard active"></i> Administración</a></li>
+{% endblock %}
+{% block contenido %}
+    {% if user.is_staff %}
+    <div class="col-xs-12 col-sm-6 col-lg-4 col-lg-offset-2 text-center">
+        {% if pdfs == 1 %}
+            <h2>{{ eventos }} EVENTO</h2>
+        {% else %}
+            <h2>{{ eventos }} EVENTOS</h2>
+        {% endif %}
+        <div class="circulo col-xs-12 col-sm-6 col-lg-4 col-xs-offset-4 col-sm-offset-2 col-lg-offset-3">
+            <i class="fa fa-calendar"></i>
+        </div>
+        <div class="col-xs-12">
+            <br>
+            <a href="/administrador/evento/" class="btn btn-sm btn-primary"><i class="fa fa-eye fa-4x"></i></a>
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-lg-4 text-center">
+        {% if pendientes == 1 %}
+            <h2>{{ pendientes }} PENTIENTE</h2>
+        {% else %}
+            <h2>{{ pendientes }} PENDIENTES</h2>
+        {% endif %}
+        <div class="circulo col-xs-12 col-sm-6 col-lg-4 col-xs-offset-4 col-sm-offset-2 col-lg-offset-3">
+            <i class="fa fa-check-square-o"></i>
+        </div>
+        <div class="col-xs-12">
+            <br>
+            <a href="/administrador/pendiente/" class="btn btn-sm btn-primary"><i class="fa fa-eye fa-4x"></i></a>
+        </div>
+    </div>
+    {% endif %}
+    <div class="col-xs-12 col-sm-6 col-lg-4 text-center">
+        {% if pdfs == 1 %}
+            <h2>{{ pdfs }} PDF</h2>
+        {% else %}
+            <h2>{{ pdfs }} PDFS</h2>
+        {% endif %}
+        <span class="circulo col-xs-12 col-sm-6 col-lg-4 col-xs-offset-4 col-sm-offset-2 col-lg-offset-3">
+            <i class="fa fa-file-pdf-o"></i>
+        </span>
+        <div class="col-xs-12">
+            <br>
+            <a href="/administrador/pdf/" class="btn btn-sm btn-primary"><i class="fa fa-eye fa-4x"></i></a>
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-lg-4 text-center">
+        {% if pdfs == 1 %}
+            <h2>{{ textos }} TEXTO</h2>
+        {% else %}
+            <h2>{{ textos }} TEXTOS</h2>
+        {% endif %}
+        <span class="circulo col-xs-12 col-sm-6 col-lg-4 col-xs-offset-4 col-sm-offset-2 col-lg-offset-3">
+            <i class="fa fa-file-text-o"></i>
+        </span>
+        <div class="col-xs-12">
+            <br>
+            <a href="/administrador/texto/" class="btn btn-sm btn-primary"><i class="fa fa-eye fa-4x"></i></a>
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-lg-4 text-center">
+        {% if pdfs == 1 %}
+            <h2>{{ audios }} AUDIO</h2>
+        {% else %}
+            <h2>{{ audios }} AUDIOS</h2>
+        {% endif %}
+        <span class="circulo col-xs-12 col-sm-6 col-lg-4 col-xs-offset-4 col-sm-offset-2 col-lg-offset-3">
+            <i class="fa fa-file-audio-o"></i>
+        </span>
+        <div class="col-xs-12">
+            <br>
+            <a href="/administrador/audio/" class="btn btn-sm btn-primary"><i class="fa fa-eye fa-4x"></i></a>
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-lg-4 col-lg-offset-2 text-center">
+        {% if pdfs == 1 %}
+            <h2>{{ videos }} VIDEO</h2>
+        {% else %}
+            <h2>{{ videos }} VIDEOS</h2>
+        {% endif %}
+        <span class="circulo col-xs-12 col-sm-6 col-lg-4 col-xs-offset-4 col-sm-offset-2 col-lg-offset-3">
+            <i class="fa fa-file-video-o"></i>
+        </span>
+        <div class="col-xs-12">
+            <br>
+            <a href="/administrador/video/" class="btn btn-sm btn-primary"><i class="fa fa-eye fa-4x"></i></a>
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-lg-4 text-center">
+        {% if pdfs == 1 %}
+            <h2>{{ imagenes }} IMAGEN</h2>
+        {% else %}
+            <h2>{{ imagenes }} IMAGENES</h2>
+        {% endif %}
+        <span class="circulo col-xs-12 col-sm-6 col-lg-4 col-xs-offset-4 col-sm-offset-2 col-lg-offset-3">
+            <i class="fa fa-file-image-o"></i>
+        </span>
+        <div class="col-xs-12">
+            <br>
+            <a href="/administrador/imagen/" class="btn btn-sm btn-primary"><i class="fa fa-eye fa-4x"></i></a>
+        </div>
+    </div>
+{% endblock %}

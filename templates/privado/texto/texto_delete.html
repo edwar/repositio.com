@@ -1,0 +1,36 @@
+{% extends 'privado/base.html' %}
+{% load staticfiles %}
+{% block titulo %}
+Texto
+{% endblock %}
+{% block pagina %}
+Texo<small>Eliminar</small>
+{% endblock %}
+{% block miga %}
+<li><a href="/"><i class="fa fa-dashboard active"></i> Administración</a></li><li href="#"><i class="fa fa-file-pdf-o"></i> Texto</li><li><i class="fa fa-plus-square"></i> Eliminar</li>
+{% endblock %}
+{% block contenido %}
+    <div class="col-xs-8 col-xs-offset-2">
+        <div class="box box-danger">
+            <div class="box-header with-border">
+                <h3 class="box-title">Eliminar {{ dato.nombre }}</h3>
+            </div>
+            <!-- /.box-header -->
+            <!-- form start -->
+            <form method="POST" action="." enctype="multipart/form-data">{% csrf_token %}
+                <div class="box-body">
+                    <div class="alert alert-danger">
+                        <strong><i class="fa fa-exclamation-triangle"></i> Advertencia!</strong> ¿Desea eliminar, <strong>{{ dato.nombre }}</strong>? para hacerlo escriba <strong>"{{ dato.nombre }}"</strong> sin las ("") en la caja de texto.
+                    </div>
+                    <label for="nombre">Nombre</label>
+                    <input class="form-control" name="nombre" type="text">
+                </div>
+              <!-- /.box-body -->
+                <div class="box-footer text-center">
+                    <button type="submit" class="btn btn-danger col-xs-offset-4 col-xs-4">Eliminar <i class="fa fa-trash-o"></i></button>
+
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}
