@@ -1,0 +1,56 @@
+{% extends 'privado/base.html' %}
+{% load staticfiles %}
+{% block titulo %}
+Texto
+{% endblock %}
+{% block pagina %}
+Texto<small>Crear</small>
+{% endblock %}
+{% block miga %}
+<li><a href="/"><i class="fa fa-dashboard active"></i> Administración</a></li><li href="#"><i class="fa fa-file-text-o"></i> Texto</li><li><i class="fa fa-list-alt"></i> Lista</li>
+{% endblock %}
+{% block contenido %}
+    <div class="col-xs-12">
+        <div class="box">
+            <div class="box-header">
+                <h3 class="box-title">Lista de TEXTOS</h3>
+
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body table-responsive no-padding">
+                <table class="table table-hover table-striped">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Autor</th>
+                    <th>Clase</th>
+                    <th>Creado</th>
+                    <th>Actualizado</th>
+                    <th>Acciones</th>
+                </tr>
+                    {% for texto in object_list %}
+                        <tr>
+                            <td class="col-xs-3">{{ texto.nombre }}</td>
+                            <td class="col-xs-2">{{ texto.propietario }}</td>
+                            <td class="col-xs-1">{{ texto.clase }}</td>
+                            <td class="col-xs-1">{{ texto.fecha }}</td>
+                            <td class="col-xs-1">{{ texto.actualizado }}</td>
+                            <td class="col-xs-1">
+                                <a href="/administrador/texto/detalle/{{ texto.id }}" class="btn btn-success"><i class="fa fa-eye"></i></a>
+                                <a href="/administrador/texto/editar/{{ texto.id }}" class="btn btn-primary"><i class="fa fa-pencil"></i></a>
+                                <a href="/administrador/texto/eliminar/{{ texto.id }}" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+            <!-- /.box-body -->
+        </div>
+        <!-- /.box -->
+    </div>
+    <!-- /.box-header -->
+    {% for field in form %}
+       {% for error in field.errors %}
+           <strong>{{ error|escape }}<br>Error en el campo:{{ field.label }}</strong><br>
+       {% endfor %}
+    {% endfor %}
+{% endblock %}

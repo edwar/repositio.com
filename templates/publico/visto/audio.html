@@ -1,0 +1,77 @@
+{% extends 'publico/base.html' %}
+{% block titulo %}
+Lo más buscado
+{% endblock %}
+{% block pagina %}
+Lo más
+<small>Buscado</small>
+{% endblock %}
+{% block contenido %}
+    <div class="col-xs-12">
+        <div class="box">
+            <div class="box-header">
+                <h3 class="box-title">TOP 10</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body table-responsive no-padding">
+                <table class="table table-hover table-striped">
+                    <tr>
+                        <th>Play</th>
+                        <th>Autor</th>
+                        <th>Visualizaciones</th>
+                        <th>Creación</th>
+                        <th>Actualización</th>
+                        <th>Acciones</th>
+                    </tr>
+                    {% for audio in audios %}
+                        <tr>
+                            <td class="col-xs-3 text-center">
+                                <div id="audio" class="kv-file-content">
+                                    <audio id="fuente" class="kv-preview-data" preload="none">
+                                        <source src="http://localhost:8000/media/{{ audio.ruta }}" type="audio/mp3">
+                                    </audio>
+                                    <i id="audio" class="fa fa-play-circle-o fa-2x"></i>
+                                </div>
+                            </td>
+                            <td class="col-xs-3">{{ audio.propietario }}</td>
+                            <td class="col-xs-2">{{ audio.contador }}</td>
+                            <td class="col-xs-1">{{ audio.fecha|date:"d/M/Y"|lower }}</td>
+                            <td class="col-xs-1">{{ audio.actualizado|date:"d/M/Y"|lower }}</td>
+                            <td class="col-xs-2">
+                                <a href="/administrador/pdf/detalle/{{ pdf.id }}" class="btn btn-success"><i class="fa fa-eye"></i></a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    <tr class="info">
+                        <td class="col-xs-4"></td>
+                        <td class="col-xs-3 text-right"><b>TOTAL:</b></td>
+                        <td class="col-xs-2">{{ total }}</td>
+                        <td class="col-xs-1"></td>
+                        <td class="col-xs-1"></td>
+                        <td class="col-xs-1"></td>
+                    </tr>
+                </table>
+            </div>
+            <!-- /.box-body -->
+        </div>
+        <!-- /.box -->
+    </div>
+    <script>
+    var yourAudio = document.getElementById('fuente'),
+        ctrl = document.getElementById('audio');
+
+        ctrl.onclick = function () {
+
+            // Update the Button
+            var pause = ctrl.innerHTML === '<i class="fa fa-pause-circle-o fa-2x"></i>';
+            ctrl.innerHTML = pause ? '<i class="fa fa-play-circle-o fa-2x"></i>' : '<i class="fa fa-pause-circle-o fa-2x"></i>';
+
+            // Update the Audio
+            var method = pause ? 'pause' : 'play';
+            yourAudio[method]();
+
+            // Prevent Default Action
+            return false;
+        };
+    </script>
+{% endblock %}

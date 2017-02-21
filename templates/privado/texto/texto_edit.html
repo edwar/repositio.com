@@ -1,0 +1,155 @@
+{% extends 'privado/base.html' %}
+{% load staticfiles %}
+{% block titulo %}
+Texto
+{% endblock %}
+{% block pagina %}
+Texto<small>Editar</small>
+{% endblock %}
+{% block miga %}
+<li><a href="/"><i class="fa fa-dashboard active"></i> Administración</a></li><li href="#"><i class="fa fa-file-text-o"></i> Texto</li><li><i class="fa fa-pencil"></i> Editar</li>
+{% endblock %}
+{% block contenido %}
+    <div class="col-xs-8 col-xs-offset-2">
+        <div class="box box-success">
+            <div class="box-header with-border">
+                <h3 class="box-title">Editar texto</h3>
+            </div>
+            <!-- /.box-header -->
+            <!-- form start -->
+            <form method="POST" action="." enctype="multipart/form-data">{% csrf_token %}
+                <div class="box-body">
+                    {{ form.non_field_errors }}
+                    <div class="form-group">
+                        {{ form.nombre.label_tag }}
+                        {{ form.nombre }}
+                        {% if form.nombre.errors %}
+                        <div class="alert alert-danger alert-dismissable fade in">
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                            <strong>{{ form.nombre.errors.as_text }}</strong>
+                        </div>
+                        {% endif %}
+                    </div>
+                    <div class="form-group">
+                        {{ form.propietario.label_tag }}
+                        {{ form.propietario }}
+                        {% if form.propietario.errors %}
+                        <div class="alert alert-danger alert-dismissable fade in">
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                            <strong>{{ form.propietario.errors.as_text }}</strong>
+                        </div>
+                        {% endif %}
+                    </div>
+                    <div class="form-group">
+                        {{ form.colaborador.label_tag }}
+                        {{ form.colaborador }}
+                        {% if form.colaborador.errors %}
+                        <div class="alert alert-danger alert-dismissable fade in">
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                            <strong>{{ form.colaborador.errors.as_text }}</strong>
+                        </div>
+                        {% endif %}
+                    </div>
+                    <div class="form-group">
+                        {{ form.elaborado.label_tag }}
+                        {{ form.elaborado }}
+                        {% if form.elaborado.errors %}
+                        <div class="alert alert-danger alert-dismissable fade in">
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                            <strong>{{ form.elaborado.errors.as_text }}</strong>
+                        </div>
+                        {% endif %}
+                    </div>
+                    <div class="form-group">
+                        {{ form.carrera.label_tag }}
+                        {{ form.carrera }}
+                        {% if form.carrera.errors %}
+                        <div class="alert alert-danger alert-dismissable fade in">
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                            <strong>{{ form.carrera.errors.as_text }}</strong>
+                        </div>
+                        {% endif %}
+                    </div>
+                    <div class="form-group">
+                        {{ form.texto.label_tag }}
+                        {{ form.texto }}
+                        {% if form.texto.errors %}
+                        <div class="alert alert-danger alert-dismissable fade in">
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                            <strong>{{ form.texto.errors.as_text }}</strong>
+                        </div>
+                        {% endif %}
+                    </div>
+                    <div class="form-group">
+                        {{ form.tipo.label_tag }}
+                        {{ form.tipo }}
+                        {% if form.tipo.errors %}
+                        <div class="alert alert-danger alert-dismissable fade in">
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                            <strong>{{ form.tipo.errors.as_text }}</strong>
+                        </div>
+                        {% endif %}
+                    </div>
+                    <div class="form-group">
+                        {{ form.clase.label_tag }}
+                        {{ form.clase }}
+                        {% if form.clase.errors %}
+                        <div class="alert alert-danger alert-dismissable fade in">
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                            <strong>{{ form.clase.errors.as_text }}</strong>
+                        </div>
+                        {% endif %}
+                    </div>
+                    <div class="form-group">
+                        {{ form.clave.label_tag }}
+                        {{ form.clave }}
+                        {% if form.clave.errors %}
+                        <div class="alert alert-danger alert-dismissable fade in">
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                            <strong>{{ form.clave.errors.as_text }}</strong>
+                        </div>
+                        {% endif %}
+                    </div>
+                    <div class="form-group">
+                        {{ form.tematica.label_tag }}
+                        {{ form.tematica }}
+                        {% if form.tematica.errors %}
+                        <div class="alert alert-danger alert-dismissable fade in">
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                            <strong>{{ form.tematica.errors.as_text }}</strong>
+                        </div>
+                        {% endif %}
+                    </div>
+                    <div class="form-group" style="display: none">
+                        {{ form.activo.label_tag }}
+                        {{ form.activo }}
+                        {% if form.activo.errors %}
+                        <div class="alert alert-danger alert-dismissable fade in">
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                            <strong>{{ form.activo.errors.as_text }}</strong>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+              <!-- /.box-body -->
+                <div class="box-footer text-center">
+                    <button type="submit" class="btn btn-primary col-xs-offset-1 col-xs-4">Guardar <i class="fa fa-floppy-o"></i></button>
+                    <a href="/administrador/pdf/" class="btn btn-danger col-xs-offset-2 col-xs-4">Cancelar <i class="ion ion-android-cancel"></i></a>
+
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="//cdn.ckeditor.com/4.6.2/full/ckeditor.js"></script>
+    <script>
+        window.setTimeout(function() {
+            $(".alert").fadeTo(500, 0).slideUp(500, function(){
+                $(this).remove();
+            });
+        }, 4000);
+        $(function () {
+            CKEDITOR.replace('id_texto');
+            CKEDITOR.config.skin = 'office2013,/static/administrador/plugins/ckeditor/skins/office2013/';
+        });
+    </script>
+{% endblock %}

@@ -1,0 +1,131 @@
+{% extends 'privado/base.html' %}
+{% load staticfiles %}
+{% block titulo %}
+Video
+{% endblock %}
+{% block pagina %}
+Video<small>Detalle</small>
+{% endblock %}
+{% block miga %}
+<li><a href="/"><i class="fa fa-dashboard active"></i> Administración</a></li><li><a href="/administrador/video/"><i class="fa fa-file-video-o"></i> Video</a></li><li><i class="fa fa-info-circle"></i> Detalle</li>
+{% endblock %}
+{% block contenido %}
+    <div class="col-xs-8 col-xs-offset-2">
+        <!-- Widget: user widget style 1 -->
+        <div class="box box-widget widget-user">
+            <!-- Add the bg color to the header using any of the bg-* classes -->
+            <div class="widget-user-header bg-aqua-active video-header text-center">
+                <h1 class="widget-user-username">{{ object.nombre }}</h1>
+                <h5 class="widget-user-desc">Detalle del VIDEO</h5>
+            </div>
+            <div class="widget-user-image">
+                <img class="img-circle" src="{% static 'administrador/img/video.png' %}" alt="Pdf Icon">
+            </div>
+            <div class="box-footer">
+                <div class="row">
+                    <div class="col-sm-4 border-right">
+                        <div class="description-block">
+                            <h5 class="description-header">Propietario</h5>
+                            <span class="description-text">{{object.propietario|lower}}</span>
+                        </div>
+                        <!-- /.description-block -->
+                    </div>
+                    <div class="col-xs-4 border-right">
+                        <div class="description-block">
+                            <h5 class="description-header">Tipo</h5>
+                            <span class="description-text">{{ object.tipo }}</span>
+                        </div>
+                        <!-- /.description-block -->
+                    </div>
+                    <div class="col-xs-4 border-right">
+                        <div class="description-block">
+                            <h5 class="description-header">Clase</h5>
+                            <span class="description-text">{{ object.clase|capfirst }}</span>
+                        </div>
+                        <!-- /.description-block -->
+                    </div>
+                    <div class="col-sm-6 border-right">
+                        <div class="description-block">
+                            <h5 class="description-header">Tags</h5>
+                            {% for clave in object.clave.all %}
+                                <p class="description-text">
+                                {{ clave.nombre }}
+                                </p>
+                            {% endfor %}
+                        </div>
+                        <!-- /.description-block -->
+                    </div>
+                    <div class="col-xs-6 border-right">
+                        <div class="description-block">
+                            <h5 class="description-header">Tematicas</h5>
+                            {% for tematica in object.tematica.all %}
+                                <p class="description-text">
+                                {{ tematica.nombre }}
+                                </p>
+                            {% endfor %}
+                        </div>
+                        <!-- /.description-block -->
+                    </div>
+                    <div class="col-xs-12 border-right">
+                        <div class="description-block">
+                            <h5 class="description-header">Area de conocimiento</h5>
+                            <span class="description-text">{{ object.carrera }}</span>
+                        </div>
+                        <!-- /.description-block -->
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 border-right">
+                        <div class="description-block">
+                            <div class="row">
+                                <div class="col-md-2 col-md-offset-4">
+                                    <div class="file-drop-disabled">
+                                        <div class="file-preview-thumbnails">
+                                            <div class="file-live-thumbs">
+                                                <div class="file-preview-frame" data-fileindex="0" data-template="audio" title="linda estrella letra.mp3" style="width:213px;height:80px;">
+                                                    <video id="fuente" class="kv-preview-data" width="213px" height="160px" controls="">
+                                                        <source src="http://www.repositio.com/media/{{ object.ruta }}" type="video/mp4">
+                                                    </video>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.description-block -->
+                    </div>
+                </div>
+                <!-- /.row -->
+                <div class="row">
+                    <div class="col-xs-10 col-xs-offset-1">
+                        <fieldset>
+                            <legend class="lead text-center">Descripción</legend>
+                            {% autoescape off %}{{ object.descripcion }}{% endautoescape %}
+                        </fieldset>
+                    </div>
+                </div>
+                <!-- /.row -->
+            </div>
+        </div>
+    </div>
+    <!-- /.widget-user -->
+        <script>
+            var yourVideo = document.getElementById('fuente'),
+            ctrl = document.getElementById('video');
+
+            ctrl.onclick = function () {
+
+                // Update the Button
+                var pause = ctrl.innerHTML === '<i class="fa fa-pause-circle-o"></i>';
+                ctrl.innerHTML = pause ? '<i class="fa fa-play-circle-o"></i>' : '<i class="fa fa-pause-circle-o"></i>';
+
+                // Update the Audio
+                var method = pause ? 'pause' : 'play';
+                yourVideo[method]();
+
+                // Prevent Default Action
+                return false;
+            };
+        </script>
+{% endblock %}

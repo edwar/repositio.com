@@ -1,0 +1,64 @@
+{% load staticfiles %}
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login | Repositio</title>
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'login/css/estilos.css' %}">
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6 col-md-4 col-md-offset-4">
+            <div class="account-wall">
+                <img class="profile-img" src="{% static 'login/img/logo.png' %}"
+                    alt="">
+                <form method="post" class="form-signin">{% csrf_token %}
+                    <input type="text" class="form-control" placeholder="Usuario" required autofocus name="username">
+                    <input type="password" class="form-control" placeholder="Contraseña" required name="password">
+                    <button class="btn btn-lg btn-success btn-block" type="submit">Ingresar <i class="glyphicon glyphicon-log-in"></i></button>
+                    <button onclick="window.location.href='/'" class="btn btn-lg btn-primary btn-block" type="button">Omitir <i class="glyphicon glyphicon-home"></i></button>
+                </form>
+                <a href="/restaurar/clave/" class="need-help col-xs-6 text-left">Olvide mi contraseña!</a>
+                <a href="/registro/" class="need-help col-xs-6 text-right">Crear una cuenta! </a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="msg" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            {% if messages %}
+                <div class="modal-header modal-header-info">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h1><i class="glyphicon glyphicon-info-sign"></i> Información</h1>
+                </div>
+            {% else %}
+                <div class="modal-header modal-header-danger">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h1><i class="glyphicon glyphicon-exclamation-sign"></i> Error</h1>
+                </div>
+            {% endif %}
+            <div class="modal-body">
+                {{ form.non_field_errors }}
+                {% for message in messages %}
+                    {{ message }}
+                {% endfor %}
+
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+</body>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<!--scritp src="{% static 'bootstrap/js/bootstrap.min.js' %}"></scritp-->
+<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+{% if form.non_field_errors or messages %}
+    <script>
+        $('#msg').modal('show');
+    </script>
+{% endif %}
+</html>

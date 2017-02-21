@@ -1,0 +1,71 @@
+{% extends 'blog/base.html' %}
+{% load staticfiles %}
+{% block titulo %}
+Inicio
+{% endblock %}
+{% block contenido %}
+    <!-- Blog Entries Column -->
+    <div class="col-md-8">
+        <h1 class="page-header">
+            Lista de publicaciones
+        </h1>
+        {% for publicacion in object_list %}
+        <!-- First Blog Post -->
+        <h2>
+            <a href="/blog/publicacion/{{ publicacion.slug }}">{{ publicacion.titulo }}</a>
+        </h2>
+            <p>
+                Publicado por: <span class="glyphicon glyphicon-user"></span> {{ publicacion.autor }}
+            </p>
+            <p>
+                Fecha: <span class="glyphicon glyphicon-time"></span> {{ publicacion.publicado }}
+            </p>
+        <hr>
+            <img class="img-responsive" src="{% static 'blog/img/fondo.jpg' %}" style="width: 100%">
+        <hr>
+            <p>{% autoescape off %}{{ publicacion.contenido|truncatechars:500 }}{% endautoescape %}</p>
+        <a class="btn btn-primary" href="/blog/publicacion/{{ publicacion.slug }}">Leer mas <span class="glyphicon glyphicon-chevron-right"></span></a>
+        <hr>
+        <!-- Pager -->
+        {% endfor %}
+        {% if is_paginated %}
+            <nav class="text-center">
+                <ul class="pagination">
+                {% if page_obj.has_previous %}
+                    <li>
+                        <a href="?page={{ page_obj.previous_page_number }}">
+                            <span>Anterior</span>
+                        </a>
+                    </li>
+                {% else %}
+                    <li class="disabled">
+                        <a href="#">
+                            <span>Anterior</span>
+                        </a>
+                    </li>
+                {% endif %}
+
+                {% for page in paginator.page_range %}
+                    <li {% if page == page_obj.number %}class="active"{% endif %}>
+                        <a href="?page={{ page }}">{{ page }}</a>
+                    </li>
+                {% endfor %}
+
+                {% if page_obj.has_next %}
+                    <li>
+                        <a href="?page={{ page_obj.next_page_number }}">
+                            <span>Siguiente</span>
+                        </a>
+                    </li>
+                {% else %}
+                    <li {% if not page_obj.has_next %}class="disabled"{% endif %}>
+                        <a href="#">
+                            <span>Siguiente</span>
+                        </a>
+                    </li>
+                {% endif %}
+                </ul>
+            </nav>
+        {% endif %}
+    </div>
+{% endblock %}

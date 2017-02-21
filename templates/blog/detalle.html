@@ -1,0 +1,26 @@
+{% extends 'blog/base.html' %}
+{% load staticfiles %}
+{% block titulo %}
+Inicio
+{% endblock %}
+{% block contenido %}
+    <!-- Blog Entries Column -->
+    <div class="col-md-8">
+        <h1 class="page-header">
+            Detalle de la publicación
+        </h1>
+        <!-- First Blog Post -->
+        <h1>
+            {{ object.titulo }}
+        </h1>
+            <p>
+                Publicado por: <span class="glyphicon glyphicon-user"></span> {{ object.autor }}
+            </p>
+            <p>
+                Fecha: <span class="glyphicon glyphicon-time"></span> {{ object.publicado }}
+            </p>
+        <hr>
+            <p>{{ object.contenido | safe }}</p>
+        <hr>
+    </div>
+{% endblock %}

@@ -1,0 +1,153 @@
+{% extends 'publico/base.html' %}
+{% load staticfiles %}
+{% block titulo %}
+Evento
+{% endblock %}
+{% block pagina %}
+Usuario
+<small>Crear</small>
+{% endblock %}
+{% block miga %}
+<li><a href="/"><i class="fa fa-dashboard active"></i> Administración</a></li><li href="#">Usuario</li><li>Crear</li>
+{% endblock %}
+{% block contenido %}
+    <div class="col-xs-12 col-sm-12 col-lg-6">
+        <div class="box box-primary">
+            <div class="box-header with-border">
+                <h3 class="box-title">Crear usuario</h3>
+            </div>
+            <!-- /.box-header -->
+            <!-- form start -->
+            <form method="POST" action="" enctype="multipart/form-data">{% csrf_token %}
+                <div class="box-body">
+                    <div class="form-group col-xs-12">
+                        {{ perfil.usuario.label_tag }}
+                        {{ perfil.usuario }}
+                        {% if perfil.usuario.errors %}
+                            <div class="alert alert-danger alert-dismissable fade in">
+                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                <strong>{{ perfil.usuario.errors.as_text }}</strong>
+                            </div>
+                        {% endif %}
+                    </div>
+                    <div class="form-group col-xs-12">
+                        {{ usuario.email.label_tag }}
+                        {{ usuario.email }}
+                        {% if usuario.email.errors %}
+                            <div class="alert alert-danger alert-dismissable fade in">
+                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                <strong>{{ usuario.email.errors.as_text }}</strong>
+                            </div>
+                        {% endif %}
+                    </div>
+                    <div class="form-group col-xs-12">
+                        {{ usuario.password.label_tag }}
+                        {{ usuario.password }}
+                        {% if usuario.password.errors %}
+                            <div class="alert alert-danger alert-dismissable fade in">
+                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                <strong>{{ usuario.password.errors.as_text }}</strong>
+                            </div>
+                        {% endif %}
+                    </div>
+                    <div class="form-group col-xs-12">
+                        {{ usuario.first_name.label_tag }}
+                        {{ usuario.first_name }}
+                        {% if usuario.first_name.errors %}
+                            <div class="alert alert-danger alert-dismissable fade in">
+                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                <strong>{{ usuario.first_name.errors.as_text }}</strong>
+                            </div>
+                        {% endif %}
+                    </div>
+                    <div class="form-group col-xs-12">
+                        {{ usuario.last_name.label_tag }}
+                        {{ usuario.last_name }}
+                        {% if usuario.last_name.errors %}
+                            <div class="alert alert-danger alert-dismissable fade in">
+                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                <strong>{{ usuario.last_name.errors.as_text }}</strong>
+                            </div>
+                        {% endif %}
+                    </div>
+                    <div class="form-group col-xs-12">
+                        {{ perfil.avatar.label_tag }}
+                        <div class="file-input">
+                            <div class="file-preview">
+                                <h3 class="text-center">Imagen actual</h3>
+                                <div class="file-drop-disabled">
+                                    <div class="file-preview-thumbnails">
+                                        <div class="file-live-thumbs">
+                                            <div class="file-preview-frame" id="preview-1485925823060-0" data-fileindex="0" data-template="image">
+                                                <div class="kv-file-content">
+                                                    <img src="{{ avatar }}" class="kv-preview-data file-preview-image" style="width:auto;height:160px;">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <div class="file-preview-status text-center text-success"></div>
+                                </div>
+                            </div>
+                        </div>
+                        {{ perfil.avatar }}
+                        {% if perfil.avatar.errors %}
+                            <div class="alert alert-danger alert-dismissable fade in">
+                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                <strong>{{ perfil.avatar.errors.as_text }}</strong>
+                            </div>
+                        {% endif %}
+                    </div>
+                    <div class="form-group col-xs-12">
+                        {{ perfil.sede.label_tag }}
+                        {{ perfil.sede }}
+                        {% if perfil.sede.errors %}
+                            <div class="alert alert-danger alert-dismissable fade in">
+                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                <strong>{{ perfil.sede.errors.as_text }}</strong>
+                            </div>
+                        {% endif %}
+                    </div>
+                    <div class="form-group col-xs-12">
+                        {{ perfil.codigo.label_tag }}
+                        {{ perfil.codigo }}
+                        {% if perfil.codigo.errors %}
+                            <div class="alert alert-danger alert-dismissable fade in">
+                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                <strong>{{ perfil.codigo.errors.as_text }}</strong>
+                            </div>
+                        {% endif %}
+                    </div>
+                    <div class="form-group col-xs-12">
+                        {{ perfil.carrera.label_tag }}
+                        {{ perfil.carrera }}
+                        {% if perfil.carrera.errors %}
+                            <div class="alert alert-danger alert-dismissable fade in">
+                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                <strong>{{ perfil.carrera.errors.as_text }}</strong>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+              <!-- /.box-body -->
+                <div class="box-footer">
+                    <button type="submit" class="btn btn-success col-xs-offset-1 col-xs-4">Registrar <i class="fa fa-send"></i></button>
+                    <a href="/" class="btn btn-danger col-xs-offset-2 col-xs-4">Cancelar <i class="ion ion-android-cancel"></i></a>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-lg-6">
+        <h1 class="text-center lead" style="font-size: 2.9rem;">Información al alcance de tus manos</h1>
+        <div class="text-justify">
+            <p class="lead" style="font-size: 1.5rem; color: #111111">Acceso abierto de toda la producción de la actividad científica y académica de nuestra Universidad, sin importar el dispositivo en el que te encuentres. Esto y muchos más en RespositioWeb.</p>
+            <div class="lead text-center" style="font-size: 2rem;">¿Qué esperas para hacer parte de este proyecto?</div>
+        </div>
+        <img src="{% static 'administrador/img/devices.png' %}" alt="Dispositivos" class="img-responsive">
+    </div>
+   {% for field in form %}
+       {% for error in field.errors %}
+           <strong>{{ error|escape }}</strong>
+       {% endfor %}
+   {% endfor %}
+{% endblock %}

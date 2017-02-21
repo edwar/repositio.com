@@ -1,0 +1,218 @@
+{% extends 'publico/base.html' %}
+{% load staticfiles %}
+{% block titulo %}
+Busqueda
+{% endblock %}
+{% block pagina %}
+Estadisticas
+{% endblock %}
+{% block miga %}
+<li><a><i class="fa fa-area-chart active"></i> Estadisticas</a></li>
+{% endblock %}
+{% block contenido %}
+<div class="col-xs-6 col-xs-offset-3">
+    <div class="box">
+        <div class="box-header">
+            <div class="box box-primary">
+            <div class="box-header with-border">
+              <h3 class="box-title">Estadisticas de Pdf, Texto y Audio</h3>
+            </div>
+            <div class="box-body">
+              <div class="chart">
+                <canvas id="areaChart" style="height: 250px; width: 510px;" height="250" width="510"></canvas>
+              </div>
+            </div>
+            <!-- /.box-body -->
+          </div>
+        </div>
+    </div>
+</div>
+<div class="col-xs-12">
+    <div class="box">
+        <div class="box-header">
+            <div id="exTab2">
+                <ul class="nav nav-tabs">
+                    <li class="active">
+                        <a  href="#1" data-toggle="tab">Tipos</a>
+                    </li>
+                    <li>
+                        <a href="#2" data-toggle="tab">Clases</a>
+                    </li>
+                    <li>
+                        <a href="#3" data-toggle="tab">Claves</a>
+                    </li>
+                    <li>
+                        <a href="#4" data-toggle="tab">Temáticas</a>
+                    </li>
+
+                </ul>
+                <div class="tab-content ">
+                    <div class="tab-pane active" id="1">
+                        {% if tipos %}
+                        <div class="table-responsive col-lg-8 col-lg-offset-2">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Nombre</th>
+                                        <th>Pdf</th>
+                                        <th>Texto</th>
+                                        <th>Audio</th>
+                                        <th>Video</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for tipo in tipos %}
+                                        <tr>
+                                            <td>{{ tipo.tipo }}</td>
+                                            <td>{{ tipo.pdf }}</td>
+                                            <td>{{ tipo.texto }}</td>
+                                            <td>{{ tipo.audio }}</td>
+                                            <td>{{ tipo.video }}</td>
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                        {% else %}
+                            <p class="lead text-center">No se encontrarón TIPOS</p>
+                        {% endif %}
+                    </div>
+                    <div class="tab-pane" id="2">
+                        {% if clases %}
+                        <div id="texto" class="table-responsive col-lg-8 col-lg-offset-2">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Nombre</th>
+                                        <th>Pdf</th>
+                                        <th>Texto</th>
+                                        <th>Audio</th>
+                                        <th>Video</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for clase in clases %}
+                                    <tr>
+                                        <td>{{ clase.clase }}</td>
+                                        <td>{{ clase.pdf }}</td>
+                                        <td>{{ clase.texto }}</td>
+                                        <td>{{ clase.audio }}</td>
+                                        <td>{{ clase.video }}</td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                        {% else %}
+                            <p class="lead text-center">No se encontrarón CLASES</p>
+                        {% endif %}
+                    </div>
+                    <div class="tab-pane" id="3">
+                        {% if claves %}
+                        <div class="table-responsive col-lg-8 col-lg-offset-2">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Nombre</th>
+                                        <th>Pdf</th>
+                                        <th>Texto</th>
+                                        <th>Audio</th>
+                                        <th>Video</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for clave in claves %}
+                                    <tr>
+                                        <td>{{ clave.clave }}</td>
+                                        <td>{{ clave.pdf }}</td>
+                                        <td>{{ clave.texto }}</td>
+                                        <td>{{ clave.audio }}</td>
+                                        <td>{{ clave.video }}</td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                        {% else %}
+                            <p class="lead text-center">No se encontrarón CLAVES</p>
+                        {% endif %}
+                    </div>
+                    <div class="tab-pane" id="4">
+                        {% if tematicas %}
+                        <div class="table-responsive col-lg-8 col-lg-offset-2">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Nombre</th>
+                                        <th>Pdf</th>
+                                        <th>Texto</th>
+                                        <th>Audio</th>
+                                        <th>Video</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for tematica in tematicas %}
+                                    <tr>
+                                        <td>{{ tematica.tematica }}</td>
+                                        <td>{{ tematica.pdf }}</td>
+                                        <td>{{ tematica.texto }}</td>
+                                        <td>{{ tematica.audio }}</td>
+                                        <td>{{ tematica.video }}</td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                        {% else %}
+                            <p class="lead text-center">No se encontrarón TEMÁTICAS</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="{% static 'administrador/plugins/chartjs/Chart.min.js' %}" type="text/javascript"></script>
+<script src="{% static 'administrador/js/app.min.js' %}" type="text/javascript"></script>
+<script>
+$( document ).ready(function() {
+    var data = {
+        labels: ['Dia 1','Dia 2','Dia 3','Dia 4','Dia 5','Dia 6','Dia 7','Dia 8','Dia 9','Dia 10','Dia 11','Dia 12','Dia 13','Dia 14','Dia 15','Dia 16','Dia 17','Dia 18','Dia 19','Dia 20','Dia 21','Dia 22','Dia 23','Dia 24','Dia 25','Dia 26','Dia 27','Dia 28','Dia 29','Dia 30','Dia 31'],
+        datasets: [
+            {
+                label: "Pdfs vistos: ",
+                fillColor: "rgba(255, 41, 26, 0.2)",
+                strokeColor: "rgba(255, 41, 26, 1)",
+                pointColor: "rgba(255, 41, 26, 1)",
+                pointStrokeColor: "#ff291a",
+                pointHighlightFill: "#ff291a",
+                pointHighlightStroke: "rgba(255, 41, 26, 1)",
+                data: {{ pdf }}
+            },
+            {
+                label: "Textos vistos: ",
+                fillColor: "rgba(255, 182, 30, 0.2)",
+                strokeColor: "rgba(255, 182, 30, 1)",
+                pointColor: "rgba(255, 182, 30, 1)",
+                pointStrokeColor: "#ffb61e",
+                pointHighlightFill: "#ffb61e",
+                pointHighlightStroke: "rgba(255, 182, 30, 1)",
+                data: {{ texto }}
+            },
+            {
+                label: "Audios vistos: ",
+                fillColor: "rgba(20, 204, 255, 0.2)",
+                strokeColor: "rgba(20, 204, 255, 1)",
+                pointColor: "rgba(20, 204, 255, 1)",
+                pointStrokeColor: "#14ccff",
+                pointHighlightFill: "#14ccff",
+                pointHighlightStroke: "rgba(20, 204, 255, 1)",
+                data: {{ audio }}
+            }
+        ]
+    };
+    var ctx = document.getElementById("areaChart").getContext("2d");
+    var myLineChart = new Chart(ctx).Line(data);
+});
+</script>
+{% endblock %}

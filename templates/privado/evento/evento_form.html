@@ -1,0 +1,126 @@
+{% extends 'privado/base.html' %}
+{% load staticfiles %}
+{% block titulo %}
+Evento
+{% endblock %}
+{% block pagina %}
+Evento<small>Crear</small>
+{% endblock %}
+{% block miga %}
+<li><a href="/"><i class="fa fa-dashboard active"></i> Administración</a></li><li href="#"><i class="fa fa-calendar-o"></i> Evento</li><li><i class="fa fa-plus-square"></i> Crear</li>
+{% endblock %}
+{% block contenido %}
+    <div class="col-xs-8 col-xs-offset-2">
+        <div class="box box-success">
+            <div class="box-header with-border">
+                <h3 class="box-title">Crear Evento</h3>
+            </div>
+            <!-- /.box-header -->
+            <!-- form start -->
+            <form method="POST" action="." enctype="multipart/form-data">{% csrf_token %}
+                <div class="box-body">
+                    {{ form.non_field_errors }}
+                    <div class="form-group">
+                        {{ form.nombre.label_tag }}
+                        {{ form.nombre }}
+                        {% if form.nombre.errors %}
+                        <div class="alert alert-danger alert-dismissable fade in">
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                            <strong>{{ form.nombre.errors.as_text }}</strong>
+                        </div>
+                        {% endif %}
+                    </div>
+                    <div class="form-group">
+                        {{ form.encargado.label_tag }}
+                        {{ form.encargado }}
+                        {% if form.encargado.errors %}
+                        <div class="alert alert-danger alert-dismissable fade in">
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                            <strong>{{ form.encargado.errors.as_text }}</strong>
+                        </div>
+                        {% endif %}
+                    </div>
+                    <div class="form-group">
+                        {{ form.colaboradores.label_tag }}
+                        {{ form.colaboradores }}
+                        {% if form.colaboradores.errors %}
+                        <div class="alert alert-danger alert-dismissable fade in">
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                            <strong>{{ form.colaboradores.errors.as_text }}</strong>
+                        </div>
+                        {% endif %}
+                    </div>
+                    <div class="form-group">
+                        {{ form.tipo.label_tag }}
+                        {{ form.tipo }}
+                        {% if form.tipo.errors %}
+                        <div class="alert alert-danger alert-dismissable fade in">
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                            <strong>{{ form.tipo.errors.as_text }}</strong>
+                        </div>
+                        {% endif %}
+                    </div>
+                    <div class="form-group">
+                        {{ form.inicio.label_tag }}
+                        <div class="input-group date">
+                            <div class="input-group-addon">
+                                <i class="fa fa-calendar"></i>
+                            </div>
+                            {{ form.inicio }}
+                        </div>
+
+                        {% if form.inicio.errors %}
+                        <div class="alert alert-danger alert-dismissable fade in">
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                            <strong>{{ form.inicio.errors.as_text }}</strong>
+                        </div>
+                        {% endif %}
+                    </div>
+                    <div class="form-group">
+                        {{ form.fin.label_tag }}
+                        <div class="input-group date">
+                            <div class="input-group-addon">
+                                <i class="fa fa-calendar"></i>
+                            </div>
+                            {{ form.fin }}
+                        </div>
+
+                        {% if form.fin.errors %}
+                        <div class="alert alert-danger alert-dismissable fade in">
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                            <strong>{{ form.fin.errors.as_text }}</strong>
+                        </div>
+                        {% endif %}
+                    </div>
+                    <div class="form-group">
+                        {{ form.cronograma.label_tag }}
+                        {{ form.cronograma }}
+                        {% if form.cronograma.errors %}
+                        <div class="alert alert-danger alert-dismissable fade in">
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                            <strong>{{ form.cronograma.errors.as_text }}</strong>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+              <!-- /.box-body -->
+                <div class="box-footer text-center">
+                    <button type="submit" class="btn btn-success col-xs-offset-1 col-xs-4">Guardar <i class="fa fa-floppy-o"></i></button>
+                    <a href="/administrador/evento/" class="btn btn-danger col-xs-offset-2 col-xs-4">Cancelar <i class="ion ion-android-cancel"></i></a>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script>
+    $(function () {
+        $('#id_inicio').datepicker({
+            format: "dd/mm/yyyy",
+            autoclose: true
+        });
+        $('#id_fin').datepicker({
+            format: "dd/mm/yyyy",
+            autoclose: true
+        });
+    });
+    </script>
+{% endblock %}
