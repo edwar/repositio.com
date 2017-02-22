@@ -196,8 +196,7 @@ class LoMasVistoPdfView(View):
                     total += dato.contador
                     pdf.contador = dato.contador
                 except Exception as e:
-                else:
-                finally:
+                    msg=e
             cont.append(pdf)
         ctx = {"pdfs":cont, "total":total}
         print(ctx)
