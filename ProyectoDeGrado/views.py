@@ -190,7 +190,7 @@ class LoMasVistoPdfView(View):
             if self.request.user.is_authenticated:
                 pdf=Pdf.objects.get(pk=dato.pdf_id)
             else:
-                pdf=Pdf.objects.get(pk=dato.pdf_id).filter(tipo__id=2)
+                pdf=Pdf.objects.get(pk=dato.pdf_id)
             pdf.contador = dato.contador
             cont.append(pdf)
         ctx = {"pdfs":cont, "total":total}
