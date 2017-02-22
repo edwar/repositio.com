@@ -159,6 +159,8 @@
                 <ul class="sidebar-menu">
                     {% if user.is_authenticated %}
                         <li class="header">IR A</li>
+                        <li><a href="/administrador/"><i class="fa fa-dashboard"></i> <span>Administrador</span></a></li>
+                    {% endif %}
                         <li><a href="/"><i class="fa fa-search"></i> <span>Busqueda</span></a></li>
                         <li><a href="/blog/"><i class="fa fa-book"></i> <span>Blog</span></a></li>
                         <li class="header">NAVEGACIÓN PRINCIPAL</li>
@@ -175,10 +177,6 @@
                             {% endif %}
                         {% endwith %}
                     {% endif %}
-                    {% if user.is_authenticated %}
-                        <li class="header">IR A</li>
-                        <li><a href="/administrador/"><i class="fa fa-dashboard"></i> <span>Administrador</span></a></li>
-                        {% endif %}
                         <li><a href="/blog/"><i class="fa fa-book"></i> <span>Blog</span></a></li>
                         <li class="header">LO MAS BUSCADO</li>
                         <li class="{% if url_name == 'lomasvistopdf' %}active{% endif %}"><a href="/lomasvisto/pdf/"><i class="fa fa-file-pdf-o"></i> <span>Pdf</span></a></li>
