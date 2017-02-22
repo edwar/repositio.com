@@ -182,7 +182,10 @@ class LoMasVistoPdfView(View):
     template_name = 'publico/visto/pdf.html'
 
     def get(self, *args, **kwargs):
-        vistopdf = PdfVisto.objects.all().order_by('-contador')[:10]
+        if self.request.user.id_authenticated:
+            vistopdf = PdfVisto.objects.all().order_by('-contador')[:10]
+        else:
+            vistopdf = PdfVisto.objects.filter(tipo_id=2).order_by('-contador')[:10]
         cont = []
         total = 0
         for dato in vistopdf:
