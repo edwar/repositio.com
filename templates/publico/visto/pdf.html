@@ -15,7 +15,6 @@ Lo más
             <!-- /.box-header -->
             <div class="box-body table-responsive no-padding">
                 {% if pdfs %}
-                {{pdfs}}
                 <table class="table table-hover table-striped">
                     <tr>
                         <th>Titulo</th>
@@ -46,6 +45,8 @@ Lo más
                         <td class="col-xs-1"></td>
                     </tr>
                 </table>
+                {% else %}
+                <p class="lead">No hemos encontrado contenido disponible para tu perfil</p>
                 {% endif %}
             </div>
             <!-- /.box-body -->
