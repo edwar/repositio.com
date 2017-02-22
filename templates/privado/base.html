@@ -161,7 +161,6 @@
                         <li class="header">IR A</li>
                         {% with request.resolver_match.url_name as url_name %}
                             <li class="{% if url_name == 'inicio' %}active{% endif %}"><a href="/administrador/"><i class="fa fa-dashboard"></i> <span>Administración</span></a></li>
-                            <li><a href="/administrador/"><i class="fa fa-dashboard"></i> <span>Administrador</span></a></li>
                         {% endwith %}
                     {% endif %}
                         {% with request.resolver_match.url_name as url_name %}
@@ -171,7 +170,6 @@
                     {% if user.is_authenticated %}
                         <li class="header">NAVEGACIÓN PRINCIPAL</li>
                         {% with request.resolver_match.url_name as url_name %}
-                            <li class="{% if url_name == 'inicio' %}active{% endif %}"><a href="/administrador/"><i class="fa fa-dashboard"></i> <span>Administración</span></a></li>
                             <li class="{% if url_name  == 'pdf' or url_name  == 'pdf_nuevo' or url_name  == 'pdf_lista' or url_name  == 'pdf_detalle' or url_name  == 'pdf_editar' or url_name  == 'pdf_eliminar'  %}active{% endif %}"><a href="/administrador/pdf/"><i class="fa fa-file-pdf-o"></i> <span>Pdf</span></a></li>
                             <li class="{% if url_name  == 'texto' or url_name  == 'texto_nuevo' or url_name  == 'texto_lista' or url_name  == 'texto_detalle' or url_name  == 'texto_editar' or url_name  == 'texto_eliminar'  %}active{% endif %}"><a href="/administrador/texto/"><i class="fa fa-file-text-o"></i> <span>Texto</span></a></li>
                             <li class="{% if url_name  == 'audio' or url_name  == 'audio_nuevo' or url_name  == 'audio_lista' or url_name  == 'audio_detalle' or url_name  == 'audio_editar' or url_name  == 'audio_eliminar'  %}active{% endif %}"><a href="/administrador/audio/"><i class="fa fa-file-audio-o"></i> <span>Audio</span></a></li>
