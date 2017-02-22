@@ -186,13 +186,14 @@ class LoMasVistoPdfView(View):
         cont = []
         total = 0
         for dato in vistopdf:
-            total += dato.contador
             if self.request.user.is_authenticated:
                 pdf=Pdf.objects.get(pk=dato.pdf_id)
+                total += dato.contador
                 pdf.contador = dato.contador
             else:
                 try:
-                    pdf=Pdf.objects.get(pk=dato.pdf_id)
+                    pdf=Pdf.objects.get(pk=dato.pdf_id, tipo__id=2)
+                    total += dato.contador
                     pdf.contador = dato.contador
                 except Exception as e:
                     pdf=[]
