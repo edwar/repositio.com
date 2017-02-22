@@ -82,6 +82,29 @@
                                         </li>
                                     </ul>
                                 </li>
+                                {% else %}
+                                <div class="navbar-custom-menu">
+                                    <ul class="nav navbar-nav">
+                                        <!-- Tasks: style can be found in dropdown.less -->
+                                        <li class="dropdown tasks-menu">
+                                            <a href="#" class="icon" class="dropdown-toggle" data-toggle="dropdown">
+                                                Opciones <i class="caret"></i>
+                                            </a>
+                                            <ul class="dropdown-menu">
+                                                <li  class="dropdown-header">Mas opciones</li>
+                                                <li><!-- Task item -->
+                                                    <a href="/sesion/">Iniciar sesion</a>
+                                                </li>
+                                                <li><!-- Task item -->
+                                                    <a href="/registro/">Registrate</a>
+                                                </li>
+                                                <li><!-- Task item -->
+                                                    <a href="/blog/">Blog</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
                             {% endif %}
                             <!-- Control Sidebar Toggle Button -->
                             <!--li>
@@ -151,7 +174,19 @@
                             <li class="{% if url_name  == 'pendiente' %}active{% endif %}"><a href="/administrador/pendiente/"><i class="fa fa-check-square-o"></i> <span>Pendientes</span></a></li>
                             {% endif %}
                             <li class="header">ESTADISTICAS</li>
-                        <li class="{% if url_name == 'estadisticas' %}active{% endif %}"><a href="/estadisticas/"><i class="fa fa-area-chart"></i> <span>Ver</span></a></li>
+                            <li class="{% if url_name == 'estadisticas' %}active{% endif %}"><a href="/estadisticas/"><i class="fa fa-area-chart"></i> <span>Ver</span></a></li>
+                            {% if user.is_authenticated %}
+                            <li class="header">IR A</li>
+                            <li><a href="/administrador/"><i class="fa fa-dashboard"></i> <span>Administrador</span></a></li>
+                            {% endif %}
+                            <li><a href="/blog/"><i class="fa fa-book"></i> <span>Blog</span></a></li>
+                            <li class="header">LO MAS BUSCADO</li>
+                            <li class="{% if url_name == 'lomasvistopdf' %}active{% endif %}"><a href="/lomasvisto/pdf/"><i class="fa fa-file-pdf-o"></i> <span>Pdf</span></a></li>
+                            <li class="{% if url_name == 'lomasvistotexto' %}active{% endif %}"><a href="/lomasvisto/texto/"><i class="fa fa-file-text-o"></i> <span>Texto</span></a></li>
+                            <li class="{% if url_name == 'lomasvistoaudio' %}active{% endif %}"><a href="/lomasvisto/audio/"><i class="fa fa-file-audio-o"></i> <span>Audio</span></a></li>
+                            <li class="{% if url_name == 'lomasvistovideo' %}active{% endif %}"><a href="/lomasvisto/video/"><i class="fa fa-file-video-o"></i> <span>Video</span></a></li>
+                            <li class="header">ESTADISTICAS</li>
+                            <li class="{% if url_name == 'estadisticas' %}active{% endif %}"><a href="/estadisticas/"><i class="fa fa-area-chart"></i> <span>Ver</span></a></li>
                         {% endwith %}
                     {% endif %}
                 </ul>
