@@ -211,10 +211,19 @@ class LoMasVistoTextoView(View):
         cont = []
         total = 0
         for dato in vistotexto:
-            total += dato.contador
-            texto = Texto.objects.get(pk=dato.texto_id)
-            texto.contador = dato.contador
-            cont.append(texto)
+            if self.request.user.is_authenticated:
+                texto=Texto.objects.get(pk=dato.texto_id)
+                total += dato.contador
+                texto.contador = dato.contador
+                cont.append(texto)
+            else:
+                try:
+                    texto=Texto.objects.get(pk=dato.texto_id, tipo__id=2)
+                    total += dato.contador
+                    texto.contador = dato.contador
+                    cont.append(texto)
+                except Exception as e:
+                    msg=e
         ctx = {"textos":cont, "total":total}
         return render(self.request, self.template_name, ctx)
 
@@ -226,10 +235,20 @@ class LoMasVistoAudioView(View):
         cont = []
         total = 0
         for dato in vistoaudio:
-            total += dato.contador
-            audio = Audio.objects.get(pk=dato.audio_id)
-            audio.contador = dato.contador
-            cont.append(audio)
+
+            if self.request.user.is_authenticated:
+                audio=Audio.objects.get(pk=dato.audio_id)
+                total += dato.contador
+                audio.contador = dato.contador
+                cont.append(audio)
+            else:
+                try:
+                    audio=Audio.objects.get(pk=dato.audio_id, tipo__id=2)
+                    total += dato.contador
+                    audio.contador = dato.contador
+                    cont.append(audio)
+                except Exception as e:
+                    msg=e
         ctx = {"audios":cont, "total":total}
         print(ctx)
         return render(self.request, self.template_name, ctx)
@@ -242,10 +261,20 @@ class LoMasVistoVideoView(View):
         cont = []
         total = 0
         for dato in vistovideo:
-            total += dato.contador
-            video = Video.objects.get(pk=dato.video_id)
-            video.contador = dato.contador
-            cont.append(video)
+
+            if self.request.user.is_authenticated:
+                video=Video.objects.get(pk=dato.video_id)
+                total += dato.contador
+                video.contador = dato.contador
+                cont.append(video)
+            else:
+                try:
+                    video=Video.objects.get(pk=dato.video_id, tipo__id=2)
+                    total += dato.contador
+                    video.contador = dato.contador
+                    cont.append(video)
+                except Exception as e:
+                    msg=e
         ctx = {"videos":cont, "total":total}
         print(ctx)
         return render(self.request, self.template_name, ctx)
