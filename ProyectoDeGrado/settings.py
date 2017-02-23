@@ -25,7 +25,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'p-8wtr(s04r&4acwwec(nbh)&*h18l97%l8o$&wa%k@x!c%qyv'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['93.188.161.82','repositio.com','www.repositio.com','localhost','127.0.0.1']
 
