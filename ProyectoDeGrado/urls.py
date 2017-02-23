@@ -23,9 +23,6 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.auth.views import logout
 
-handler404 = lambda r: HttpResponseNotFound("/404/")
-handler500 = lambda r: HttpResponseServerError("/500/")
-
 urlpatterns = [
     url('^', include('django.contrib.auth.urls')),
     url(r'^cerrar/$', logout,{'next_page': '/'}),
