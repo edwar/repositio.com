@@ -43,6 +43,8 @@ class RegistroView(View):
 class Error404View(TemplateView):
     template_name = "publico/404/index.html"
 
+class Error500View(TemplateView):
+    template_name = "publico/500/index.html"
 
 class CorreoView(FormView):
     form_class = PerfilForm
