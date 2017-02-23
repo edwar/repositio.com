@@ -63,7 +63,7 @@ class PdfDetail(DetailView):
         print "Esta autenticado: "+str(self.request.user.is_authenticated())
         print pdf.tipo
         if not self.request.user.is_authenticated():
-            if pdf.tipo == "Privado":
+            if str(pdf.tipo) == "Privado":
                 print "redirecciona a: "+str(HttpResponseRedirect("/404/"))
                 return HttpResponseRedirect("/404/")
         return context
