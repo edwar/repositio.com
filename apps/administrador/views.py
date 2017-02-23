@@ -57,10 +57,10 @@ class PdfDetail(DetailView):
     model = Pdf
     template_name = 'privado/pdf/pdf_detail.html'
 
-    def get(self, pk, request, *args, **kwargs):
+    def get(self, request, *args, **kwargs):
         self.object = self.get_object()
         context = self.get_context_data(object=self.object)
-        pdf = Pdf.objects.get(pk=pk)
+        pdf = Pdf.objects.get(pk=self.kwargs['pk'])
         if not self.request.user.is_authenticated():
             if str(pdf.tipo) == "Privado":
                 return HttpResponseRedirect("/404/")
