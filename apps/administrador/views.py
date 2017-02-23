@@ -57,6 +57,13 @@ class PdfDetail(DetailView):
     model = Pdf
     template_name = 'privado/pdf/pdf_detail.html'
 
+    def get_context_data(self, **kwargs):
+        context = super(PdfDetail, self).get_context_data(**kwargs)
+        if not self.request.user.is_authenticated:
+            if context['tipo'] == "Privado":
+                HttpResponseRedirect("/404/")
+        return context
+
     def get_context_object_name(self, obj):
         row = PdfVisto.objects.filter(pdf=obj)
         if row.count() > 0:
