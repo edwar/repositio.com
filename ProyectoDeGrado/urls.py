@@ -23,6 +23,9 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.auth.views import logout
 
+handler404 = Error404View.as_view()
+handler500 = Error500View.as_view()
+
 urlpatterns = [
     url('^', include('django.contrib.auth.urls')),
     url(r'^cerrar/$', logout,{'next_page': '/'}),
@@ -55,5 +58,3 @@ urlpatterns = [
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
-handler404 = Error404View.as_view()
-handler500 = Error500View.as_view()
