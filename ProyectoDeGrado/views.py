@@ -40,6 +40,9 @@ class RegistroView(View):
         mail.send_mail('subject', 'message', 'sarath4coding@gmail.com', ['sarath4coding@gmail.com'])
         return request(request, self.template_name)
 
+class Error404View(TemplateView):
+    template_name = "publico/404/index.html"
+
 
 class CorreoView(FormView):
     form_class = PerfilForm

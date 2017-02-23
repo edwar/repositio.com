@@ -59,8 +59,9 @@ class PdfDetail(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super(PdfDetail, self).get_context_data(**kwargs)
+        pdf = Pdf.objects.filter(pk=self.kwargs['pk'])
         if not self.request.user.is_authenticated:
-            if context['tipo'] == "Privado":
+            if pdf.tipo == "Privado":
                 HttpResponseRedirect("/404/")
         return context
 
