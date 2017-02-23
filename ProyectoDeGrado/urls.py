@@ -52,3 +52,6 @@ urlpatterns = [
     url(r'^estadisticas/', EstadisticasView.as_view(), name='estadisticas'),
     url(r'^404/', Error404View.as_view(), name='404'),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+
+handler404 = Error404View
