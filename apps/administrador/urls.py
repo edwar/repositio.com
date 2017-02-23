@@ -51,5 +51,3 @@ urlpatterns = [
     url(r'^imagen/activar/(?P<pk>\d+)/$', ImagenActivarView.as_view(), name='activar_imagen'),
     url(r'^perfil/(?P<pk>\d+)/$', PerfilView.as_view(), name='tematica_nuevo'),
 ]
-
-handler404 = Error404View
