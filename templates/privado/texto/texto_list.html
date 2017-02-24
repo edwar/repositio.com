@@ -4,7 +4,7 @@
 Texto
 {% endblock %}
 {% block pagina %}
-Texto<small>Crear</small>
+Texto<small>Listar</small>
 {% endblock %}
 {% block miga %}
 <li><a href="/"><i class="fa fa-dashboard active"></i> Administración</a></li><li href="#"><i class="fa fa-file-text-o"></i> Texto</li><li><i class="fa fa-list-alt"></i> Lista</li>
@@ -13,7 +13,7 @@ Texto<small>Crear</small>
     <div class="col-xs-12">
         <div class="box">
             <div class="box-header">
-                <h3 class="box-title">Lista de TEXTOS</h3>
+                <h3 class="box-title">TEXTOS</h3>
 
             </div>
             <!-- /.box-header -->
@@ -32,8 +32,8 @@ Texto<small>Crear</small>
                             <td class="col-xs-3">{{ texto.nombre }}</td>
                             <td class="col-xs-2">{{ texto.propietario }}</td>
                             <td class="col-xs-1">{{ texto.clase }}</td>
-                            <td class="col-xs-1">{{ texto.fecha }}</td>
-                            <td class="col-xs-1">{{ texto.actualizado }}</td>
+                            <td class="col-xs-1">{{ texto.fecha|date:"d/M/Y"|lower }}</td>
+                            <td class="col-xs-1">{{ texto.actualizado|date:"d/M/Y"|lower }}</td>
                             <td class="col-xs-1">
                                 <a href="/administrador/texto/detalle/{{ texto.id }}" class="btn btn-success"><i class="fa fa-eye"></i></a>
                                 <a href="/administrador/texto/editar/{{ texto.id }}" class="btn btn-primary"><i class="fa fa-pencil"></i></a>
