@@ -168,10 +168,10 @@ class SearchView(View):
 
     def get(self, *args, **kwargs):
         if 'q' in self.request.GET and self.request.GET['q'] or 'c' in self.request.GET and self.request.GET['c']:
-            pdfs = Pdf.objects.all().filter(Q(nombre__like=str(self.request.GET['q'])) | Q(clase_id=self.request.GET.get('c')))
-            textos = Texto.objects.all().filter(Q(nombre__like=str(self.request.GET['q'])) | Q(clase_id=self.request.GET.get('c')))
-            audios = Audio.objects.all().filter(Q(descripcion__like=str(self.request.GET['q'])))
-            videos = Video.objects.all().filter(Q(descripcion__like=str(self.request.GET['q'])))
+            pdfs = Pdf.objects.all().filter(Q(nombre__contains=str(self.request.GET['q'])) | Q(clase_id=self.request.GET.get('c')))
+            textos = Texto.objects.all().filter(Q(nombre__contains=str(self.request.GET['q'])) | Q(clase_id=self.request.GET.get('c')))
+            audios = Audio.objects.all().filter(Q(descripcion__contains=str(self.request.GET['q'])))
+            videos = Video.objects.all().filter(Q(descripcion__contains=str(self.request.GET['q'])))
             ctx = {"pdfs":pdfs,"textos":textos,"audios":audios,"videos":videos}
             print ctx
             return render(self.request, self.template_name,ctx)
