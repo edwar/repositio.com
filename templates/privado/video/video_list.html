@@ -7,13 +7,13 @@ Video
 Video<small>Lista</small>
 {% endblock %}
 {% block miga %}
-<li><a href="/"><i class="fa fa-dashboard active"></i> Administración</a></li><li href="#"><i class="fa fa-file-video-o"></i> Lista</li><li><i class="fa fa-list-alt"></i> Lista</li>
+<li><a href="/"><i class="fa fa-dashboard active"></i> Administración</a></li><li href="#"><i class="fa fa-file-video-o"></i> Video</li><li><i class="fa fa-list-alt"></i> Lista</li>
 {% endblock %}
 {% block contenido %}
     <div class="col-xs-12">
         <div class="box">
             <div class="box-header">
-                <h3 class="box-title">Lista de VIDEOS</h3>
+                <h3 class="box-title">VIDEOS</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body table-responsive no-padding">
@@ -27,11 +27,11 @@ Video<small>Lista</small>
                 </tr>
                     {% for video in object_list %}
                         <tr>
-                            <td class="col-sm-4">{% autoescape off %}{{ video.descripcion }}{% endautoescape %}</td>
+                            <td class="col-sm-5">{% autoescape off %}{{ video.descripcion }}{% endautoescape %}</td>
                             <td class="col-sm-3">{{ video.propietario }}</td>
                             <td class="col-sm-1">{{ video.fecha|date:"d/M/Y"|lower }}</td>
                             <td class="col-sm-1">{{ video.actualizado|date:"d/M/Y"|lower }}</td>
-                            <td class="col-sm-3">
+                            <td class="col-sm-2">
                                 <a href="/administrador/video/detalle/{{ video.id }}" class="btn btn-success col-xs-4"><i class="fa fa-eye"></i></a>
                                 <a href="/administrador/video/editar/{{ video.id }}" class="btn btn-primary col-xs-4"><i class="fa fa-pencil"></i></a>
                                 <a href="/administrador/video/eliminar/{{ video.id }}" class="btn btn-danger col-xs-4"><i class="fa fa-trash"></i></a>
