@@ -183,6 +183,11 @@ Estadisticas
 
   $(function () {
 
+    // Get context with jQuery - using jQuery's .get() method.
+    var areaChartCanvas = $("#areaChart").get(0).getContext("2d");
+    // This will get the first returned node in the jQuery collection.
+    var areaChart = new Chart(areaChartCanvas);
+
     var areaChartData = {
         labels: ['Dia 1','Dia 2','Dia 3','Dia 4','Dia 5','Dia 6','Dia 7'],
         datasets: [
