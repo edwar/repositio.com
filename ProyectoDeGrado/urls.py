@@ -50,4 +50,8 @@ urlpatterns = [
     url(r'^lomasvisto/audio/', LoMasVistoAudioView.as_view(), name='lomasvistoaudio'),
     url(r'^lomasvisto/video/', LoMasVistoVideoView.as_view(), name='lomasvistovideo'),
     url(r'^estadisticas/', EstadisticasView.as_view(), name='estadisticas'),
+    url(r'^404/', Error404View.as_view(), name='404'),
+    url(r'^500/', Error500View.as_view(), name='500'),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+
