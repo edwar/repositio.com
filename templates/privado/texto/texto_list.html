@@ -20,21 +20,21 @@ Texto<small>Listar</small>
             <div class="box-body table-responsive no-padding">
                 <table class="table table-hover table-striped">
                 <tr>
-                    <th>Nombre</th>
-                    <th>Autor</th>
-                    <th>Clase</th>
-                    <th>Creado</th>
-                    <th>Actualizado</th>
-                    <th>Acciones</th>
+                    <th class="col-xs-3">Nombre</th>
+                    <th class="col-xs-3">Autor</th>
+                    <th class="col-xs-1">Clase</th>
+                    <th class="col-xs-1">Creado</th>
+                    <th class="col-xs-1">Actualizado</th>
+                    <th class="col-xs-3">Acciones</th>
                 </tr>
                     {% for texto in object_list %}
                         <tr>
-                            <td class="col-xs-3">{{ texto.nombre }}</td>
-                            <td class="col-xs-2">{{ texto.propietario }}</td>
-                            <td class="col-xs-1">{{ texto.clase }}</td>
-                            <td class="col-xs-1">{{ texto.fecha|date:"d/M/Y"|lower }}</td>
-                            <td class="col-xs-1">{{ texto.actualizado|date:"d/M/Y"|lower }}</td>
-                            <td class="col-xs-1">
+                            <td>{{ texto.nombre }}</td>
+                            <td>{{ texto.propietario }}</td>
+                            <td>{{ texto.clase }}</td>
+                            <td>{{ texto.fecha|date:"d/M/Y"|lower }}</td>
+                            <td>{{ texto.actualizado|date:"d/M/Y"|lower }}</td>
+                            <td>
                                 <a href="/administrador/texto/detalle/{{ texto.id }}" class="btn btn-success"><i class="fa fa-eye"></i></a>
                                 <a href="/administrador/texto/editar/{{ texto.id }}" class="btn btn-primary"><i class="fa fa-pencil"></i></a>
                                 <a href="/administrador/texto/eliminar/{{ texto.id }}" class="btn btn-danger"><i class="fa fa-trash"></i></a>
