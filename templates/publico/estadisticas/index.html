@@ -268,5 +268,15 @@ Estadisticas
     //Create the line chart
     areaChart.Line(areaChartData, areaChartOptions);
   });
+  
+function toggleColor() {
+    var myButtonClasses = document.getElementById("collapse").classList;
+
+  if (myButtonClasses.contains("sidebar-collapse")) {
+    myButtonClasses.remove("sidebar-collapse");
+  } else {
+    myButtonClasses.add("sidebar-collapse");
+  }
+}
 </script>
 {% endblock %}
