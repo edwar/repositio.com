@@ -28,7 +28,7 @@ Imagen<small>Lista</small>
                     {% for imagen in object_list %}
                         <tr>
                             <td class="col-xs-6">{{ imagen.propietario }}</td>
-                            <td class="col-xs-2"><img src="{{ imagen.ruta }}" alt="imagen" style="width : 2 rem; height : 2 rem"></td>
+                            <td class="col-xs-2"><img src="/media/{{ imagen.ruta }}" alt="imagen" style="width : 2 rem; height : 2 rem"></td>
                             <td class="col-xs-1">{{ imagen.fecha|date:"d/M/Y"|lower }}</td>
                             <td class="col-xs-1">{{ imagen.actualizado|date:"d/M/Y"|lower }}</td>
                             <td class="col-xs-2">
