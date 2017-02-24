@@ -1,44 +1,44 @@
 {% extends 'privado/base.html' %}
 {% load staticfiles %}
 {% block titulo %}
-Pdf
+Audio
 {% endblock %}
 {% block pagina %}
 Audio<small>Lista</small>
 {% endblock %}
 {% block miga %}
-<li><a href="/"><i class="fa fa-dashboard active"></i> Administración</a></li><li><i class="fa fa-file-pdf-o"></i> Audio</li><li><i class="fa fa-list-alt"></i> Lista</li>
+<li><a href="/"><i class="fa fa-dashboard active"></i> Administración</a></li><li><i class="fa fa-file-audio-o"></i> Audio</li><li><i class="fa fa-list-alt"></i> Lista</li>
 {% endblock %}
 {% block contenido %}
     <div class="col-xs-12">
         <div class="box">
             <div class="box-header">
-                <h3 class="box-title">Lista de PDF</h3>
+                <h3 class="box-title">AUDIOS</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body table-responsive no-padding">
                 <table class="table table-hover table-striped">
                 <tr>
                     <th class="col-xs-2">Autor</th>
-                    <th class="col-xs-3">Descripción</th>
+                    <th class="col-xs-4">Descripción</th>
                     <th class="col-xs-1">Tipo</th>
                     <th class="col-xs-1">Clase</th>
                     <th class="col-xs-1">Creado</th>
                     <th class="col-xs-1">Actualizado</th>
                     <th class="col-xs-2">Acciones</th>
                 </tr>
-                    {% for pdf in object_list %}
+                    {% for audio in object_list %}
                         <tr>
-                            <td >{{ pdf.propietario }}</td>
-                            <td>{% autoescape off %}{{ pdf.descripcion }}{% endautoescape %}</td>
-                            <td>{{ pdf.tipo }}</td>
-                            <td>{{ pdf.clase }}</td>
-                            <td>{{ pdf.fecha|date:"d/M/Y"|lower }}</td>
-                            <td>{{ pdf.actualizado|date:"d/M/Y"|lower }}</td>
+                            <td >{{ audio.propietario }}</td>
+                            <td>{% autoescape off %}{{ audio.descripcion }}{% endautoescape %}</td>
+                            <td>{{ audio.tipo }}</td>
+                            <td>{{ audio.clase }}</td>
+                            <td>{{ audio.fecha|date:"d/M/Y"|lower }}</td>
+                            <td>{{ audio.actualizado|date:"d/M/Y"|lower }}</td>
                             <td>
-                                <a href="/administrador/audio/detalle/{{ pdf.id }}" class="btn btn-success"><i class="fa fa-eye"></i></a>
-                                <a href="/administrador/audio/editar/{{ pdf.id }}" class="btn btn-primary"><i class="fa fa-pencil"></i></a>
-                                <a href="/administrador/audio/eliminar/{{ pdf.id }}" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                                <a href="/administrador/audio/detalle/{{ audio.id }}" class="btn btn-success"><i class="fa fa-eye"></i></a>
+                                <a href="/administrador/audio/editar/{{ audio.id }}" class="btn btn-primary"><i class="fa fa-pencil"></i></a>
+                                <a href="/administrador/audio/eliminar/{{ audio.id }}" class="btn btn-danger"><i class="fa fa-trash"></i></a>
                             </td>
                         </tr>
                     {% endfor %}
