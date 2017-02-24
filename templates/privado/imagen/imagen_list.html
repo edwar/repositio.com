@@ -13,7 +13,7 @@ Imagen<small>Lista</small>
     <div class="col-xs-12">
         <div class="box">
             <div class="box-header">
-                <h3 class="box-title">Lista de IMAGENES</h3>
+                <h3 class="box-title">IMAGENES</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body table-responsive no-padding">
@@ -24,15 +24,15 @@ Imagen<small>Lista</small>
                     <th>Fecha de ultima actualización</th>
                     <th>Acciones</th>
                 </tr>
-                    {% for pdf in object_list %}
+                    {% for imagen in object_list %}
                         <tr>
-                            <td>{{ pdf.propietario }}</td>
-                            <td>{{ pdf.fecha }}</td>
-                            <td>{{ pdf.actualizado }}</td>
+                            <td>{{ imagen.propietario }}</td>
+                            <td>{{ imagen.fecha|date:"d/M/Y"|lower }}</td>
+                            <td>{{ imagen.actualizado|date:"d/M/Y"|lower }}</td>
                             <td>
-                                <a href="/administrador/imagen/detalle/{{ pdf.id }}" class="btn btn-success col-xs-4"><i class="fa fa-eye"></i></a>
-                                <a href="/administrador/imagen/editar/{{ pdf.id }}" class="btn btn-primary col-xs-4"><i class="fa fa-pencil"></i></a>
-                                <a href="/administrador/imagen/eliminar/{{ pdf.id }}" class="btn btn-danger col-xs-4"><i class="fa fa-trash"></i></a>
+                                <a href="/administrador/imagen/detalle/{{ imagen.id }}" class="btn btn-success col-xs-4"><i class="fa fa-eye"></i></a>
+                                <a href="/administrador/imagen/editar/{{ imagen.id }}" class="btn btn-primary col-xs-4"><i class="fa fa-pencil"></i></a>
+                                <a href="/administrador/imagen/eliminar/{{ imagen.id }}" class="btn btn-danger col-xs-4"><i class="fa fa-trash"></i></a>
                             </td>
                         </tr>
                     {% endfor %}
