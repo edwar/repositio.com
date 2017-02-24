@@ -26,7 +26,7 @@ Imagen<small>Lista</small>
                     <th>Acciones</th>
                 </tr>
                     {% for imagen in object_list %}
-                        <tr class="text-center">
+                        <tr class="text-justify">
                             <td class="col-xs-5">{{ imagen.propietario }}</td>
                             <td class="col-xs-3"><img src="/media/{{ imagen.ruta }}" alt="imagen" style="max-width : 10rem; max-height : 10rem"></td>
                             <td class="col-xs-1">{{ imagen.fecha|date:"d/M/Y"|lower }}</td>
