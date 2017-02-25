@@ -21,7 +21,7 @@ Texto<small>Crear</small>
                 <div class="box-body">
                     {{ form.non_field_errors }}
                     <div class="form-group">
-                        {{ form.nombre.label_tag }} <i class="fa fa-question-circle informacion" data-toggle="tooltip" data-placement="top" title="{{ form.nombre.help_text|safe }}"></i>
+                        {% if form.nombre.field.required %}<i class="fa fa-asterisk text-danger" aria-hidden="true"></i>{% endif %}{{ form.nombre.label_tag }} <i class="fa fa-question-circle informacion" data-toggle="tooltip" data-placement="top" title="{{ form.nombre.help_text|safe }}"></i>
                         {{ form.nombre }}
                         {% if form.nombre.errors %}
                         <div class="alert alert-danger alert-dismissable fade in">
@@ -31,7 +31,7 @@ Texto<small>Crear</small>
                         {% endif %}
                     </div>
                     <div class="form-group">
-                        {{ form.propietario.label_tag }} <i class="fa fa-question-circle informacion" data-toggle="tooltip" data-placement="top" title="{{ form.propietario.help_text|safe }}"></i>
+                        {% if form.propietario.field.required %}<i class="fa fa-asterisk text-danger" aria-hidden="true"></i>{% endif %}{{ form.propietario.label_tag }} <i class="fa fa-question-circle informacion" data-toggle="tooltip" data-placement="top" title="{{ form.propietario.help_text|safe }}"></i>
                         {{ form.propietario }}
                         {% if form.propietario.errors %}
                         <div class="alert alert-danger alert-dismissable fade in">
@@ -41,7 +41,7 @@ Texto<small>Crear</small>
                         {% endif %}
                     </div>
                     <div class="form-group">
-                        {{ form.colaborador.label_tag }} <i class="fa fa-question-circle informacion" data-toggle="tooltip" data-placement="top" title="{{ form.colaborador.help_text|safe }}"></i>
+                        {% if form.colaborador.field.required %}<i class="fa fa-asterisk text-danger" aria-hidden="true"></i>{% endif %}{{ form.colaborador.label_tag }} <i class="fa fa-question-circle informacion" data-toggle="tooltip" data-placement="top" title="{{ form.colaborador.help_text|safe }}"></i>
                         {{ form.colaborador }}
                         {% if form.colaborador.errors %}
                         <div class="alert alert-danger alert-dismissable fade in">
@@ -51,7 +51,7 @@ Texto<small>Crear</small>
                         {% endif %}
                     </div>
                     <div class="form-group">
-                        {{ form.evento.label_tag }} <i class="fa fa-question-circle informacion" data-toggle="tooltip" data-placement="top" title="{{ form.evento.help_text|safe }}"></i>
+                        {% if form.evento.field.required %}<i class="fa fa-asterisk text-danger" aria-hidden="true"></i>{% endif %}{{ form.evento.label_tag }} <i class="fa fa-question-circle informacion" data-toggle="tooltip" data-placement="top" title="{{ form.evento.help_text|safe }}"></i>
                         {{ form.evento }}
                         {% if form.evento.errors %}
                         <div class="alert alert-danger alert-dismissable fade in">
@@ -61,7 +61,7 @@ Texto<small>Crear</small>
                         {% endif %}
                     </div>
                     <div class="form-group">
-                        {{ form.texto.label_tag }} <i class="fa fa-question-circle informacion" data-toggle="tooltip" data-placement="top" title="{{ form.texto.help_text|safe }}"></i>
+                        {% if form.texto.field.required %}<i class="fa fa-asterisk text-danger" aria-hidden="true"></i>{% endif %}{{ form.texto.label_tag }} <i class="fa fa-question-circle informacion" data-toggle="tooltip" data-placement="top" title="{{ form.texto.help_text|safe }}"></i>
                         {{ form.texto }}
                         {% if form.texto.errors %}
                         <div class="alert alert-danger alert-dismissable fade in">
@@ -71,7 +71,7 @@ Texto<small>Crear</small>
                         {% endif %}
                     </div>
                     <div class="form-group">
-                        {{ form.carrera.label_tag }} <i class="fa fa-question-circle informacion" data-toggle="tooltip" data-placement="top" title="{{ form.carrera.help_text|safe }}"></i>
+                        {% if form.carrera.field.required %}<i class="fa fa-asterisk text-danger" aria-hidden="true"></i>{% endif %}{{ form.carrera.label_tag }} <i class="fa fa-question-circle informacion" data-toggle="tooltip" data-placement="top" title="{{ form.carrera.help_text|safe }}"></i>
                         {{ form.carrera }}
                         {% if form.carrera.errors %}
                         <div class="alert alert-danger alert-dismissable fade in">
@@ -81,7 +81,7 @@ Texto<small>Crear</small>
                         {% endif %}
                     </div>
                     <div class="form-group">
-                        {{ form.tipo.label_tag }} <i class="fa fa-question-circle informacion" data-toggle="tooltip" data-placement="top" title="{{ form.tipo.help_text|safe }}"></i>
+                        {% if form.tipo.field.required %}<i class="fa fa-asterisk text-danger" aria-hidden="true"></i>{% endif %}{{ form.tipo.label_tag }} <i class="fa fa-question-circle informacion" data-toggle="tooltip" data-placement="top" title="{{ form.tipo.help_text|safe }}"></i>
                         {{ form.tipo }}
                         {% if form.tipo.errors %}
                         <div class="alert alert-danger alert-dismissable fade in">
@@ -91,7 +91,7 @@ Texto<small>Crear</small>
                         {% endif %}
                     </div>
                     <div class="form-group">
-                        {{ form.clase.label_tag }} <i class="fa fa-question-circle informacion" data-toggle="tooltip" data-placement="top" title="{{ form.clase.help_text|safe }}"></i>
+                        {% if form.clase.field.required %}<i class="fa fa-asterisk text-danger" aria-hidden="true"></i>{% endif %}{{ form.clase.label_tag }} <i class="fa fa-question-circle informacion" data-toggle="tooltip" data-placement="top" title="{{ form.clase.help_text|safe }}"></i>
                         {{ form.clase }}
                         {% if form.clase.errors %}
                         <div class="alert alert-danger alert-dismissable fade in">
@@ -101,7 +101,7 @@ Texto<small>Crear</small>
                         {% endif %}
                     </div>
                     <div class="form-group">
-                        {{ form.clave.label_tag }} <i class="fa fa-question-circle informacion" data-toggle="tooltip" data-placement="top" title="{{ form.clave.help_text|safe }}"></i>
+                        {% if form.clave.field.required %}<i class="fa fa-asterisk text-danger" aria-hidden="true"></i>{% endif %}{{ form.clave.label_tag }} <i class="fa fa-question-circle informacion" data-toggle="tooltip" data-placement="top" title="{{ form.clave.help_text|safe }}"></i>
                         {{ form.clave }}
                         {% if form.clave.errors %}
                         <div class="alert alert-danger alert-dismissable fade in">
@@ -111,7 +111,7 @@ Texto<small>Crear</small>
                         {% endif %}
                     </div>
                     <div class="form-group">
-                        {{ form.tematica.label_tag }} <i class="fa fa-question-circle informacion" data-toggle="tooltip" data-placement="top" title="{{ form.tematica.help_text|safe }}"></i>
+                        {% if form.tematica.field.required %}<i class="fa fa-asterisk text-danger" aria-hidden="true"></i>{% endif %}{{ form.tematica.label_tag }} <i class="fa fa-question-circle informacion" data-toggle="tooltip" data-placement="top" title="{{ form.tematica.help_text|safe }}"></i>
                         {{ form.tematica }}
                         {% if form.tematica.errors %}
                         <div class="alert alert-danger alert-dismissable fade in">

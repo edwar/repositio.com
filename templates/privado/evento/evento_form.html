@@ -21,7 +21,7 @@ Evento<small>Crear</small>
                 <div class="box-body">
                     {{ form.non_field_errors }}
                     <div class="form-group">
-                        {{ form.nombre.label_tag }}
+                        {% if form.nombre.field.required %}<i class="fa fa-asterisk text-danger" aria-hidden="true"></i>{% endif %}{{ form.nombre.label_tag }}
                         {{ form.nombre }}
                         {% if form.nombre.errors %}
                         <div class="alert alert-danger alert-dismissable fade in">
@@ -31,7 +31,7 @@ Evento<small>Crear</small>
                         {% endif %}
                     </div>
                     <div class="form-group">
-                        {{ form.encargado.label_tag }}
+                        {% if form.encargado.field.required %}<i class="fa fa-asterisk text-danger" aria-hidden="true"></i>{% endif %}{{ form.encargado.label_tag }}
                         {{ form.encargado }}
                         {% if form.encargado.errors %}
                         <div class="alert alert-danger alert-dismissable fade in">
@@ -41,7 +41,7 @@ Evento<small>Crear</small>
                         {% endif %}
                     </div>
                     <div class="form-group">
-                        {{ form.colaboradores.label_tag }}
+                        {% if form.colaboradores.field.required %}<i class="fa fa-asterisk text-danger" aria-hidden="true"></i>{% endif %}{{ form.colaboradores.label_tag }}
                         {{ form.colaboradores }}
                         {% if form.colaboradores.errors %}
                         <div class="alert alert-danger alert-dismissable fade in">
@@ -51,7 +51,7 @@ Evento<small>Crear</small>
                         {% endif %}
                     </div>
                     <div class="form-group">
-                        {{ form.tipo.label_tag }}
+                        {% if form.ripo.field.required %}<i class="fa fa-asterisk text-danger" aria-hidden="true"></i>{% endif %}{{ form.tipo.label_tag }}
                         {{ form.tipo }}
                         {% if form.tipo.errors %}
                         <div class="alert alert-danger alert-dismissable fade in">
@@ -61,7 +61,7 @@ Evento<small>Crear</small>
                         {% endif %}
                     </div>
                     <div class="form-group">
-                        {{ form.inicio.label_tag }}
+                        {% if form.inicio.field.required %}<i class="fa fa-asterisk text-danger" aria-hidden="true"></i>{% endif %}{{ form.inicio.label_tag }}
                         <div class="input-group date">
                             <div class="input-group-addon">
                                 <i class="fa fa-calendar"></i>
@@ -77,7 +77,7 @@ Evento<small>Crear</small>
                         {% endif %}
                     </div>
                     <div class="form-group">
-                        {{ form.fin.label_tag }}
+                        {% if form.fin.field.required %}<i class="fa fa-asterisk text-danger" aria-hidden="true"></i>{% endif %}{{ form.fin.label_tag }}
                         <div class="input-group date">
                             <div class="input-group-addon">
                                 <i class="fa fa-calendar"></i>
@@ -93,7 +93,7 @@ Evento<small>Crear</small>
                         {% endif %}
                     </div>
                     <div class="form-group">
-                        {{ form.cronograma.label_tag }}
+                        {% if form.cronograma.field.required %}<i class="fa fa-asterisk text-danger" aria-hidden="true"></i>{% endif %}{{ form.cronograma.label_tag }}
                         {{ form.cronograma }}
                         {% if form.cronograma.errors %}
                         <div class="alert alert-danger alert-dismissable fade in">
