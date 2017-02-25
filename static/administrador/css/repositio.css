@@ -180,3 +180,7 @@
 .tooltip-inner {
    text-align:left !important;
  }
+
+ .error{
+    font-size: 10px;
+ }
