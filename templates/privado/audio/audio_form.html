@@ -21,7 +21,7 @@ Audio<small>Crear</small>
                 <div class="box-body">
                     {{ form.non_field_errors }}
                     <div class="form-group">
-                         {% if form.propietario.field.required %}<span class="alert-danger">*</span>{% endif %}{{ form.propietario.label_tag }} <i class="fa fa-question-circle informacion" data-toggle="tooltip" data-placement="top" title="{{ form.propietario.help_text|safe }}"></i>
+                         {% if form.propietario.field.required %}<span class="text-danger">*</span>{% endif %}{{ form.propietario.label_tag }} <i class="fa fa-question-circle informacion" data-toggle="tooltip" data-placement="top" title="{{ form.propietario.help_text|safe }}"></i>
                         {{ form.propietario }}
                         {% if form.propietario.errors %}
                         <div class="alert alert-danger alert-dismissable fade in">
@@ -31,7 +31,7 @@ Audio<small>Crear</small>
                         {% endif %}
                     </div>
                     <div class="form-group">
-                        {% if form.autor.field.required %}<span class="alert-danger">*</span>{% endif %}{{ form.autor.label_tag }} <i class="fa fa-question-circle informacion" data-toggle="tooltip" data-placement="top" title="{{ form.autor.help_text|safe }}"></i>
+                        {% if form.autor.field.required %}<span class="text-danger">*</span>{% endif %}{{ form.autor.label_tag }} <i class="fa fa-question-circle informacion" data-toggle="tooltip" data-placement="top" title="{{ form.autor.help_text|safe }}"></i>
                         {{ form.autor }}
                         {% if form.autor.errors %}
                         <div class="alert alert-danger alert-dismissable fade in">
@@ -41,7 +41,7 @@ Audio<small>Crear</small>
                         {% endif %}
                     </div>
                     <div class="form-group">
-                        {% if form.ruta.field.required %}<span class="alert-danger">*</span>{% endif %}{{ form.ruta.label_tag }} <i class="fa fa-question-circle informacion" data-toggle="tooltip" data-placement="top" title="{{ form.ruta.help_text|safe }}"></i>
+                        {% if form.ruta.field.required %}<span class="text-danger">*</span>{% endif %}{{ form.ruta.label_tag }} <i class="fa fa-question-circle informacion" data-toggle="tooltip" data-placement="top" title="{{ form.ruta.help_text|safe }}"></i>
                         {{ form.ruta }}
                         {% if form.ruta.errors %}
                         <div class="alert alert-danger alert-dismissable fade in">
@@ -51,7 +51,7 @@ Audio<small>Crear</small>
                         {% endif %}
                     </div>
                     <div class="form-group">
-                        {% if form.carrera.field.required %}<span class="alert-danger">*</span>{% endif %}{{ form.carrera.label_tag }} <i class="fa fa-question-circle informacion" data-toggle="tooltip" data-placement="top" title="{{ form.carrera.help_text|safe }}"></i>
+                        {% if form.carrera.field.required %}<span class="text-danger">*</span>{% endif %}{{ form.carrera.label_tag }} <i class="fa fa-question-circle informacion" data-toggle="tooltip" data-placement="top" title="{{ form.carrera.help_text|safe }}"></i>
                         {{ form.carrera }}
                         {% if form.carrera.errors %}
                         <div class="alert alert-danger alert-dismissable fade in">
@@ -61,7 +61,7 @@ Audio<small>Crear</small>
                         {% endif %}
                     </div>
                     <div class="form-group">
-                        {% if form.evento.field.required %}<span class="alert-danger">*</span>{% endif %}{{ form.evento.label_tag }} <i class="fa fa-question-circle informacion" data-toggle="tooltip" data-placement="top" title="{{ form.evento.help_text|safe }}"></i>
+                        {% if form.evento.field.required %}<span class="text-danger">*</span>{% endif %}{{ form.evento.label_tag }} <i class="fa fa-question-circle informacion" data-toggle="tooltip" data-placement="top" title="{{ form.evento.help_text|safe }}"></i>
                         {{ form.evento }}
                         {% if form.evento.errors %}
                         <div class="alert alert-danger alert-dismissable fade in">
@@ -71,7 +71,7 @@ Audio<small>Crear</small>
                         {% endif %}
                     </div>
                     <div class="form-group">
-                        {% if form.descripcion.field.required %}<span class="alert-danger">*</span>{% endif %}{{ form.descripcion.label_tag }} <i class="fa fa-question-circle informacion" data-toggle="tooltip" data-placement="top" title="{{ form.descripcion.help_text|safe }}"></i>
+                        {% if form.descripcion.field.required %}<span class="text-danger">*</span>{% endif %}{{ form.descripcion.label_tag }} <i class="fa fa-question-circle informacion" data-toggle="tooltip" data-placement="top" title="{{ form.descripcion.help_text|safe }}"></i>
                         {{ form.descripcion }}
                         {% if form.descripcion.errors %}
                         <div class="alert alert-danger alert-dismissable fade in">
@@ -81,7 +81,7 @@ Audio<small>Crear</small>
                         {% endif %}
                     </div>
                     <div class="form-group">
-                        {% if form.tipo.field.required %}<span class="alert-danger">*</span>{% endif %}{{ form.tipo.label_tag }} <i class="fa fa-question-circle informacion" data-toggle="tooltip" data-placement="top" title="{{ form.tipo.help_text|safe }}"></i>
+                        {% if form.tipo.field.required %}<span class="text-danger">*</span>{% endif %}{{ form.tipo.label_tag }} <i class="fa fa-question-circle informacion" data-toggle="tooltip" data-placement="top" title="{{ form.tipo.help_text|safe }}"></i>
                         {{ form.tipo }}
                         {% if form.tipo.errors %}
                         <div class="alert alert-danger alert-dismissable fade in">
@@ -91,7 +91,7 @@ Audio<small>Crear</small>
                         {% endif %}
                     </div>
                     <div class="form-group">
-                        {% if form.clase.field.required %}<span class="alert-danger">*</span>{% endif %}{{ form.clase.label_tag }} <i class="fa fa-question-circle informacion" data-toggle="tooltip" data-placement="top" title="{{ form.clase.help_text|safe }}"></i>
+                        {% if form.clase.field.required %}<span class="text-danger">*</span>{% endif %}{{ form.clase.label_tag }} <i class="fa fa-question-circle informacion" data-toggle="tooltip" data-placement="top" title="{{ form.clase.help_text|safe }}"></i>
                         {{ form.clase }}
                         {% if form.clase.errors %}
                         <div class="alert alert-danger alert-dismissable fade in">
@@ -101,7 +101,7 @@ Audio<small>Crear</small>
                         {% endif %}
                     </div>
                     <div class="form-group">
-                        {% if form.clave.field.required %}<span class="alert-danger">*</span>{% endif %}{{ form.clave.label_tag }} <i class="fa fa-question-circle informacion" data-toggle="tooltip" data-placement="top" title="{{ form.clave.help_text|safe }}"></i>
+                        {% if form.clave.field.required %}<span class="text-danger">*</span>{% endif %}{{ form.clave.label_tag }} <i class="fa fa-question-circle informacion" data-toggle="tooltip" data-placement="top" title="{{ form.clave.help_text|safe }}"></i>
                         {{ form.clave }}
                         {% if form.clave.errors %}
                         <div class="alert alert-danger alert-dismissable fade in">
@@ -111,7 +111,7 @@ Audio<small>Crear</small>
                         {% endif %}
                     </div>
                     <div class="form-group">
-                        {% if form.tematica.field.required %}<span class="alert-danger">*</span>{% endif %}{{ form.tematica.label_tag }} <i class="fa fa-question-circle informacion" data-toggle="tooltip" data-placement="top" title="{{ form.tematica.help_text|safe }}"></i>
+                        {% if form.tematica.field.required %}<span class="text-danger">*</span>{% endif %}{{ form.tematica.label_tag }} <i class="fa fa-question-circle informacion" data-toggle="tooltip" data-placement="top" title="{{ form.tematica.help_text|safe }}"></i>
                         {{ form.tematica }}
                         {% if form.tematica.errors %}
                         <div class="alert alert-danger alert-dismissable fade in">
