@@ -73,10 +73,10 @@ class CorreoView(FormView):
                 formulario.save(data)
                 ctx = {'msg':'Se ha enviado un correo con el link de activación','tipo':'success','icono':'glyphicon-ok','titulo':'Exito'}
             else:
-                ctx = {'msg': 'El usuario y la contraseña son obligatorios', 'tipo': 'danger', 'icono': 'glyphicon-warning-sign', 'titulo': 'Error'}
+                ctx = {'msg': 'El usuario y el dominio son obligatorios', 'tipo': 'danger', 'icono': 'glyphicon-warning-sign', 'titulo': 'Error'}
             return render(request, self.template_name,ctx)
         except IntegrityError as e:
-            ctx = {'msg': e, 'tipo': 'warning', 'icono': 'glyphicon-warning-sign', 'titulo': 'Advertencia'}
+            ctx = {'msg': e.message, 'tipo': 'warning', 'icono': 'glyphicon-warning-sign', 'titulo': 'Advertencia'}
             return render(request, self.template_name,ctx)
 
 
