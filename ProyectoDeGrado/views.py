@@ -11,6 +11,7 @@ from django.conf import settings
 from django.contrib.auth.hashers import make_password
 from django.core import mail
 from .forms import *
+from django.db import IntegrityError
 from apps.administrador.models import *
 from django.core.mail import send_mail
 from django.contrib import messages
@@ -56,6 +57,10 @@ class CorreoView(FormView):
         return render(request, self.template_name, ctx)
 
     def post(self, request, *args, **kwargs):
+        except IntegrityError as e:
+            if 'unique constraint' in e.message:
+                ctx = {'msg': 'El usuario ya ha sido utilizado', 'tipo': 'info', 'icono': 'glyphicon-info-sign', 'titulo': 'Advertencia'}
+                return render(request, self.template_name,ctx)
         data={}
         data['username']=request.POST['usuario']
         data['dominio']=request.POST['dominio']
