@@ -57,6 +57,7 @@ class CorreoView(FormView):
         return render(request, self.template_name, ctx)
 
     def post(self, request, *args, **kwargs):
+        dominios = Dominio.objects.filter(activo=True)
         try:
             data={}
             data['username']=request.POST['usuario']
@@ -71,12 +72,12 @@ class CorreoView(FormView):
                 formulario = PerfilForm()
                 formulario.enviar(data)
                 formulario.save(data)
-                ctx = {'msg':'Se ha enviado un correo con el link de activación','tipo':'success','icono':'glyphicon-ok','titulo':'Exito'}
+                ctx = {'msg':'Se ha enviado un correo con el link de activación','tipo':'success','icono':'glyphicon-ok','titulo':'Exito','dominios':dominios}
+                return render(request, self.template_name,ctx)
             else:
-                ctx = {'msg': 'El usuario y el dominio son obligatorios', 'tipo': 'danger', 'icono': 'glyphicon-warning-sign', 'titulo': 'Error'}
-            return render(request, self.template_name,ctx)
+                ctx = {'msg': 'El usuario y el dominio son obligatorios', 'tipo': 'danger', 'icono': 'glyphicon-warning-sign', 'titulo': 'Error','dominios':dominios}
         except IntegrityError as e:
-            ctx = {'msg': 'Error en la integridad de los datos.', 'tipo': 'warning', 'icono': 'glyphicon-warning-sign', 'titulo': 'Advertencia'}
+            ctx = {'msg': 'Error en la integridad de los datos.', 'tipo': 'warning', 'icono': 'glyphicon-warning-sign', 'titulo': 'Advertencia','dominios':dominios}
             return render(request, self.template_name,ctx)
 
 
