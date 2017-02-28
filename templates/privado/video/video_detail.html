@@ -125,17 +125,17 @@ Video<small>Detalle</small>
            var boton = document.getElementById('play');
            if (video.paused) {
               video.play();
-              button.innerHTML = '<i class=" fa fa-pause-circle-o"></i>';
+              boton.innerHTML = '<i class=" fa fa-pause-circle-o"></i>';
            } else {
               video.pause();
-              button.innerHTML = '<i class=" fa fa-play-circle-o"></i>';
+              boton.innerHTML = '<i class=" fa fa-play-circle-o"></i>';
            }
         }   
          function restart() {
             var video = document.getElementById("fuente")
             var boton = document.getElementById('play');
             video.currentTime = 0;
-            button.innerHTML = '<i class=" fa fa-play-circle-o"></i>';
+            boton.innerHTML = '<i class=" fa fa-play-circle-o"></i>';
         }
 
         function skip(value) {
