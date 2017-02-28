@@ -78,7 +78,7 @@ Video<small>Detalle</small>
                     <div class="col-xs-12 border-right">
                         <div class="description-block">
                             <div class="row">
-                                <div class="col-md-2 col-md-offset-4">
+                                <div class="col-md-6 col-md-offset-3">
                                     <div class="file-drop-disabled">
                                         <div class="file-preview-thumbnails">
                                             <div class="file-live-thumbs">
@@ -88,11 +88,11 @@ Video<small>Detalle</small>
                                                     </video>
                                                     <div class="col-xs-12">
                                                         <div class="btn-group btn-group-justified">
-                                                            <a href="" class="btn btn-primary" onclick="restart();"><i class="fa fa-stop-circle-o"></i></a>
-                                                            <a href="" class="btn btn-primary" onclick="skip(-10)"><i class="fa fa-fast-backward"></i></a>
-                                                            <a href="" id="play" class="btn btn-primary"><i class=" fa fa-play-circle-o" onclick="vidplay()"></i></a>
-                                                            <a href="" class="btn btn-primary" onclick="skip(10)"><i class="fa fa-fast-forward"></i></a>
-                                                            <a href="" class="btn btn-primary" onclick="full()"><i class="fa fa-arrows-alt"></i></a>
+                                                            <a href="#" class="btn btn-primary" onclick="restart();"><i class="fa fa-stop-circle-o"></i></a>
+                                                            <a href="#" class="btn btn-primary" onclick="skip(-10)"><i class="fa fa-fast-backward"></i></a>
+                                                            <a href="#" id="play" class="btn btn-primary"><i class=" fa fa-play-circle-o" onclick="vidplay()"></i></a>
+                                                            <a href="#" class="btn btn-primary" onclick="skip(10)"><i class="fa fa-fast-forward"></i></a>
+                                                            <a href="#" class="btn btn-primary" onclick="full()"><i class="fa fa-arrows-alt"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -121,7 +121,8 @@ Video<small>Detalle</small>
     <!-- /.widget-user -->
         <script>
         function vidplay() {
-           var video = document.getElementById('fuente'),boton = document.getElementById('play');
+           var video = document.getElementById('fuente')
+           var boton = document.getElementById('play');
            if (video.paused) {
               video.play();
               button.innerHTML = '<i class=" fa fa-pause-circle-o"></i>';
@@ -131,7 +132,8 @@ Video<small>Detalle</small>
            }
         }   
          function restart() {
-            var video = document.getElementById("fuente"),boton = document.getElementById('play');
+            var video = document.getElementById("fuente")
+            var boton = document.getElementById('play');
             video.currentTime = 0;
             button.innerHTML = '<i class=" fa fa-play-circle-o"></i>';
         }
