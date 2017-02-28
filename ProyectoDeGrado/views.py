@@ -58,7 +58,7 @@ class CorreoView(FormView):
 
     def post(self, request, *args, **kwargs):
         except IntegrityError as e:
-            if 'unique constraint' == e.message:
+            if 'unique constraint' in e.message:
                 ctx = {'msg': 'El usuario ya ha sido utilizado', 'tipo': 'info', 'icono': 'glyphicon-info-sign', 'titulo': 'Advertencia'}
                 return render(request, self.template_name,ctx)
         data={}
