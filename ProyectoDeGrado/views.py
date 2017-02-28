@@ -78,7 +78,7 @@ class CorreoView(FormView):
         except IntegrityError as e:
             if 'unique constraint' in e.message:
                 ctx = {'msg': 'El usuario ya ha sido utilizado', 'tipo': 'info', 'icono': 'glyphicon-info-sign', 'titulo': 'Advertencia'}
-                return render(request, self.template_name,ctx)
+            return render(request, self.template_name,ctx)
 
 
 class ActivacionView(FormView):
