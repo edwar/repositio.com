@@ -58,28 +58,27 @@ class CorreoView(FormView):
 
     def post(self, request, *args, **kwargs):
         try:
-            pass
+            data={}
+            data['username']=request.POST['usuario']
+            data['dominio']=request.POST['dominio']
+            if data['username'] != "" or data['dominio'] != "":
+                usernamesalt = request.POST['usuario']
+                salt = hashlib.sha1(str(random.random())).hexdigest()[:5]
+                data['activation_key']= hashlib.sha1(salt+usernamesalt).hexdigest()
+                data['email_subject'] = "Active su cuenta"
+                usuario = UserForm()
+                usuario.save(data)
+                formulario = PerfilForm()
+                formulario.enviar(data)
+                formulario.save(data)
+                ctx = {'msg':'Se ha enviado un correo con el link de activación','tipo':'success','icono':'glyphicon-ok','titulo':'Exito'}
+            else:
+                ctx = {'msg': 'El usuario y la contraseña son obligatorios', 'tipo': 'danger', 'icono': 'glyphicon-warning-sign', 'titulo': 'Error'}
+            return render(request, self.template_name,ctx)
         except IntegrityError as e:
             if 'unique constraint' in e.message:
                 ctx = {'msg': 'El usuario ya ha sido utilizado', 'tipo': 'info', 'icono': 'glyphicon-info-sign', 'titulo': 'Advertencia'}
                 return render(request, self.template_name,ctx)
-        data={}
-        data['username']=request.POST['usuario']
-        data['dominio']=request.POST['dominio']
-        if data['username'] != "" or data['dominio'] != "":
-            usernamesalt = request.POST['usuario']
-            salt = hashlib.sha1(str(random.random())).hexdigest()[:5]
-            data['activation_key']= hashlib.sha1(salt+usernamesalt).hexdigest()
-            data['email_subject'] = "Active su cuenta"
-            usuario = UserForm()
-            usuario.save(data)
-            formulario = PerfilForm()
-            formulario.enviar(data)
-            formulario.save(data)
-            ctx = {'msg':'Se ha enviado un correo con el link de activación','tipo':'success','icono':'glyphicon-ok','titulo':'Exito'}
-        else:
-            ctx = {'msg': 'El usuario y la contraseña son obligatorios', 'tipo': 'danger', 'icono': 'glyphicon-warning-sign', 'titulo': 'Error'}
-        return render(request, self.template_name,ctx)
 
 
 class ActivacionView(FormView):
