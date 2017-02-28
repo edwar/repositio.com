@@ -76,8 +76,7 @@ class CorreoView(FormView):
                 ctx = {'msg': 'El usuario y la contraseña son obligatorios', 'tipo': 'danger', 'icono': 'glyphicon-warning-sign', 'titulo': 'Error'}
             return render(request, self.template_name,ctx)
         except IntegrityError as e:
-            if 'unique constraint' in e.message:
-                ctx = {'msg': 'El usuario ya ha sido utilizado', 'tipo': 'info', 'icono': 'glyphicon-info-sign', 'titulo': 'Advertencia'}
+            ctx = {'msg': e.message, 'tipo': 'danger', 'icono': 'glyphicon-danger-sign', 'titulo': e.title}
             return render(request, self.template_name,ctx)
 
 
