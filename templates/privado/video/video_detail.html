@@ -134,9 +134,11 @@ Video<small>Detalle</small>
            var video = document.getElementById('fuente')
            var boton = document.getElementById('play');
            if (video.paused) {
+                console.log("Play")
                 video.play();
                 boton.innerHTML = '<i class=" fa fa-pause-circle-o"></i>';
            }else {
+                console.log("Pause")
                 video.pause();
                 boton.innerHTML = '<i class=" fa fa-play-circle-o"></i>';
            }
