@@ -120,14 +120,17 @@ Video<small>Detalle</small>
     </div>
     <!-- /.widget-user -->
         <script>
+        var bandera = true;
         function vidplay() {
            var video = document.getElementById('fuente')
            var boton = document.getElementById('play');
            console.log(video)
-           if (video.paused) {
+           if (bandera) {
+                bander = false;
               video.play();
               boton.innerHTML = '<i class=" fa fa-pause-circle-o"></i>';
            } else {
+                bander = true;
               video.pause();
               boton.innerHTML = '<i class=" fa fa-play-circle-o"></i>';
            }
