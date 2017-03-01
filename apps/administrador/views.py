@@ -137,13 +137,13 @@ class TextoDetailView(DetailView):
     template_name = 'privado/texto/texto_detail.html'
 
     def get(self, request, *args, **kwargs):
-    self.object = self.get_object()
-    context = self.get_context_data(object=self.object)
-    texto = Texto.objects.get(pk=self.kwargs['pk'])
-    if not self.request.user.is_authenticated():
-        if str(texto.tipo) == "Privado":
-            return HttpResponseRedirect("/404/")
-    return self.render_to_response(context)
+        self.object = self.get_object()
+        context = self.get_context_data(object=self.object)
+        texto = Texto.objects.get(pk=self.kwargs['pk'])
+        if not self.request.user.is_authenticated():
+            if str(texto.tipo) == "Privado":
+                return HttpResponseRedirect("/404/")
+        return self.render_to_response(context)
 
     def get_context_object_name(self, obj):
         row = TextoVisto.objects.filter(texto=obj)
