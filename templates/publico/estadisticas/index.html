@@ -32,150 +32,154 @@ Estadisticas
     </div>
 </div>
 <div class="col-xs-12">
-    <div class="box box-primary">
-        <div class="box-header with-border">
-            <div class="box-tools pull-right">
-                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                </button>
-            </div>
-        </div>
-        <div class="box-body">
-            <div id="exTab2">
-                <ul class="nav nav-tabs">
-                    <li class="active">
-                        <a  href="#1" data-toggle="tab">Tipos</a>
-                    </li>
-                    <li>
-                        <a href="#2" data-toggle="tab">Clases</a>
-                    </li>
-                    <li>
-                        <a href="#3" data-toggle="tab">Claves</a>
-                    </li>
-                    <li>
-                        <a href="#4" data-toggle="tab">Temáticas</a>
-                    </li>
+    <div class="box">
+        <div class="box-header">
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                    <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="box-body">
+                    <div id="exTab2">
+                        <ul class="nav nav-tabs">
+                            <li class="active">
+                                <a  href="#1" data-toggle="tab">Tipos</a>
+                            </li>
+                            <li>
+                                <a href="#2" data-toggle="tab">Clases</a>
+                            </li>
+                            <li>
+                                <a href="#3" data-toggle="tab">Claves</a>
+                            </li>
+                            <li>
+                                <a href="#4" data-toggle="tab">Temáticas</a>
+                            </li>
 
-                </ul>
-                <div class="tab-content ">
-                    <div class="tab-pane active" id="1">
-                        {% if tipos %}
-                        <div class="table-responsive col-lg-8 col-lg-offset-2">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th>Nombre</th>
-                                        <th>Pdf</th>
-                                        <th>Texto</th>
-                                        <th>Audio</th>
-                                        <th>Video</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {% for tipo in tipos %}
-                                        <tr>
-                                            <td>{{ tipo.tipo }}</td>
-                                            <td>{{ tipo.pdf }}</td>
-                                            <td>{{ tipo.texto }}</td>
-                                            <td>{{ tipo.audio }}</td>
-                                            <td>{{ tipo.video }}</td>
-                                        </tr>
-                                    {% endfor %}
-                                </tbody>
-                            </table>
+                        </ul>
+                        <div class="tab-content ">
+                            <div class="tab-pane active" id="1">
+                                {% if tipos %}
+                                <div class="table-responsive col-lg-8 col-lg-offset-2">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>Nombre</th>
+                                                <th>Pdf</th>
+                                                <th>Texto</th>
+                                                <th>Audio</th>
+                                                <th>Video</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for tipo in tipos %}
+                                                <tr>
+                                                    <td>{{ tipo.tipo }}</td>
+                                                    <td>{{ tipo.pdf }}</td>
+                                                    <td>{{ tipo.texto }}</td>
+                                                    <td>{{ tipo.audio }}</td>
+                                                    <td>{{ tipo.video }}</td>
+                                                </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                                {% else %}
+                                    <p class="lead text-center">No se encontrarón TIPOS</p>
+                                {% endif %}
+                            </div>
+                            <div class="tab-pane" id="2">
+                                {% if clases %}
+                                <div id="texto" class="table-responsive col-lg-8 col-lg-offset-2">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>Nombre</th>
+                                                <th>Pdf</th>
+                                                <th>Texto</th>
+                                                <th>Audio</th>
+                                                <th>Video</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for clase in clases %}
+                                            <tr>
+                                                <td>{{ clase.clase }}</td>
+                                                <td>{{ clase.pdf }}</td>
+                                                <td>{{ clase.texto }}</td>
+                                                <td>{{ clase.audio }}</td>
+                                                <td>{{ clase.video }}</td>
+                                            </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                                {% else %}
+                                    <p class="lead text-center">No se encontrarón CLASES</p>
+                                {% endif %}
+                            </div>
+                            <div class="tab-pane" id="3">
+                                {% if claves %}
+                                <div class="table-responsive col-lg-8 col-lg-offset-2">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>Nombre</th>
+                                                <th>Pdf</th>
+                                                <th>Texto</th>
+                                                <th>Audio</th>
+                                                <th>Video</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for clave in claves %}
+                                            <tr>
+                                                <td>{{ clave.clave }}</td>
+                                                <td>{{ clave.pdf }}</td>
+                                                <td>{{ clave.texto }}</td>
+                                                <td>{{ clave.audio }}</td>
+                                                <td>{{ clave.video }}</td>
+                                            </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                                {% else %}
+                                    <p class="lead text-center">No se encontrarón CLAVES</p>
+                                {% endif %}
+                            </div>
+                            <div class="tab-pane" id="4">
+                                {% if tematicas %}
+                                <div class="table-responsive col-lg-8 col-lg-offset-2">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>Nombre</th>
+                                                <th>Pdf</th>
+                                                <th>Texto</th>
+                                                <th>Audio</th>
+                                                <th>Video</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for tematica in tematicas %}
+                                            <tr>
+                                                <td>{{ tematica.tematica }}</td>
+                                                <td>{{ tematica.pdf }}</td>
+                                                <td>{{ tematica.texto }}</td>
+                                                <td>{{ tematica.audio }}</td>
+                                                <td>{{ tematica.video }}</td>
+                                            </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                                {% else %}
+                                    <p class="lead text-center">No se encontrarón TEMÁTICAS</p>
+                                {% endif %}
+                            </div>
                         </div>
-                        {% else %}
-                            <p class="lead text-center">No se encontrarón TIPOS</p>
-                        {% endif %}
-                    </div>
-                    <div class="tab-pane" id="2">
-                        {% if clases %}
-                        <div id="texto" class="table-responsive col-lg-8 col-lg-offset-2">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th>Nombre</th>
-                                        <th>Pdf</th>
-                                        <th>Texto</th>
-                                        <th>Audio</th>
-                                        <th>Video</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {% for clase in clases %}
-                                    <tr>
-                                        <td>{{ clase.clase }}</td>
-                                        <td>{{ clase.pdf }}</td>
-                                        <td>{{ clase.texto }}</td>
-                                        <td>{{ clase.audio }}</td>
-                                        <td>{{ clase.video }}</td>
-                                    </tr>
-                                    {% endfor %}
-                                </tbody>
-                            </table>
-                        </div>
-                        {% else %}
-                            <p class="lead text-center">No se encontrarón CLASES</p>
-                        {% endif %}
-                    </div>
-                    <div class="tab-pane" id="3">
-                        {% if claves %}
-                        <div class="table-responsive col-lg-8 col-lg-offset-2">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th>Nombre</th>
-                                        <th>Pdf</th>
-                                        <th>Texto</th>
-                                        <th>Audio</th>
-                                        <th>Video</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {% for clave in claves %}
-                                    <tr>
-                                        <td>{{ clave.clave }}</td>
-                                        <td>{{ clave.pdf }}</td>
-                                        <td>{{ clave.texto }}</td>
-                                        <td>{{ clave.audio }}</td>
-                                        <td>{{ clave.video }}</td>
-                                    </tr>
-                                    {% endfor %}
-                                </tbody>
-                            </table>
-                        </div>
-                        {% else %}
-                            <p class="lead text-center">No se encontrarón CLAVES</p>
-                        {% endif %}
-                    </div>
-                    <div class="tab-pane" id="4">
-                        {% if tematicas %}
-                        <div class="table-responsive col-lg-8 col-lg-offset-2">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th>Nombre</th>
-                                        <th>Pdf</th>
-                                        <th>Texto</th>
-                                        <th>Audio</th>
-                                        <th>Video</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {% for tematica in tematicas %}
-                                    <tr>
-                                        <td>{{ tematica.tematica }}</td>
-                                        <td>{{ tematica.pdf }}</td>
-                                        <td>{{ tematica.texto }}</td>
-                                        <td>{{ tematica.audio }}</td>
-                                        <td>{{ tematica.video }}</td>
-                                    </tr>
-                                    {% endfor %}
-                                </tbody>
-                            </table>
-                        </div>
-                        {% else %}
-                            <p class="lead text-center">No se encontrarón TEMÁTICAS</p>
-                        {% endif %}
                     </div>
                 </div>
             </div>
