@@ -95,7 +95,7 @@ Video<small>Detalle</small>
                                                                 <button id="play" class="btn btn-primary" onclick="vidplay()"><i class=" fa fa-play-circle-o"></i></button>
                                                             </div>
                                                             <div class="btn-group">
-                                                                <button class="btn btn-primary" onclick="full()"><i class="fa fa-arrows-alt"></i></button>
+                                                                <button class="btn btn-primary" data-toggle="modal" data-target="#filemodal"><i class="fa fa-arrows-alt"></i></button>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -122,6 +122,25 @@ Video<small>Detalle</small>
             </div>
         </div>
     </div>
+    <div id="filemodal" class="modal fade" tabindex="-1" aria-labelledby="kvFileinputModalLabel">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="kv-zoom-actions pull-right"><button type="button" class="btn btn-default btn-close" title="Close detailed preview" data-dismiss="modal" aria-hidden="true"><i class="glyphicon glyphicon-remove"></i></button></div>
+                    <h3 class="modal-title"><small><span class="kv-zoom-title">{{ object.name }} - ({{ object.ruta.size|filesizeformat }})</span></small></h3>
+                </div>
+                <div class="modal-body">
+                    <div class="floating-buttons"></div>
+                    <div class="kv-zoom-body file-zoom-content">
+                        <video id="fuente" class="kv-preview-data" width="100%" height="100%">
+                            <source src="http://www.repositio.com/media/{{ object.ruta }}" type="video/mp4">
+                        </video>
+                    </div>
+                    <button type="button" class="btn btn-navigate btn-prev" title="View previous file" disabled="disabled"><i class="glyphicon glyphicon-triangle-left"></i></button> <button type="button" class="btn btn-navigate btn-next" title="View next file" disabled="disabled"><i class="glyphicon glyphicon-triangle-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- /.widget-user -->
         <script>
         function vidplay() {
@@ -143,14 +162,6 @@ Video<small>Detalle</small>
             video.currentTime = 0;
             video.pause();
             boton.innerHTML = '<i class=" fa fa-play-circle-o"></i>';
-        }
-        function full() {
-            var video = document.getElementById("fuente")
-            if (video.mozRequestFullScreen) {
-                video.mozRequestFullScreen();
-            } else if (video.webkitRequestFullScreen) {
-                video.webkitRequestFullScreen();
-            }  
-        }            
+        }  
         </script>
 {% endblock %}
