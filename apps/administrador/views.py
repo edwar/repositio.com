@@ -136,14 +136,14 @@ class TextoDetailView(DetailView):
     model = Texto
     template_name = 'privado/texto/texto_detail.html'
 
-     def get(self, request, *args, **kwargs):
-        self.object = self.get_object()
-        context = self.get_context_data(object=self.object)
-        texto = Texto.objects.get(pk=self.kwargs['pk'])
-        if not self.request.user.is_authenticated():
-            if str(texto.tipo) == "Privado":
-                return HttpResponseRedirect("/404/")
-        return self.render_to_response(context)
+    def get(self, request, *args, **kwargs):
+    self.object = self.get_object()
+    context = self.get_context_data(object=self.object)
+    texto = Texto.objects.get(pk=self.kwargs['pk'])
+    if not self.request.user.is_authenticated():
+        if str(texto.tipo) == "Privado":
+            return HttpResponseRedirect("/404/")
+    return self.render_to_response(context)
 
     def get_context_object_name(self, obj):
         row = TextoVisto.objects.filter(texto=obj)
@@ -230,7 +230,7 @@ class AudioDetail(DetailView):
     model = Audio
     template_name = 'privado/audio/audio_detail.html'
 
-     def get(self, request, *args, **kwargs):
+    def get(self, request, *args, **kwargs):
         self.object = self.get_object()
         context = self.get_context_data(object=self.object)
         audio = Audio.objects.get(pk=self.kwargs['pk'])
@@ -283,7 +283,7 @@ class VideoDetail(DetailView):
     model = Video
     template_name = 'privado/video/video_detail.html'
 
-     def get(self, request, *args, **kwargs):
+    def get(self, request, *args, **kwargs):
         self.object = self.get_object()
         context = self.get_context_data(object=self.object)
         video = Video.objects.get(pk=self.kwargs['pk'])
@@ -355,7 +355,7 @@ class ImagenDetail(DetailView):
     model = Imagen
     template_name = 'privado/imagen/imagen_detail.html'
 
-     def get(self, request, *args, **kwargs):
+    def get(self, request, *args, **kwargs):
         self.object = self.get_object()
         context = self.get_context_data(object=self.object)
         imagen = Imagen.objects.get(pk=self.kwargs['pk'])
