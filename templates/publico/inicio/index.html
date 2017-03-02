@@ -153,7 +153,9 @@ Inicio
                                             <audio id="fuente" class="kv-preview-data" preload="none">
                                                 <source src="http://www.repositio.com/media/{{ audio.ruta }}" type="audio/mp3">
                                             </audio>
-                                            <i id="audio" class="fa fa-play-circle-o fa-2x"></i>
+                                            <div id="audio">
+                                                <i class="fa fa-play-circle-o fa-2x"></i>
+                                            </div>
                                         </div>
                                     </td>
                                     <td>{{ audio.tipo }}</td>
@@ -216,10 +218,10 @@ Inicio
     boton.onclick = function () {
         if (audio.paused) {
             audio.play();
-            boton.innerHTML === '<i class=" fa fa-pause-circle-o"></i>';
+            boton.innerHTML = '<i class=" fa fa-pause-circle-o"></i>';
         }else {
             audio.pause();
-            boton.innerHTML === '<i class=" fa fa-play-circle-o"></i>';
+            boton.innerHTML = '<i class=" fa fa-play-circle-o"></i>';
         }
     };
 </script>
