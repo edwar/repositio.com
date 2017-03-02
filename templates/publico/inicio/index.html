@@ -135,7 +135,7 @@ Inicio
                                 <tr>
                                     <th class="col-xs-3">Titulo</th>
                                     <th class="col-xs-3">Propietario</th>
-                                    <th class="col-xs-1">Ruta</th>
+                                    <th class="col-xs-1">Play</th>
                                     <th class="col-xs-1">Tipo</th>
                                     <th class="col-xs-1">Clase</th>
                                     <th class="col-xs-1">Creado</th>
@@ -148,7 +148,14 @@ Inicio
                                 <tr>
                                     <td>{{ audio.titulo }}</td>
                                     <td>{{ audio.propietario }}</td>
-                                    <td>{{ audio.ruta }}</td>
+                                    <td>
+                                        <div id="audio" class="kv-file-content">
+                                            <audio id="fuente" class="kv-preview-data" preload="none">
+                                                <source src="http://localhost:8000/media/{{ audio.ruta }}" type="audio/mp3">
+                                            </audio>
+                                            <i id="audio" class="fa fa-play-circle-o fa-2x"></i>
+                                        </div>
+                                    </td>
                                     <td>{{ audio.tipo }}</td>
                                     <td>{{ audio.clase }}</td>
                                     <td>{{ audio.fecha|date:"d/M/Y"|lower }}</td>
@@ -171,7 +178,6 @@ Inicio
                                 <tr>
                                     <th class="col-xs-3">Titulo</th>
                                     <th class="col-xs-3">Propietario</th>
-                                    <th class="col-xs-1">Ruta</th>
                                     <th class="col-xs-1">Tipo</th>
                                     <th class="col-xs-1">Clase</th>
                                     <th class="col-xs-1">Creado</th>
@@ -184,7 +190,6 @@ Inicio
                                 <tr>
                                     <td>{{ video.titulo }}</td>
                                     <td>{{ video.propietario }}</td>
-                                    <td>{{ video.ruta }}</td>
                                     <td>{{ video.tipo }}</td>
                                     <td>{{ video.clase }}</td>
                                     <td>{{ video.fecha|date:"d/M/Y"|lower }}</td>
