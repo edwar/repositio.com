@@ -149,7 +149,7 @@ Inicio
                                     <td>{{ audio.titulo }}</td>
                                     <td>{{ audio.propietario }}</td>
                                     <td>
-                                        <div id="audio" class="kv-file-content">
+                                        <div class="kv-file-content">
                                             <audio id="fuente" class="kv-preview-data" preload="none">
                                                 <source src="http://localhost:8000/media/{{ audio.ruta }}" type="audio/mp3">
                                             </audio>
@@ -210,21 +210,17 @@ Inicio
 </div>
 </div>
 <script>
-    var yourAudio = document.getElementById('fuente'),
-    ctrl = document.getElementById('audio');
+    var audio = document.getElementById('fuente'),
+    boton = document.getElementById('audio');
 
-    ctrl.onclick = function () {
-
-        // Update the Button
-        var pause = ctrl.innerHTML === '<i class="fa fa-pause-circle-o fa-2x"></i>';
-        ctrl.innerHTML = pause ? '<i class="fa fa-play-circle-o fa-2x"></i>' : '<i class="fa fa-pause-circle-o fa-2x"></i>';
-
-        // Update the Audio
-        var method = pause ? 'pause' : 'play';
-        yourAudio[method]();
-
-        // Prevent Default Action
-        return false;
+    boton.onclick = function () {
+        if (audio.paused) {
+            audio.play();
+            boton.innerHTML = '<i class=" fa fa-pause-circle-o fa-3x"></i>';
+        }else {
+            audio.pause();
+            boton.innerHTML = '<i class=" fa fa-play-circle-o fa-3x"></i>';
+        }
     };
 </script>
 {% endblock %}
