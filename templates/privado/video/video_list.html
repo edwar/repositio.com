@@ -32,9 +32,9 @@ Video<small>Lista</small>
                             <td class="col-sm-1">{{ video.fecha|date:"d/M/Y"|lower }}</td>
                             <td class="col-sm-1">{{ video.actualizado|date:"d/M/Y"|lower }}</td>
                             <td class="col-sm-2">
-                                <a href="/administrador/video/detalle/{{ video.id }}" class="btn btn-success col-xs-4"><i class="fa fa-eye"></i></a>
-                                <a href="/administrador/video/editar/{{ video.id }}" class="btn btn-primary col-xs-4"><i class="fa fa-pencil"></i></a>
-                                <a href="/administrador/video/eliminar/{{ video.id }}" class="btn btn-danger col-xs-4"><i class="fa fa-trash"></i></a>
+                                <a href="/administrador/video/detalle/{{ video.id }}" class="btn btn-success"><i class="fa fa-eye"></i></a>
+                                <a href="/administrador/video/editar/{{ video.id }}" class="btn btn-primary"><i class="fa fa-pencil"></i></a>
+                                <a href="/administrador/video/eliminar/{{ video.id }}" class="btn btn-danger"><i class="fa fa-trash"></i></a>
                             </td>
                         </tr>
                     {% endfor %}

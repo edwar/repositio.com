@@ -32,9 +32,9 @@ Imagen<small>Lista</small>
                             <td class="col-xs-1">{{ imagen.fecha|date:"d/M/Y"|lower }}</td>
                             <td class="col-xs-1">{{ imagen.actualizado|date:"d/M/Y"|lower }}</td>
                             <td class="col-xs-2">
-                                <a href="/administrador/imagen/detalle/{{ imagen.id }}" class="btn btn-success col-xs-4"><i class="fa fa-eye"></i></a>
-                                <a href="/administrador/imagen/editar/{{ imagen.id }}" class="btn btn-primary col-xs-4"><i class="fa fa-pencil"></i></a>
-                                <a href="/administrador/imagen/eliminar/{{ imagen.id }}" class="btn btn-danger col-xs-4"><i class="fa fa-trash"></i></a>
+                                <a href="/administrador/imagen/detalle/{{ imagen.id }}" class="btn btn-success"><i class="fa fa-eye"></i></a>
+                                <a href="/administrador/imagen/editar/{{ imagen.id }}" class="btn btn-primary"><i class="fa fa-pencil"></i></a>
+                                <a href="/administrador/imagen/eliminar/{{ imagen.id }}" class="btn btn-danger"><i class="fa fa-trash"></i></a>
                             </td>
                         </tr>
                     {% endfor %}

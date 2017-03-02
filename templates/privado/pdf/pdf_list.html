@@ -36,9 +36,9 @@ Pdf<small>Lista</small>
                             <td>{{ pdf.fecha|date:"d/M/Y"|lower }}</td>
                             <td>{{ pdf.actualizado|date:"d/M/Y"|lower }}</td>
                             <td>
-                                <a href="/administrador/pdf/detalle/{{ pdf.id }}" class="btn btn-success col-xs-4"><i class="fa fa-eye"></i></a>
-                                <a href="/administrador/pdf/editar/{{ pdf.id }}" class="btn btn-primary col-xs-4"><i class="fa fa-pencil"></i></a>
-                                <a href="/administrador/pdf/eliminar/{{ pdf.id }}" class="btn btn-danger col-xs-4"><i class="fa fa-trash"></i></a>
+                                <a href="/administrador/pdf/detalle/{{ pdf.id }}" class="btn btn-success"><i class="fa fa-eye"></i></a>
+                                <a href="/administrador/pdf/editar/{{ pdf.id }}" class="btn btn-primary"><i class="fa fa-pencil"></i></a>
+                                <a href="/administrador/pdf/eliminar/{{ pdf.id }}" class="btn btn-danger"><i class="fa fa-trash"></i></a>
                             </td>
                         </tr>
                     {% endfor %}
