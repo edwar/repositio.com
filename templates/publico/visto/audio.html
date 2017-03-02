@@ -17,6 +17,7 @@ Lo más
                 {% if audios %}
                 <table class="table table-hover table-striped">
                     <tr>
+                        <th>Titulo</th>
                         <th>Play</th>
                         <th>Autor</th>
                         <th>Visualizaciones</th>
@@ -25,17 +26,20 @@ Lo más
                         <th>Acciones</th>
                     </tr>
                     {% for audio in audios %}
+                        <td class="col-xs-3">{{ audio.titulo }}</td>
                         <tr>
-                            <td class="col-xs-3 text-center">
-                                <div id="audio" class="kv-file-content">
-                                    <audio id="fuente" class="kv-preview-data" preload="none">
+                            <td class="col-xs-1 text-center">
+                                <div class="kv-file-content">
+                                    <audio id="fuente{{ audio.pk}}" class="kv-preview-data" preload="none">
                                         <source src="http://www.repositio.com/media/{{ audio.ruta }}" type="audio/mp3">
                                     </audio>
-                                    <i id="audio" class="fa fa-play-circle-o fa-2x"></i>
+                                    <div id="audio{{ audio.pk}}">
+                                        <i class="fa fa-play-circle-o fa-2x"></i>
+                                    </div>
                                 </div>
                             </td>
                             <td class="col-xs-3">{{ audio.propietario }}</td>
-                            <td class="col-xs-2">{{ audio.contador }}</td>
+                            <td class="col-xs-1">{{ audio.contador }}</td>
                             <td class="col-xs-1">{{ audio.fecha|date:"d/M/Y"|lower }}</td>
                             <td class="col-xs-1">{{ audio.actualizado|date:"d/M/Y"|lower }}</td>
                             <td class="col-xs-2">
@@ -61,21 +65,19 @@ Lo más
         <!-- /.box -->
     </div>
     <script>
-    var yourAudio = document.getElementById('fuente'),
-        ctrl = document.getElementById('audio');
+    {% for audio in audios %}
+        var audio{{ audio.pk }} = document.getElementById('fuente{{ audio.pk }}'),
+        boton{{ audio.pk }} = document.getElementById('audio{{ audio.pk }}');
 
-        ctrl.onclick = function () {
-
-            // Update the Button
-            var pause = ctrl.innerHTML === '<i class="fa fa-pause-circle-o fa-2x"></i>';
-            ctrl.innerHTML = pause ? '<i class="fa fa-play-circle-o fa-2x"></i>' : '<i class="fa fa-pause-circle-o fa-2x"></i>';
-
-            // Update the Audio
-            var method = pause ? 'pause' : 'play';
-            yourAudio[method]();
-
-            // Prevent Default Action
-            return false;
+        boton{{ audio.pk }}.onclick = function () {
+            if (audio{{ audio.pk }}.paused) {
+                audio{{ audio.pk }}.play();
+                boton{{ audio.pk }}.innerHTML = '<i class=" fa fa-pause-circle-o fa-2x"></i>';
+            }else {
+                audio{{ audio.pk }}.pause();
+                boton{{ audio.pk }}.innerHTML = '<i class=" fa fa-play-circle-o fa-2x"></i>';
+            }
         };
+    {% endfor %}
     </script>
 {% endblock %}
