@@ -19,8 +19,10 @@ Pdf<small>Lista</small>
             <div class="box-body table-responsive no-padding">
                 <table class="table table-hover table-striped">
                 <tr>
-                    <th class="col-xs-5">Titulo</th>
+                    <th class="col-xs-3">Titulo</th>
                     <th class="col-xs-3">Autor</th>
+                    <th class="col-xs-1">Tipo</th>
+                    <th class="col-xs-1">Clase</th>
                     <th class="col-xs-1">Creado</th>
                     <th class="col-xs-1">Actualizado</th>
                     <th class="col-xs-2">Acciones</th>
@@ -29,6 +31,8 @@ Pdf<small>Lista</small>
                         <tr>
                             <td>{{ pdf.nombre }}</td>
                             <td>{{ pdf.propietario }}</td>
+                            <td>{{ pdf.tipo }}</td>
+                            <td>{{ pdf.clase }}</td>
                             <td>{{ pdf.fecha|date:"d/M/Y"|lower }}</td>
                             <td>{{ pdf.actualizado|date:"d/M/Y"|lower }}</td>
                             <td>
