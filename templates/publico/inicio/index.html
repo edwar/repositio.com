@@ -210,5 +210,21 @@ Inicio
 </div>
 </div>
 <script>
+    var yourAudio = document.getElementById('fuente'),
+    ctrl = document.getElementById('audio');
+
+    ctrl.onclick = function () {
+
+        // Update the Button
+        var pause = ctrl.innerHTML === '<i class="fa fa-pause-circle-o fa-2x"></i>';
+        ctrl.innerHTML = pause ? '<i class="fa fa-play-circle-o fa-2x"></i>' : '<i class="fa fa-pause-circle-o fa-2x"></i>';
+
+        // Update the Audio
+        var method = pause ? 'pause' : 'play';
+        yourAudio[method]();
+
+        // Prevent Default Action
+        return false;
+    };
 </script>
 {% endblock %}
