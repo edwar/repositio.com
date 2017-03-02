@@ -17,21 +17,21 @@ Lo más
                 {% if videos %}
                 <table class="table table-hover table-striped">
                     <tr>
-                        <th>Titulo</th>
-                        <th>Autor</th>
-                        <th>Visualizaciones</th>
-                        <th>Creación</th>
-                        <th>Actualización</th>
-                        <th>Acciones</th>
+                        <th class="col-xs-4">Titulo</th>
+                        <th class="col-xs-3">Autor</th>
+                        <th class="col-xs-2">Visualizaciones</th>
+                        <th class="col-xs-1">Creación</th>
+                        <th class="col-xs-1">Actualización</th>
+                        <th class="col-xs-1">Acciones</th>
                     </tr>
                     {% for video in videos %}
                         <tr>
-                            <td class="col-xs-4">{{ video.nombre }}</td>
-                            <td class="col-xs-3">{{ video.propietario }}</td>
-                            <td class="col-xs-2">{{ video.contador }}</td>
-                            <td class="col-xs-1">{{ video.fecha|date:"d/M/Y"|lower }}</td>
-                            <td class="col-xs-1">{{ video.actualizado|date:"d/M/Y"|lower }}</td>
-                            <td class="col-xs-1">
+                            <td>{{ video.nombre }}</td>
+                            <td>{{ video.propietario }}</td>
+                            <td>{{ video.contador }}</td>
+                            <td>{{ video.fecha|date:"d/M/Y"|lower }}</td>
+                            <td>{{ video.actualizado|date:"d/M/Y"|lower }}</td>
+                            <td>
                                 <a href="/administrador/video/detalle/{{ video.id }}" class="btn btn-success"><i class="fa fa-eye"></i></a>
                             </td>
                         </tr>

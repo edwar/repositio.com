@@ -17,16 +17,16 @@ Lo más
                 {% if audios %}
                 <table class="table table-hover table-striped">
                     <tr>
-                        <th>Titulo</th>
-                        <th>Play</th>
-                        <th>Autor</th>
-                        <th>Visualizaciones</th>
-                        <th>Creación</th>
-                        <th>Actualización</th>
-                        <th>Acciones</th>
+                        <th class="col-xs-3">Titulo</th>
+                        <th class="col-xs-1">Play</th>
+                        <th class="col-xs-3">Autor</th>
+                        <th class="col-xs-1">Visualizaciones</th>
+                        <th class="col-xs-1">Creación</th>
+                        <th class="col-xs-1">Actualización</th>
+                        <th class="col-xs-2">Acciones</th>
                     </tr>
                     {% for audio in audios %}
-                        <td class="col-xs-3">{{ audio.titulo }}</td>
+                        <td>{{ audio.titulo }}</td>
                         <tr>
                             <td class="col-xs-1 text-center">
                                 <div class="kv-file-content">
@@ -38,11 +38,11 @@ Lo más
                                     </div>
                                 </div>
                             </td>
-                            <td class="col-xs-3">{{ audio.propietario }}</td>
-                            <td class="col-xs-1">{{ audio.contador }}</td>
-                            <td class="col-xs-1">{{ audio.fecha|date:"d/M/Y"|lower }}</td>
-                            <td class="col-xs-1">{{ audio.actualizado|date:"d/M/Y"|lower }}</td>
-                            <td class="col-xs-2">
+                            <td>{{ audio.propietario }}</td>
+                            <td>{{ audio.contador }}</td>
+                            <td>{{ audio.fecha|date:"d/M/Y"|lower }}</td>
+                            <td>{{ audio.actualizado|date:"d/M/Y"|lower }}</td>
+                            <td>
                                 <a href="/administrador/audio/detalle/{{ audio.id }}" class="btn btn-success"><i class="fa fa-eye"></i></a>
                             </td>
                         </tr>
