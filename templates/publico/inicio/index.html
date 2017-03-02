@@ -135,6 +135,7 @@ Inicio
                                 <tr>
                                     <th class="col-xs-4">Titulo</th>
                                     <th class="col-xs-4">Propietario</th>
+                                    <th class="col-xs-4">Ruta</th>
                                     <th class="col-xs-1">Creado</th>
                                     <th class="col-xs-1">Actualizado</th>
                                     <th class="col-xs-2">Acciones</th>
@@ -143,6 +144,7 @@ Inicio
                             <tbody>
                                 {% for audio in audios %}
                                 <tr>
+                                    <td>{{ audio.titulo }}</td>
                                     <td>{{ audio.propietario }}</td>
                                     <td>{{ audio.ruta }}</td>
                                     <td>{{ audio.fecha|date:"d/M/Y"|lower }}</td>
@@ -164,7 +166,8 @@ Inicio
                             <thead>
                                 <tr>
                                     <th class="col-xs-4">Titulo</th>
-                                    <th class="col-xs-4">Propietario</th>
+                                    <th class="col-xs-2">Propietario</th>
+                                    <th class="col-xs-2">ruta</th>
                                     <th class="col-xs-1">Creado</th>
                                     <th class="col-xs-1">Actualizado</th>
                                     <th class="col-xs-2">Acciones</th>
@@ -173,6 +176,7 @@ Inicio
                             <tbody>
                                 {% for video in videos %}
                                 <tr>
+                                    <td>{{ video.titulo }}</td>
                                     <td>{{ video.propietario }}</td>
                                     <td>{{ video.ruta }}</td>
                                     <td>{{ video.fecha|date:"d/M/Y"|lower }}</td>
@@ -193,12 +197,5 @@ Inicio
 </div>
 </div>
 <script>
-/*$(document).ready(function () {
-    var tablatexto = $("#texto").DataTable({
-        "language":{
-            url:'',
-        }
-    });
-});*/
 </script>
 {% endblock %}
