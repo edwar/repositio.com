@@ -213,16 +213,16 @@ Inicio
 </div>
 <script>
     {% for audio in audios %}
-        var audio = document.getElementById('fuente{{ audio.pk }}'),
-        boton = document.getElementById('audio{{ audio.pk }}');
+        var audio{{ audio.pk }} = document.getElementById('fuente{{ audio.pk }}'),
+        boton{{ audio.pk }} = document.getElementById('audio{{ audio.pk }}');
 
-        boton.onclick = function () {
-            if (audio.paused) {
-                audio.play();
-                boton.innerHTML = '<i class=" fa fa-pause-circle-o fa-2x"></i>';
+        boton{{ audio.pk }}.onclick = function () {
+            if (audio{{ audio.pk }}.paused) {
+                audio{{ audio.pk }}.play();
+                boton{{ audio.pk }}.innerHTML = '<i class=" fa fa-pause-circle-o fa-2x"></i>';
             }else {
-                audio.pause();
-                boton.innerHTML = '<i class=" fa fa-play-circle-o fa-2x"></i>';
+                audio{{ audio.pk }}.pause();
+                boton{{ audio.pk }}.innerHTML = '<i class=" fa fa-play-circle-o fa-2x"></i>';
             }
         };
     {% endfor %}
