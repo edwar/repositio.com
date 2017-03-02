@@ -133,9 +133,11 @@ Inicio
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th class="col-xs-4">Titulo</th>
-                                    <th class="col-xs-4">Propietario</th>
-                                    <th class="col-xs-4">Ruta</th>
+                                    <th class="col-xs-3">Titulo</th>
+                                    <th class="col-xs-3">Propietario</th>
+                                    <th class="col-xs-1">Ruta</th>
+                                    <th class="col-xs-1">Tipo</th>
+                                    <th class="col-xs-1">Clase</th>
                                     <th class="col-xs-1">Creado</th>
                                     <th class="col-xs-1">Actualizado</th>
                                     <th class="col-xs-2">Acciones</th>
@@ -147,6 +149,8 @@ Inicio
                                     <td>{{ audio.titulo }}</td>
                                     <td>{{ audio.propietario }}</td>
                                     <td>{{ audio.ruta }}</td>
+                                    <td>{{ audio.tipo }}</td>
+                                    <td>{{ audio.clase }}</td>
                                     <td>{{ audio.fecha|date:"d/M/Y"|lower }}</td>
                                     <td>{{ audio.actualizado|date:"d/M/Y"|lower }}</td>
                                     <td><a href="/administrador/audio/detalle/{{ audio.id }}"  class="btn btn-success">ver <i class="fa fa-eye"></i></a></td>
@@ -165,9 +169,11 @@ Inicio
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th class="col-xs-4">Titulo</th>
-                                    <th class="col-xs-2">Propietario</th>
-                                    <th class="col-xs-2">ruta</th>
+                                    <th class="col-xs-3">Titulo</th>
+                                    <th class="col-xs-3">Propietario</th>
+                                    <th class="col-xs-1">Ruta</th>
+                                    <th class="col-xs-1">Tipo</th>
+                                    <th class="col-xs-1">Clase</th>
                                     <th class="col-xs-1">Creado</th>
                                     <th class="col-xs-1">Actualizado</th>
                                     <th class="col-xs-2">Acciones</th>
@@ -179,6 +185,8 @@ Inicio
                                     <td>{{ video.titulo }}</td>
                                     <td>{{ video.propietario }}</td>
                                     <td>{{ video.ruta }}</td>
+                                    <td>{{ video.tipo }}</td>
+                                    <td>{{ video.clase }}</td>
                                     <td>{{ video.fecha|date:"d/M/Y"|lower }}</td>
                                     <td>{{ video.actualizado|date:"d/M/Y"|lower }}</td>
                                     <td><a href="/administrador/video/detalle/{{ video.id }}"  class="btn btn-success">ver <i class="fa fa-eye"></i></a></td>
