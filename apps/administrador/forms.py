@@ -99,7 +99,7 @@ class ImagenForm(forms.ModelForm):
             'titulo':forms.TextInput(attrs={'class':'form-control'}),
             'propietario': forms.Select(attrs={'class': 'selectpicker', 'data-width': '100%', 'data-live-search': 'true','data-container': 'body'}),
             'autor': forms.SelectMultiple(attrs={'class': 'selectpicker', 'data-width': '100%', 'data-live-search': 'true','data-container': 'body', 'title': 'Selecciones los colaboradores'}),
-            'ruta':forms.FileInput(attrs={'class':'file','id':'image_ruta'}),
+            'ruta':forms.FileInput(attrs={'class':'file','id':'image_ruta','multiple':''}),
             'descripcion': forms.Textarea(attrs={'class': 'form-control'}),
             'carrera': forms.Select(attrs={'class': 'selectpicker', 'data-width': '100%', 'data-live-search': 'true','data-container': 'body'}),
             'evento': forms.Select(attrs={'class': 'selectpicker', 'data-width': '100%', 'data-live-search': 'true','data-container': 'body'}),
