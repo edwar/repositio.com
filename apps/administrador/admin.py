@@ -100,7 +100,7 @@ class ImagenAdmin(admin.ModelAdmin):
     list_display = ["titulo", "ruta","activo","fecha","actualizado"]
     list_filter = ["fecha"]
     list_editable = ["activo"]
-    search_fields = ["ruta"]
+    search_fields = ["titulo"]
     class Meta:
         model = Imagen
 
