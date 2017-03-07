@@ -75,6 +75,9 @@ Imagen<small>Detalle</small>
                     </div>
                 </div>
                 <div class="row">
+                    <h2 class="lead text-center">Galeria</h2>
+                </div>
+                <div class="row">
                     <div class="col-xs-12 border-right">
                         <div class="description-block">
                             <div class="row">
@@ -109,6 +112,14 @@ Imagen<small>Detalle</small>
                 </div>
             </div>
             <!-- /.row -->
+            <div class="row">
+                <div class="col-xs-10 col-xs-offset-1">
+                    <fieldset>
+                        <legend class="lead text-center">Descripción</legend>
+                        {% autoescape off %}{{ object.descripcion }}{% endautoescape %}
+                    </fieldset>
+                </div>
+            </div>
         </div>
     </div>
     <!-- /.widget-user -->
