@@ -109,6 +109,12 @@ class ImagenForm(forms.ModelForm):
             'tematica': forms.SelectMultiple(attrs={'class': 'selectpicker', 'data-width': '100%', 'data-live-search': 'true','data-container': 'body', 'title': 'Seleccione las tematicas'}),
         }
 
+    def save(self, commit=True):
+        instance = super(ImagenForm, self).save(commit)
+        for each in self.cleaned_data['ruta']:
+            Foto.objects.create(ruta=each, contenedor=instance)
+        return instance
+
     def __init__(self, *args, **kwargs):
         super(ImagenForm, self).__init__(*args, **kwargs)
         self.fields['propietario'].empty_label = "Seleccione el propietario"

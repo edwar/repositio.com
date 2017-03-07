@@ -238,10 +238,9 @@ class Texto(models.Model):
         super(Texto, self).save(*args, **kwargs)
 
 class Imagen(models.Model):
-    titulo = models.CharField(max_length=50, blank=True, help_text="Este campo hace referencia a nombre de la imagen.")
+    titulo = models.CharField(max_length=50, blank=True, help_text="Este campo hace referencia al contendio.")
     propietario = models.ForeignKey(User, on_delete=models.CASCADE, help_text="Esta lista de opciones le permite referenciar un suaurio propietario de la imagen.")
     autor = models.ManyToManyField(User, related_name='Autor_imagen', blank=True, help_text="Esta lista de opcion multiple le permite relacionar multiples colaboradores a la imagen.")
-    ruta = models.ImageField(upload_to=imagen, help_text="Esta lista de opcines le permite asignar una carrera de enfoque a la imagen.")
     descripcion = models.TextField(help_text="Este campo le permite agregar una pequeña descripción a la imagen que se esta cargando.")
     carrera = models.ForeignKey(Carrera, on_delete=models.CASCADE, help_text="Esta lista de opciones le permite relacionar las carreras a las cuales ")
     evento = models.ForeignKey(Evento, on_delete=models.CASCADE, null=True, blank=True, help_text="Esta lista de selección hace referencia al evento que pertenece el documento si es que aplica.")
@@ -268,6 +267,13 @@ class Imagen(models.Model):
         else:
             self.activo = True
         super(Imagen, self).save(*args, **kwargs)
+
+class Foto(models,Model):
+    contenedor = models.ForeignKey(Imagen, on_delete=models.CASCADE)
+    ruta = models.ImageField(upload_to=imagen, help_text="Esta lista de opcines le permite asignar una carrera de enfoque a la imagen.")
+
+    
+        
 
 
 class Audio(models.Model):
