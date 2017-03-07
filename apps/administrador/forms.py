@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 from django import forms
+from multiupload.fields import MultiFileField
 from .models import *
 
 class AudioForm(forms.ModelForm):
@@ -108,9 +109,10 @@ class ImagenForm(forms.ModelForm):
             'tematica': forms.SelectMultiple(attrs={'class': 'selectpicker', 'data-width': '100%', 'data-live-search': 'true','data-container': 'body', 'title': 'Seleccione las tematicas'}),
         }
 
+    rutas = MultiFileField(min_num=1, max_num=100, max_file_size=1024*1024*5)
+
     def save(self, commit=True):
         instance = super(ImagenForm, self).save(commit)
-        print instance.rutas
         for each in self.cleaned_data['rutas']:
             Foto.objects.create(ruta=each, contenedor=instance)
         return instance
