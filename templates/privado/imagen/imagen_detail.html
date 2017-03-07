@@ -16,7 +16,7 @@ Imagen<small>Detalle</small>
             <!-- Add the bg color to the header using any of the bg-* classes -->
             <div class="widget-user-header bg-aqua-active img-header text-center">
                 <h1 class="widget-user-username">{{ object.nombre }}</h1>
-                <h5 class="widget-user-desc">Detalle del IMAGENES</h5>
+                <h5 class="widget-user-desc">Detalle de IMAGENES</h5>
             </div>
             <div class="widget-user-image">
                 <img class="img-circle" src="{% static 'administrador/img/imagen.png' %}" alt="Pdf Icon">
@@ -41,6 +41,35 @@ Imagen<small>Detalle</small>
                         <div class="description-block">
                             <h5 class="description-header">Clase</h5>
                             <span class="description-text">{{ object.clase|capfirst }}</span>
+                        </div>
+                        <!-- /.description-block -->
+                    </div>
+                    <div class="col-sm-6 border-right">
+                        <div class="description-block">
+                            <h5 class="description-header">Tags</h5>
+                            {% for clave in object.clave.all %}
+                                <p class="description-text">
+                                {{ clave.nombre }}
+                                </p>
+                            {% endfor %}
+                        </div>
+                        <!-- /.description-block -->
+                    </div>
+                    <div class="col-xs-6 border-right">
+                        <div class="description-block">
+                            <h5 class="description-header">Tematicas</h5>
+                            {% for tematica in object.tematica.all %}
+                                <p class="description-text">
+                                {{ tematica.nombre }}
+                                </p>
+                            {% endfor %}
+                        </div>
+                        <!-- /.description-block -->
+                    </div>
+                    <div class="col-xs-12 border-right">
+                        <div class="description-block">
+                            <h5 class="description-header">Area de conocimiento</h5>
+                            <span class="description-text">{{ object.carrera }}</span>
                         </div>
                         <!-- /.description-block -->
                     </div>
