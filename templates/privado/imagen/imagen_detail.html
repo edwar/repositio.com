@@ -54,10 +54,11 @@ Imagen<small>Detalle</small>
                                         <div class="file-live-thumbs">
                                             <div class="file-preview-frame" id="preview-1484797062289-0" data-fileindex="0" data-template="pdf" title="1 _ Perfil y Actualizar Datos.pdf" style="width:160px;height:160px;">
                                                 <div class="kv-file-content">
-						    <img src="http://www.repositio.com/media/{{ object.ruta }}" class="kv-preview-data file-preview-image" title="{{ object.name }}" alt="{{ object.name }}" style="width:20rem;height:15rem;">
-                                                    </div>
+                                                {% for foto in fotos %}
+                                                    <img src="http://www.repositio.com/media/{{ foto.ruta }}" class="kv-preview-data file-preview-image" title="{{ foto.name }}" alt="{{ foto.name }}" style="width:20rem;height:15rem;">
+                                                {% endfor %}
+                                                </div>
                                                 <div class="file-thumbnail-footer">
-                                                <div class="file-footer-caption" title="1 _ Perfil y Actualizar Datos.pdf">{{ object.name }}  <br><samp> ({{ object.ruta.size|filesizeformat }})</samp></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -77,7 +78,9 @@ Imagen<small>Detalle</small>
                                         <div class="modal-body">
                                             <div class="floating-buttons"></div>
                                             <div class="kv-zoom-body file-zoom-content">
-                                                <img src="http://www.repositio.com/media/{{ object.ruta }}" class="kv-preview-data file-preview-image" title="{{ object.name }}" alt="{{ object.name }}" style="width:100%;height:100%;">
+                                            {% for foto in fotos %}
+                                                <img src="http://www.repositio.com/media/{{ foto.ruta }}" class="kv-preview-data file-preview-image" title="{{ foto.name }}" alt="{{ foto.name }}" style="width:100%;height:100%;">
+                                            {% endfor %}
                                             </div>
                                             <button type="button" class="btn btn-navigate btn-prev" title="View previous file" disabled="disabled"><i class="glyphicon glyphicon-triangle-left"></i></button> <button type="button" class="btn btn-navigate btn-next" title="View next file" disabled="disabled"><i class="glyphicon glyphicon-triangle-right"></i></button>
                                         </div>
