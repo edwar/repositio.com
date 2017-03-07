@@ -48,20 +48,17 @@ Imagen<small>Detalle</small>
                 <div class="row">
                     <div class="col-xs-12 border-right">
                         <div class="description-block">
+                            <div class="row">
                             {% for foto in fotos %}
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <div class="thumbnail">
-                                            <a href="#" data-toggle="modal" data-target="#filemodal{{ foto.pk }}">
-                                                <img src="/media/{{ foto.ruta }}" style="width:100%">
-                                            </a>
-                                        </div>
+                                <div class="col-md-4">
+                                    <div class="thumbnail">
+                                        <a href="#" data-toggle="modal" data-target="#filemodal{{ foto.pk }}">
+                                            <img src="/media/{{ foto.ruta }}" style="width:100%">
+                                        </a>
                                     </div>
                                 </div>
                             {% endfor %}
-                            <!--div class="col-xs-4 col-xs-offset-4">
-                                <button type="button" class="btn btn-default" data-toggle="modal" data-target="#filemodal">Ver <i class="fa fa-file-pdf-o"></i></button>
-                            </div-->
+                            </div>
                             {% for foto in fotos %}
                                 <div id="filemodal{{ foto.pk }}" class="modal fade" tabindex="-1" aria-labelledby="kvFileinputModalLabel">
                                     <div class="modal-dialog modal-lg" role="document">
