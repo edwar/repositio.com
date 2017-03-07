@@ -268,7 +268,7 @@ class Imagen(models.Model):
             self.activo = True
         super(Imagen, self).save(*args, **kwargs)
 
-class Foto(models,Model):
+class Foto(models.Model):
     contenedor = models.ForeignKey(Imagen, on_delete=models.CASCADE)
     ruta = models.ImageField(upload_to=imagen, help_text="Esta lista de opcines le permite asignar una carrera de enfoque a la imagen.")
 
