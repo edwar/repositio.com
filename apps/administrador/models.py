@@ -238,7 +238,7 @@ class Texto(models.Model):
         super(Texto, self).save(*args, **kwargs)
 
 class Imagen(models.Model):
-    titulo = models.CharField(max_length=50, blank=True, help_text="Este campo hace referencia al contendio.")
+    titulo = models.CharField(max_length=50, help_text="Este campo hace referencia al contendio.")
     propietario = models.ForeignKey(User, on_delete=models.CASCADE, help_text="Esta lista de opciones le permite referenciar un suaurio propietario de la imagen.")
     autor = models.ManyToManyField(User, related_name='Autor_imagen', blank=True, help_text="Esta lista de opcion multiple le permite relacionar multiples colaboradores a la imagen.")
     descripcion = models.TextField(help_text="Este campo le permite agregar una pequeña descripción a la imagen que se esta cargando.")

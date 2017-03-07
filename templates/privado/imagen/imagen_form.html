@@ -52,7 +52,7 @@ Imagen<small>Crear</small>
                     </div>
                     <div class="form-group">
                         <i class="fa fa-asterisk text-danger" aria-hidden="true"></i><label for="">Imagenes</label><i class="fa fa-question-circle informacion" data-toggle="tooltip" data-placement="top" title="Esta lista de opcines le permite asignar una carrera de enfoque a la imagen."></i>
-                        <input type="file" class="file" id="image_ruta" multiple="">
+                        <input type="file" class="file" id="image_ruta" name="rutas" multiple="">
                     </div>
                     <div class="form-group">
                         {% if form.descripcion.field.required %}<i class="fa fa-asterisk text-danger" aria-hidden="true"></i>{% endif %}{{ form.descripcion.label_tag }} <i class="fa fa-question-circle informacion" data-toggle="tooltip" data-placement="top" title="{{ form.descripcion.help_text|safe }}"></i>
