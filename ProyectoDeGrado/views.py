@@ -173,11 +173,19 @@ class SearchView(View):
     template_name = 'publico/inicio/index.html'
 
     def get(self, *args, **kwargs):
-        if 'q' in self.request.GET and self.request.GET['q'] or 'c' in self.request.GET and self.request.GET['c']:
+        if 'q' in self.request.GET and self.request.GET['q'] or 'c' in self.request.GET and self.request.GET['c'] or not self.request.user.is_authenticated():
+            pdfs = Pdf.objects.all().filter(Q(nombre__icontains=str(self.request.GET['q'])) | Q(clase_id=self.request.GET.get('c')),tipo="PUBLICO")
+            textos = Texto.objects.all().filter(Q(nombre__icontains=str(self.request.GET['q'])) | Q(clase_id=self.request.GET.get('c')),tipo="PUBLICO")
+            audios = Audio.objects.all().filter(Q(titulo__icontains=str(self.request.GET['q'])) | Q(clase_id=self.request.GET.get('c')),tipo="PUBLICO")
+            videos = Video.objects.all().filter(Q(titulo__icontains=str(self.request.GET['q'])) | Q(clase_id=self.request.GET.get('c')),tipo="PUBLICO")
+            ctx = {"pdfs":pdfs,"textos":textos,"audios":audios,"videos":videos}
+            print ctx
+            return render(self.request, self.template_name,ctx)
+        else if 'q' in self.request.GET and self.request.GET['q'] or 'c' in self.request.GET and self.request.GET['c']:
             pdfs = Pdf.objects.all().filter(Q(nombre__icontains=str(self.request.GET['q'])) | Q(clase_id=self.request.GET.get('c')))
             textos = Texto.objects.all().filter(Q(nombre__icontains=str(self.request.GET['q'])) | Q(clase_id=self.request.GET.get('c')))
-            audios = Audio.objects.all().filter(Q(descripcion__icontains=str(self.request.GET['q'])))
-            videos = Video.objects.all().filter(Q(descripcion__icontains=str(self.request.GET['q'])))
+            audios = Audio.objects.all().filter(Q(titulo__icontains=str(self.request.GET['q'])) | Q(clase_id=self.request.GET.get('c')))
+            videos = Video.objects.all().filter(Q(titulo__icontains=str(self.request.GET['q'])) | Q(clase_id=self.request.GET.get('c')))
             ctx = {"pdfs":pdfs,"textos":textos,"audios":audios,"videos":videos}
             print ctx
             return render(self.request, self.template_name,ctx)

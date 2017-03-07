@@ -277,6 +277,7 @@ class Foto(models.Model):
 
 
 class Audio(models.Model):
+    titulo = models.CharField(max_length=50, help_text="Este campo hace referencia al contendio.")
     propietario = models.ForeignKey(User, on_delete=models.CASCADE, help_text="Este campo hac referencia al dueño o propietario del texto.")
     autor = models.ManyToManyField(User, related_name='Actor_audio', blank=True, help_text="Esta lista de selección multiple le permitira referenciar a todos los colaboradores del documento.")
     descripcion = models.TextField('Descripcion', help_text="Este campo hace referencia a una pequeña descripción corta de audio que se esta cargando en el sistema.")
