@@ -110,6 +110,7 @@ class ImagenForm(forms.ModelForm):
 
     def save(self, commit=True):
         instance = super(ImagenForm, self).save(commit)
+        print instance
         for each in self.cleaned_data['rutas']:
             Foto.objects.create(ruta=each, contenedor=instance)
         return instance
