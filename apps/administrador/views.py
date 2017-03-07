@@ -358,8 +358,9 @@ class ImagenDetail(DetailView):
 
     def get(self, request, *args, **kwargs):
         self.object = self.get_object()
-        context = self.get_context_data(object=self.object)
         imagen = Imagen.objects.get(pk=self.kwargs['pk'])
+        fotos = Fotos.objects.filter(contenedor=self.kwargs['pk'])
+        context = self.get_context_data(object=self.object, fotos=fotos)
         if not self.request.user.is_authenticated():
             if str(imagen.tipo) == "Privado":
                 return HttpResponseRedirect("/404/")
