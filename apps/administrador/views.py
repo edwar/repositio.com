@@ -333,6 +333,7 @@ class ImagenCreateView(CreateView):
     template_name = 'privado/imagen/imagen_form.html'
     success_url = '/administrador/imagen/lista/'
 
+
 @method_decorator(decoradores, name='dispatch')
 class ImagenListView(ListView):
     model = Imagen
