@@ -12,7 +12,7 @@ def texto(self, filename):
 
 
 def imagen(self, filename):
-    url = '%s/imagenes/%s' % (self.contenido.propietario, filename)
+    url = '%s/imagenes/%s' % (self.contenedor.propietario, filename)
     return url
 
 
