@@ -97,7 +97,7 @@ class ImagenAdminForm(forms.ModelForm):
 
 class ImagenAdmin(admin.ModelAdmin):
     form = ImagenAdminForm
-    list_display = ["titulo", "ruta","activo","fecha","actualizado"]
+    list_display = ["titulo","activo","fecha","actualizado"]
     list_filter = ["fecha"]
     list_editable = ["activo"]
     search_fields = ["titulo"]
