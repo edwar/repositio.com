@@ -37,7 +37,7 @@ Pdf<small>Crear</small>
                         <div class="btn-group bootstrap-select dropup" style="width: 100%;">
                             <select class="selectpicker" data-container="body" data-live-search="true" data-width="100%" id="id_propietario" name="propietario" required="" tabindex="-98">
                                 <option value="" selected="selected">Seleccione el propietario</option>
-                                <option value="{{ request.user.username.pk }}">{{ request.user.username}}</option>
+                                <option value="{{ request.user.pk }}">{{ request.user.username}}</option>
                             </select>
                         </div>
                     </div>
