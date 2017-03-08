@@ -35,8 +35,9 @@ Pdf<small>Crear</small>
                         <label for="id_propietario">Propietario:</label>
                         <i class="fa fa-question-circle informacion" data-toggle="tooltip" data-placement="top" title="Esta lista de selección hace referencia al propietario o dueño del archivo a crear."></i>
                         <div class="btn-group bootstrap-select dropup" style="width: 100%;">
-                            <select class="selectpicker" data-container="body" data-live-search="true" data-width="100%" id="id_propietario" name="propietario" required="" tabindex="-98" readonly="readonly">
-                                <option value="{{ request.user.username.pk }}" selected="selected">{{ request.user.username}}</option>
+                            <select class="selectpicker" data-container="body" data-live-search="true" data-width="100%" id="id_propietario" name="propietario" required="" tabindex="-98">
+                                <option value="" selected="selected">Seleccione el propietario</option>
+                                <option value="{{ request.user.username.pk }}">{{ request.user.username}}</option>
                             </select>
                         </div>
                     </div>
