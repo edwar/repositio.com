@@ -30,21 +30,11 @@ Pdf<small>Crear</small>
                         </div>
                         {% endif %}
                     </div>
-                    <div class="form-group">
-                        {% if form.propietario.field.required %}<i class="fa fa-asterisk text-danger" aria-hidden="true"></i>{% endif %}{{ form.propietario.label_tag }} <i class="fa fa-question-circle informacion" data-toggle="tooltip" data-placement="top" title="{{ form.propietario.help_text|safe }}"></i>
-                        {{ form.propietario}}
-                        {% if form.propietario.errors %}
-                        <div class="alert alert-danger alert-dismissable fade in">
-                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                            <strong>{{ form.propietario.errors.as_text }}</strong>
-                        </div>
-                        {% endif %}
+                    <div class="btn-group bootstrap-select dropup" style="width: 100%;">
+                        <select class="selectpicker" data-container="body" data-live-search="true" data-width="100%" id="id_propietario" name="propietario" required="" tabindex="-98" readonly="readonly">
+                            <option value="{{ request.user.username.pk }}" selected="selected">{{ request.user.username}}</option>
+                        </select>
                     </div>
-                    <!--div class="form-group">
-                        <i class="fa fa-asterisk text-danger" aria-hidden="true"></i><label for="id_propirtario">Propietario:</label> <i class="fa fa-question-circle informacion" data-toggle="tooltip" data-placement="top" title="Este campo contiene el propietario del documento"></i>
-                        {{ form.propietario }}
-                        <input type="text" class="form-control" value="{{ request.user.username.pk }}" name="propietario" readonly="readonly">
-                    </div-->
                     <div class="form-group">
                         {% if form.autor.field.required %}<i class="fa fa-asterisk text-danger" aria-hidden="true"></i>{% endif %}{{ form.autor.label_tag }} <i class="fa fa-question-circle informacion" data-toggle="tooltip" data-placement="top" title="{{ form.autor.help_text|safe }}"></i>
                         {{ form.autor }}
