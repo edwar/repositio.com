@@ -50,8 +50,6 @@ class PdfForm(forms.ModelForm):
             'carrera': forms.Select(attrs={'class':'selectpicker', 'data-width':'100%', 'data-live-search':'true','data-container':'body'}),
         }
 
-
-
     def __init__(self, *args, **kwargs):
         super(PdfForm, self).__init__(*args, **kwargs)
         self.fields['nombre'].label = "Titulo"
