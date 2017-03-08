@@ -7,9 +7,9 @@ from .models import *
 class AudioForm(forms.ModelForm):
     class Meta:
         model = Audio
-        fields = ['propietario', 'autor', 'descripcion', 'ruta', 'evento', 'carrera', 'tipo','clase' ,'clave', 'tematica']
+        fields = ['titulo', 'autor', 'descripcion', 'ruta', 'evento', 'carrera', 'tipo','clase' ,'clave', 'tematica']
         widgets = {
-            'propietario': forms.Select(attrs={'class':'form-control'}),
+            'titulo':forms.TextInput(attrs={'class':'form-control'}),
             'autor': forms.SelectMultiple(attrs={'class':'selectpicker', 'data-width':'100%', 'data-live-search':'true','data-container':'body','title':'Seleccione los colaboradores'}),
             'descripcion': forms.Textarea(attrs={'class':'form-control'}),
             'ruta': forms.FileInput(attrs={'class':'file','id':'audio_ruta'}),
@@ -20,11 +20,10 @@ class AudioForm(forms.ModelForm):
             'clave': forms.SelectMultiple(attrs={'class':'selectpicker', 'data-width':'100%', 'data-live-search':'true','data-container':'body','title':'Seleccione las claves'}),
             'tematica': forms.SelectMultiple(attrs={'class':'selectpicker', 'data-width':'100%', 'data-live-search':'true','data-container':'body','title':'Seleccione las tematicas'}),
         }
+        exclude = ('propietario',)
 
     def __init__(self, *args, **kwargs):
         super(AudioForm, self).__init__(*args, **kwargs)
-        self.fields['propietario'].label = "Propietario"
-        self.fields['propietario'].empty_label = "Seleccione un propietario"
         self.fields['descripcion'].label = "Descripcion"
         self.fields['carrera'].empty_label = "Seleccione la carrera enfoque del audio"
         self.fields['tipo'].empty_label = "Seleccione un tipo"
@@ -35,10 +34,9 @@ class AudioForm(forms.ModelForm):
 class PdfForm(forms.ModelForm):
     class Meta:
         model = Pdf
-        fields = ['nombre','propietario','autor','descripcion','ruta', 'evento', 'tipo','clase','clave','tematica','carrera','descargable']
+        fields = ['nombre','autor','descripcion','ruta', 'evento', 'tipo','clase','clave','tematica','carrera','descargable']
         widgets = {
             'nombre': forms.TextInput(attrs={'class':'form-control'}),
-            'propietario': forms.Select(attrs={'class':'selectpicker', 'data-width':'100%', 'data-live-search':'true','data-container':'body'}),
             'autor': forms.SelectMultiple(attrs={'class':'selectpicker', 'data-width':'100%', 'data-live-search':'true','data-container':'body','title':'Seleccione los colaboradores'}),
             'descripcion':forms.Textarea(attrs={'class':'form-control'}),
             'ruta':forms.FileInput(attrs={'class':'file','id':'pdf_ruta'}),
@@ -50,12 +48,17 @@ class PdfForm(forms.ModelForm):
             'tematica': forms.SelectMultiple(attrs={'class':'selectpicker', 'data-width':'100%', 'data-live-search':'true','data-container':'body','title':'Seleccione las tematicas'}),
             'carrera': forms.Select(attrs={'class':'selectpicker', 'data-width':'100%', 'data-live-search':'true','data-container':'body'}),
         }
+        exclude = ('propietario',)
+
+    def form_valid(self, form):
+        form.propietario = self.request.user
+        form.save()
+        return super(PdfCreateView, self).form_valid(form)
 
 
     def __init__(self, *args, **kwargs):
         super(PdfForm, self).__init__(*args, **kwargs)
         self.fields['nombre'].label = "Titulo"
-        self.fields['propietario'].empty_label = "Seleccione su usuario"
         self.fields['autor'].label = "Colaboradores"
         self.fields['descripcion'].label = "Pequeña descripción"
         self.fields['ruta'].label = "Adjunte el archivo"
@@ -69,10 +72,9 @@ class PdfForm(forms.ModelForm):
 class TextoForm(forms.ModelForm):
     class Meta:
         model = Texto
-        fields = ['nombre', 'propietario', 'colaborador', 'texto', 'carrera', 'tipo', 'evento', 'clase', 'clave', 'tematica']
+        fields = ['nombre', 'colaborador', 'texto', 'carrera', 'tipo', 'evento', 'clase', 'clave', 'tematica']
         widgets = {
             'nombre': forms.TextInput(attrs={'class': 'form-control','placeholder':'Nombre del texto'}),
-            'propietario': forms.Select(attrs={'class': 'selectpicker', 'data-width': '100%', 'data-live-search': 'true','data-container': 'body'}),
             'colaborador': forms.SelectMultiple(attrs={'class': 'selectpicker', 'data-width': '100%', 'data-live-search': 'true','data-container': 'body', 'title': 'Selecciones los colaboradores'}),
             'texto': forms.Textarea(attrs={'class':'form-control'}),
             'carrera': forms.Select(attrs={'class': 'selectpicker', 'data-width': '100%', 'data-live-search': 'true','data-container': 'body'}),
@@ -82,11 +84,11 @@ class TextoForm(forms.ModelForm):
             'clave': forms.SelectMultiple(attrs={'class': 'selectpicker', 'data-width': '100%', 'data-live-search': 'true','data-container': 'body', 'title':'Seleccione las claves'}),
             'tematica': forms.SelectMultiple(attrs={'class': 'selectpicker', 'data-width': '100%', 'data-live-search': 'true','data-container': 'body', 'title':'Seleccione las tematicas'}),
         }
+        exclude = ('propietario',)
 
     def __init__(self, *args, **kwargs):
         super(TextoForm, self).__init__(*args, **kwargs)
         self.fields['nombre'].empty_label = "Titulo"
-        self.fields['propietario'].empty_label = "Seleccione el propietario"
         self.fields['carrera'].empty_label = "Seleccione la carrera enfoque del TEXTO"
         self.fields['tipo'].empty_label = "Seleccione un tipo"
         self.fields['evento'].empty_label = "Seleccione un evento"
@@ -95,10 +97,9 @@ class TextoForm(forms.ModelForm):
 class ImagenForm(forms.ModelForm):
     class Meta:
         model = Imagen
-        fields = ['titulo','propietario', 'autor', 'descripcion', 'carrera', 'evento', 'tipo', 'clase', 'clave', 'tematica']
+        fields = ['titulo', 'autor', 'descripcion', 'carrera', 'evento', 'tipo', 'clase', 'clave', 'tematica']
         widgets = {
             'titulo':forms.TextInput(attrs={'class':'form-control'}),
-            'propietario': forms.Select(attrs={'class': 'selectpicker', 'data-width': '100%', 'data-live-search': 'true','data-container': 'body'}),
             'autor': forms.SelectMultiple(attrs={'class': 'selectpicker', 'data-width': '100%', 'data-live-search': 'true','data-container': 'body', 'title': 'Selecciones los colaboradores'}),
             'descripcion': forms.Textarea(attrs={'class': 'form-control'}),
             'carrera': forms.Select(attrs={'class': 'selectpicker', 'data-width': '100%', 'data-live-search': 'true','data-container': 'body'}),
@@ -108,6 +109,7 @@ class ImagenForm(forms.ModelForm):
             'clave': forms.SelectMultiple(attrs={'class': 'selectpicker', 'data-width': '100%', 'data-live-search': 'true','data-container': 'body', 'title': 'Seleccione las claves'}),
             'tematica': forms.SelectMultiple(attrs={'class': 'selectpicker', 'data-width': '100%', 'data-live-search': 'true','data-container': 'body', 'title': 'Seleccione las tematicas'}),
         }
+        exclude = ('propietario',)
 
     rutas = MultiFileField(min_num=1, max_num=100, max_file_size=1024*1024*5)
 
@@ -119,7 +121,6 @@ class ImagenForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super(ImagenForm, self).__init__(*args, **kwargs)
-        self.fields['propietario'].empty_label = "Seleccione el propietario"
         self.fields['autor'].empty_label = "Seleccione la carrera enfoque del TEXTO"
         self.fields['carrera'].empty_label = "Seleccione una carrera"
         self.fields['tipo'].empty_label = "Seleccione un tipo"
@@ -155,9 +156,9 @@ class EventoForm(forms.ModelForm):
 class VideoForm(forms.ModelForm):
     class Meta:
         model = Video
-        fields = ['propietario', 'autor', 'descripcion', 'ruta', 'carrera', 'evento', 'tipo', 'clase', 'clave', 'tematica']
+        fields = ['titulo', 'autor', 'descripcion', 'ruta', 'carrera', 'evento', 'tipo', 'clase', 'clave', 'tematica']
         widgets = {
-            'propietario': forms.Select(attrs={'class':'form-control'}),
+            'titulo': forms.TextInput(attrs={'class':'form-control'}),
             'autor': forms.SelectMultiple(attrs={'class':'selectpicker', 'data-width':'100%', 'data-live-search':'true','data-container':'body',"title":"Seleccione los colaboradores"}),
             'descripcion': forms.Textarea(attrs={'class':'form-control'}),
             'ruta': forms.FileInput(attrs={'class':'file','id':'audio_ruta'}),
@@ -168,11 +169,10 @@ class VideoForm(forms.ModelForm):
             'clave': forms.SelectMultiple(attrs={'class':'selectpicker', 'data-width':'100%', 'data-live-search':'true','data-container':'body',"title":"Seleccione las palabras claves"}),
             'tematica': forms.SelectMultiple(attrs={'class':'selectpicker', 'data-width':'100%', 'data-live-search':'true','data-container':'body',"title":"Seleccione las tematicas"}),
         }
+        exclude = ('propietario',)
 
     def __init__(self, *args, **kwargs):
         super(VideoForm, self).__init__(*args, **kwargs)
-        self.fields['propietario'].label = "Propietario"
-        self.fields['propietario'].empty_label = "Seleccione un propietario"
         self.fields['autor'].label = "Colaboradores"
         self.fields['carrera'].empty_label = "Seleccione la carrera enfoque del VIDEO"
         self.fields['descripcion'].label = "Descripcion"
