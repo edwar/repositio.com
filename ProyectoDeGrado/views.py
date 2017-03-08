@@ -174,10 +174,10 @@ class SearchView(View):
 
     def get(self, *args, **kwargs):
         if 'q' in self.request.GET and self.request.GET['q'] or 'c' in self.request.GET and self.request.GET['c'] or not self.request.user.is_authenticated():
-            pdfs = Pdf.objects.all().filter(Q(nombre__icontains=str(self.request.GET['q'])) | Q(clase_id=self.request.GET.get('c')),tipo="PUBLICO")
-            textos = Texto.objects.all().filter(Q(nombre__icontains=str(self.request.GET['q'])) | Q(clase_id=self.request.GET.get('c')),tipo="PUBLICO")
-            audios = Audio.objects.all().filter(Q(titulo__icontains=str(self.request.GET['q'])) | Q(clase_id=self.request.GET.get('c')),tipo="PUBLICO")
-            videos = Video.objects.all().filter(Q(titulo__icontains=str(self.request.GET['q'])) | Q(clase_id=self.request.GET.get('c')),tipo="PUBLICO")
+            pdfs = Pdf.objects.all().filter(Q(nombre__icontains=str(self.request.GET['q'])) | Q(clase_id=self.request.GET.get('c')),tipo=2)
+            textos = Texto.objects.all().filter(Q(nombre__icontains=str(self.request.GET['q'])) | Q(clase_id=self.request.GET.get('c')),tipo=2)
+            audios = Audio.objects.all().filter(Q(titulo__icontains=str(self.request.GET['q'])) | Q(clase_id=self.request.GET.get('c')),tipo=2)
+            videos = Video.objects.all().filter(Q(titulo__icontains=str(self.request.GET['q'])) | Q(clase_id=self.request.GET.get('c')),tipo=2)
             ctx = {"pdfs":pdfs,"textos":textos,"audios":audios,"videos":videos}
             print ctx
             return render(self.request, self.template_name,ctx)
