@@ -22,7 +22,7 @@ Pdf<small>Crear</small>
                     {{ form.non_field_errors }}
                     <div class="form-group">
                         {% if form.nombre.field.required %}<i class="fa fa-asterisk text-danger" aria-hidden="true"></i>{% endif %}{{ form.nombre.label_tag }} <i class="fa fa-question-circle informacion" data-toggle="tooltip" data-placement="top" title="{{ form.nombre.help_text|safe }}"></i>
-                        <input type="text" value="{{ request.user.username }}" name="propietario" disabled="disabled">
+                        <input type="text" class="form-control" value="{{ request.user.username }}" name="propietario" disabled="disabled">
                         {% if form.nombre.errors %}
                         <div class="alert alert-danger alert-dismissable fade in">
                             <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
