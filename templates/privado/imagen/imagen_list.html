@@ -19,6 +19,7 @@ Imagen<small>Lista</small>
             <div class="box-body table-responsive no-padding">
                 <table class="table table-hover table-striped">
                 <tr>
+                    <th>Titulo</th>
                     <th>Autor</th>
                     <th>Tipo</th>
                     <th>Clase</th>
@@ -28,7 +29,8 @@ Imagen<small>Lista</small>
                 </tr>
                     {% for imagen in object_list %}
                         <tr class="text-justify">
-                            <td class="col-xs-4">{{ imagen.propietario }}</td>
+                            <td class="col-xs-2">{{ imagen.titulo }}</td>
+                            <td class="col-xs-2">{{ imagen.propietario }}</td>
                             <td class="col-xs-2">{{ imagen.tipo }}</td>
                             <td class="col-xs-2">{{ imagen.clase }}</td>
                             <td class="col-xs-1">{{ imagen.fecha|date:"d/M/Y"|lower }}</td>

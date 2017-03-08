@@ -19,6 +19,7 @@ Video<small>Lista</small>
             <div class="box-body table-responsive no-padding">
                 <table class="table table-hover table-striped">
                 <tr>
+                    <th>Titulo</th>
                     <th>Descripción</th>
                     <th>Autor</th>
                     <th>Creación</th>
@@ -27,7 +28,8 @@ Video<small>Lista</small>
                 </tr>
                     {% for video in object_list %}
                         <tr>
-                            <td class="col-sm-5">{% autoescape off %}{{ video.descripcion }}{% endautoescape %}</td>
+                            <td class="col-sm-2">{{ video.titulo }}</td>
+                            <td class="col-sm-3">{% autoescape off %}{{ video.descripcion }}{% endautoescape %}</td>
                             <td class="col-sm-3">{{ video.propietario }}</td>
                             <td class="col-sm-1">{{ video.fecha|date:"d/M/Y"|lower }}</td>
                             <td class="col-sm-1">{{ video.actualizado|date:"d/M/Y"|lower }}</td>
