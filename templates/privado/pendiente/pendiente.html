@@ -51,8 +51,8 @@ Audio<small>Lista</small>
                                         <tr>
                                             <td>{{ pdf.nombre }}</td>
                                             <td>{{ pdf.propietario }}</td>
-                                            <td>{{ pdf.fecha }}</td>
-                                            <td>{{ pdf.actualizado }}</td>
+                                            <td>{{ pdf.fecha|date:"d/M/Y"|lower }}</td>
+                                            <td>{{ pdf.actualizado|date:"d/M/Y"|lower }}</td>
                                             <td><a href="/administrador/pdf/activar/{{ pdf.id }}"  class="btn btn-success">Activa <i class="fa fa-check-square-o"></i></a> <a href="/administrador/pdf/detalle/{{ pdf.id }}"  class="btn btn-info">ver <i class="fa fa-eye"></i></a></td>
                                         </tr>
                                         {% endfor %}
@@ -81,8 +81,8 @@ Audio<small>Lista</small>
                                         <tr>
                                             <td>{{ texto.nombre }}</td>
                                             <td>{{ texto.propietario }}</td>
-                                            <td>{{ texto.fecha }}</td>
-                                            <td>{{ texto.actualizado }}</td>
+                                            <td>{{ texto.fecha|date:"d/M/Y"|lower }}</td>
+                                            <td>{{ texto.actualizado|date:"d/M/Y"|lower }}</td>
                                             <td><a href="/administrador/texto/activar/{{ texto.id }}"  class="btn btn-success">Activar <i class="fa fa-check-square-o"></i></a> <a href="/administrador/texto/detalle/{{ texto.id }}"  class="btn btn-info">Ver <i class="fa fa-eye"></i></td>
                                         </tr>
                                         {% endfor %}
@@ -101,6 +101,7 @@ Audio<small>Lista</small>
                                         <tr>
                                             <th>Titulo</th>
                                             <th>Propietario</th>
+                                            <th>Play</th>
                                             <th>Creado</th>
                                             <th>Actualizado</th>
                                             <th>Acciones</th>
@@ -109,6 +110,7 @@ Audio<small>Lista</small>
                                     <tbody>
                                         {% for audio in audios %}
                                         <tr>
+                                            <td>{{ audio.titulo }}</td>
                                             <td>{{ audio.propietario }}</td>
                                             <td>
                                                 <div id="audio" class="kv-file-content">
@@ -118,8 +120,8 @@ Audio<small>Lista</small>
                                                     <i id="audio" class="fa fa-play-circle-o fa-2x"></i>
                                                 </div>
                                             </td>
-                                            <td>{{ audio.fecha }}</td>
-                                            <td>{{ audio.actualizado }}</td>
+                                            <td>{{ audio.fecha|date:"d/M/Y"|lower }}</td>
+                                            <td>{{ audio.actualizado|date:"d/M/Y"|lower }}</td>
                                             <td><a href="/administrador/audio/activar/{{ audio.id }}"  class="btn btn-success">Activar <i class="fa fa-check-square-o"></i></a> <a href="/administrador/audio/detalle/{{ audio.id }}"  class="btn btn-info">ver <i class="fa fa-eye"></i></a></td>
                                         </tr>
                                         {% endfor %}
@@ -146,10 +148,10 @@ Audio<small>Lista</small>
                                     <tbody>
                                         {% for video in videos %}
                                         <tr>
+                                            <td>{{ video.titulo }}</td>
                                             <td>{{ video.propietario }}</td>
-                                            <td>{{ video.ruta }}</td>
-                                            <td>{{ video.fecha }}</td>
-                                            <td>{{ video.actualizado }}</td>
+                                            <td>{{ video.fecha|date:"d/M/Y"|lower }}</td>
+                                            <td>{{ video.actualizado|date:"d/M/Y"|lower }}</td>
                                             <td><a href="/administrador/video/activar/{{ video.id }}"  class="btn btn-success">Activar <i class="fa fa-check-square-o"></i></a> <a href="/administrador/video/detalle/{{ video.id }}"  class="btn btn-info">ver <i class="fa fa-eye"></i></a></td>
                                         </tr>
                                         {% endfor %}
@@ -176,10 +178,10 @@ Audio<small>Lista</small>
                                     <tbody>
                                         {% for imagen in imagenes %}
                                         <tr>
+                                            <td>{{ imagen.titulo }}</td>
                                             <td>{{ imagen.propietario }}</td>
-                                            <td>{{ imagen.ruta }}</td>
-                                            <td>{{ imagen.fecha }}</td>
-                                            <td>{{ imagen.actualizado }}</td>
+                                            <td>{{ imagen.fecha|date:"d/M/Y"|lower }}</td>
+                                            <td>{{ imagen.actualizado|date:"d/M/Y"|lower }}</td>
                                             <td><a href="/administrador/imagen/activar/{{ imagen.id }}"  class="btn btn-success">Activar <i class="fa fa-check-square-o"></i></a> <a href="/administrador/imagen/detalle/{{ imagen.id }}"  class="btn btn-info">ver <i class="fa fa-eye"></i></a></td>
                                         </tr>
                                         {% endfor %}
