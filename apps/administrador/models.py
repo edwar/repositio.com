@@ -348,6 +348,7 @@ class Pdf(models.Model):
         super(Pdf, self).save(*args, **kwargs)
 
 class Video(models.Model):
+    titulo = models.CharField(max_length=50, help_text="Este campo hace referencia al contendio.")
     propietario = models.ForeignKey(User, on_delete=models.CASCADE, help_text="Esta lista de selección hace referencia a propietario dueño del video.")
     autor = models.ManyToManyField(Perfil, related_name='Actor_video', blank=True, help_text="Esta lista de seleccion multiple hace referencia a los colaboradores que tuvierón participación el el video.")
     descripcion = models.TextField('Descripcion', help_text="Este campo hace referencia a una breve descripción del contenido del video.")
