@@ -33,7 +33,7 @@ urlpatterns = [
     url(r'^admin/repositio/', admin.site.urls),
     #Url de inicio
     url(r'^$', InicioView.as_view()),
-    url(r'^busqueda/', SearchView.as_view()),
+    url(r'^busqueda/', SearchView.as_view(), namespace="busqueda"),
     #Url de login
     url(r'^sesion/',logout_required(login),{'template_name':'publico/sesion/inicio.html'},name="login"),
     #Url de login

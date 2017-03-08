@@ -158,13 +158,11 @@
                 <!-- sidebar menu: : style can be found in sidebar.less -->
                 <ul class="sidebar-menu">
                     <li class="header">IR A</li>
-                    {% if user.is_authenticated %}
-                        {% with request.resolver_match.url_name as url_name %}
-                            <li class="{% if url_name == 'inicio' %}active{% endif %}"><a href="/administrador/"><i class="fa fa-dashboard"></i> <span>Administración</span></a></li>
-                        {% endwith %}
-                    {% endif %}
                     {% with request.resolver_match.url_name as url_name %}
-                        <li><a href="/"><i class="fa fa-search"></i> <span>Busqueda</span></a></li>
+                        {% if user.is_authenticated %}
+                            <li class="{% if url_name == 'inicio' %}active{% endif %}"><a href="/administrador/"><i class="fa fa-dashboard"></i> <span>Administración</span></a></li>
+                        {% endif %}
+                        <li class="{% if url_name == 'busqueda' %}active{% endif %}"><a href="/"><i class="fa fa-search"></i> <span>Busqueda</span></a></li>
                         <li><a href="/blog/"><i class="fa fa-book"></i> <span>Blog</span></a></li>
                     {% endwith %}
                     {% with request.resolver_match.url_name as url_name %}
