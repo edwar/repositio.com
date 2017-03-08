@@ -7,9 +7,10 @@ from .models import *
 class AudioForm(forms.ModelForm):
     class Meta:
         model = Audio
-        fields = ['titulo', 'autor', 'descripcion', 'ruta', 'evento', 'carrera', 'tipo','clase' ,'clave', 'tematica']
+        fields = ['titulo', 'propietario', 'autor', 'descripcion', 'ruta', 'evento', 'carrera', 'tipo','clase' ,'clave', 'tematica']
         widgets = {
             'titulo':forms.TextInput(attrs={'class':'form-control'}),
+            'propietario':forms.TextInput(attrs={'class':'form-control'}),
             'autor': forms.SelectMultiple(attrs={'class':'selectpicker', 'data-width':'100%', 'data-live-search':'true','data-container':'body','title':'Seleccione los colaboradores'}),
             'descripcion': forms.Textarea(attrs={'class':'form-control'}),
             'ruta': forms.FileInput(attrs={'class':'file','id':'audio_ruta'}),
