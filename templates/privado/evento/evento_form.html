@@ -31,12 +31,12 @@ Evento<small>Crear</small>
                         {% endif %}
                     </div>
                     <div class="form-group">
-                        {% if form.encargado.field.required %}<i class="fa fa-asterisk text-danger" aria-hidden="true"></i>{% endif %}{{ form.encargado.label_tag }}
-                        {{ form.encargado }}
-                        {% if form.encargado.errors %}
+                        {% if form.nombre.field.required %}<i class="fa fa-asterisk text-danger" aria-hidden="true"></i>{% endif %}{{ form.nombre.label_tag }} <i class="fa fa-question-circle informacion" data-toggle="tooltip" data-placement="top" title="{{ form.nombre.help_text|safe }}"></i>
+                        <input type="text" value="{{ request.user.username }}" name="encargado" disabled="disabled">
+                        {% if form.nombre.errors %}
                         <div class="alert alert-danger alert-dismissable fade in">
                             <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                            <strong>{{ form.encargado.errors.as_text }}</strong>
+                            <strong>{{ form.nombre.errors.as_text }}</strong>
                         </div>
                         {% endif %}
                     </div>

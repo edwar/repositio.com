@@ -20,7 +20,6 @@ class AudioForm(forms.ModelForm):
             'clave': forms.SelectMultiple(attrs={'class':'selectpicker', 'data-width':'100%', 'data-live-search':'true','data-container':'body','title':'Seleccione las claves'}),
             'tematica': forms.SelectMultiple(attrs={'class':'selectpicker', 'data-width':'100%', 'data-live-search':'true','data-container':'body','title':'Seleccione las tematicas'}),
         }
-        exclude = ('propietario',)
 
     def __init__(self, *args, **kwargs):
         super(AudioForm, self).__init__(*args, **kwargs)
@@ -48,12 +47,6 @@ class PdfForm(forms.ModelForm):
             'tematica': forms.SelectMultiple(attrs={'class':'selectpicker', 'data-width':'100%', 'data-live-search':'true','data-container':'body','title':'Seleccione las tematicas'}),
             'carrera': forms.Select(attrs={'class':'selectpicker', 'data-width':'100%', 'data-live-search':'true','data-container':'body'}),
         }
-        exclude = ('propietario',)
-
-    def form_valid(self, form):
-        form.propietario = self.request.user
-        form.save()
-        return super(PdfCreateView, self).form_valid(form)
 
 
     def __init__(self, *args, **kwargs):
@@ -84,7 +77,6 @@ class TextoForm(forms.ModelForm):
             'clave': forms.SelectMultiple(attrs={'class': 'selectpicker', 'data-width': '100%', 'data-live-search': 'true','data-container': 'body', 'title':'Seleccione las claves'}),
             'tematica': forms.SelectMultiple(attrs={'class': 'selectpicker', 'data-width': '100%', 'data-live-search': 'true','data-container': 'body', 'title':'Seleccione las tematicas'}),
         }
-        exclude = ('propietario',)
 
     def __init__(self, *args, **kwargs):
         super(TextoForm, self).__init__(*args, **kwargs)
@@ -109,7 +101,6 @@ class ImagenForm(forms.ModelForm):
             'clave': forms.SelectMultiple(attrs={'class': 'selectpicker', 'data-width': '100%', 'data-live-search': 'true','data-container': 'body', 'title': 'Seleccione las claves'}),
             'tematica': forms.SelectMultiple(attrs={'class': 'selectpicker', 'data-width': '100%', 'data-live-search': 'true','data-container': 'body', 'title': 'Seleccione las tematicas'}),
         }
-        exclude = ('propietario',)
 
     rutas = MultiFileField(min_num=1, max_num=100, max_file_size=1024*1024*5)
 
@@ -169,7 +160,6 @@ class VideoForm(forms.ModelForm):
             'clave': forms.SelectMultiple(attrs={'class':'selectpicker', 'data-width':'100%', 'data-live-search':'true','data-container':'body',"title":"Seleccione las palabras claves"}),
             'tematica': forms.SelectMultiple(attrs={'class':'selectpicker', 'data-width':'100%', 'data-live-search':'true','data-container':'body',"title":"Seleccione las tematicas"}),
         }
-        exclude = ('propietario',)
 
     def __init__(self, *args, **kwargs):
         super(VideoForm, self).__init__(*args, **kwargs)
