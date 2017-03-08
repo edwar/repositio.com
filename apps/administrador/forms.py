@@ -50,10 +50,6 @@ class PdfForm(forms.ModelForm):
             'carrera': forms.Select(attrs={'class':'selectpicker', 'data-width':'100%', 'data-live-search':'true','data-container':'body'}),
         }
 
-    def form_valid(self, form):
-        form.propietario = self.request.user
-        form.save()
-        return super(form_valid, self).form_valid(form)
 
 
     def __init__(self, *args, **kwargs):
