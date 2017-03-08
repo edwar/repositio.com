@@ -181,10 +181,10 @@
                             {% endif %}
                         {% else %}
                             <li class="header">LO MAS BUSCADO</li>
-                            <li class="{% if url_name == 'lomasvistopdf' or url_name  == 'pdf_detalle' %}active{% endif %}"><a href="/lomasvisto/pdf/"><i class="fa fa-file-pdf-o"></i> <span>Pdf</span></a></li>
-                            <li class="{% if url_name == 'lomasvistotexto' or url_name  == 'texto_detalle' %}active{% endif %}"><a href="/lomasvisto/texto/"><i class="fa fa-file-text-o"></i> <span>Texto</span></a></li>
-                            <li class="{% if url_name == 'lomasvistoaudio' or url_name  == 'audio_detalle' %}active{% endif %}"><a href="/lomasvisto/audio/"><i class="fa fa-file-audio-o"></i> <span>Audio</span></a></li>
-                            <li class="{% if url_name == 'lomasvistovideo' or url_name  == 'video_detalle' %}active{% endif %}"><a href="/lomasvisto/video/"><i class="fa fa-file-video-o"></i> <span>Video</span></a></li>
+                            <li class="{% if url_name == 'lomasvistopdf' %}active{% endif %}"><a href="/lomasvisto/pdf/"><i class="fa fa-file-pdf-o"></i> <span>Pdf</span></a></li>
+                            <li class="{% if url_name == 'lomasvistotexto' %}active{% endif %}"><a href="/lomasvisto/texto/"><i class="fa fa-file-text-o"></i> <span>Texto</span></a></li>
+                            <li class="{% if url_name == 'lomasvistoaudio' %}active{% endif %}"><a href="/lomasvisto/audio/"><i class="fa fa-file-audio-o"></i> <span>Audio</span></a></li>
+                            <li class="{% if url_name == 'lomasvistovideo' %}active{% endif %}"><a href="/lomasvisto/video/"><i class="fa fa-file-video-o"></i> <span>Video</span></a></li>
                             <li class="header">ESTADISTICAS</li>
                             <li class="{% if url_name == 'estadisticas' %}active{% endif %}"><a href="/estadisticas/"><i class="fa fa-area-chart"></i> <span>Ver</span></a></li>
                         {% endif %}
