@@ -37,7 +37,7 @@ class PdfForm(forms.ModelForm):
         fields = ['nombre', 'propietario','autor','descripcion','ruta', 'evento', 'tipo','clase','clave','tematica','carrera','descargable']
         widgets = {
             'nombre': forms.TextInput(attrs={'class':'form-control'}),
-            'propietario':forms.TextInput(attrs={'class':'form-control'}),
+            'propietario':forms.Select(attrs={'class':'selectpicker', 'data-width':'100%', 'data-live-search':'true','data-container':'body'}),
             'autor': forms.SelectMultiple(attrs={'class':'selectpicker', 'data-width':'100%', 'data-live-search':'true','data-container':'body','title':'Seleccione los colaboradores'}),
             'descripcion':forms.Textarea(attrs={'class':'form-control'}),
             'ruta':forms.FileInput(attrs={'class':'file','id':'pdf_ruta'}),
