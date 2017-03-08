@@ -10,7 +10,6 @@ class AudioForm(forms.ModelForm):
         fields = ['titulo', 'propietario', 'autor', 'descripcion', 'ruta', 'evento', 'carrera', 'tipo','clase' ,'clave', 'tematica']
         widgets = {
             'titulo':forms.TextInput(attrs={'class':'form-control'}),
-            'propietario':forms.TextInput(attrs={'class':'form-control'}),
             'autor': forms.SelectMultiple(attrs={'class':'selectpicker', 'data-width':'100%', 'data-live-search':'true','data-container':'body','title':'Seleccione los colaboradores'}),
             'descripcion': forms.Textarea(attrs={'class':'form-control'}),
             'ruta': forms.FileInput(attrs={'class':'file','id':'audio_ruta'}),
@@ -37,7 +36,6 @@ class PdfForm(forms.ModelForm):
         fields = ['nombre', 'propietario','autor','descripcion','ruta', 'evento', 'tipo','clase','clave','tematica','carrera','descargable']
         widgets = {
             'nombre': forms.TextInput(attrs={'class':'form-control'}),
-            'propietario':forms.Select(attrs={'class':'selectpicker', 'data-width':'100%', 'data-live-search':'true','data-container':'body'}),
             'autor': forms.SelectMultiple(attrs={'class':'selectpicker', 'data-width':'100%', 'data-live-search':'true','data-container':'body','title':'Seleccione los colaboradores'}),
             'descripcion':forms.Textarea(attrs={'class':'form-control'}),
             'ruta':forms.FileInput(attrs={'class':'file','id':'pdf_ruta'}),
@@ -66,7 +64,7 @@ class PdfForm(forms.ModelForm):
 class TextoForm(forms.ModelForm):
     class Meta:
         model = Texto
-        fields = ['nombre', 'colaborador', 'texto', 'carrera', 'tipo', 'evento', 'clase', 'clave', 'tematica']
+        fields = ['nombre', 'colaborador', 'propietario', 'texto', 'carrera', 'tipo', 'evento', 'clase', 'clave', 'tematica']
         widgets = {
             'nombre': forms.TextInput(attrs={'class': 'form-control','placeholder':'Nombre del texto'}),
             'colaborador': forms.SelectMultiple(attrs={'class': 'selectpicker', 'data-width': '100%', 'data-live-search': 'true','data-container': 'body', 'title': 'Selecciones los colaboradores'}),
@@ -90,7 +88,7 @@ class TextoForm(forms.ModelForm):
 class ImagenForm(forms.ModelForm):
     class Meta:
         model = Imagen
-        fields = ['titulo', 'autor', 'descripcion', 'carrera', 'evento', 'tipo', 'clase', 'clave', 'tematica']
+        fields = ['titulo', 'autor', 'propietario', 'descripcion', 'carrera', 'evento', 'tipo', 'clase', 'clave', 'tematica']
         widgets = {
             'titulo':forms.TextInput(attrs={'class':'form-control'}),
             'autor': forms.SelectMultiple(attrs={'class': 'selectpicker', 'data-width': '100%', 'data-live-search': 'true','data-container': 'body', 'title': 'Selecciones los colaboradores'}),
@@ -148,7 +146,7 @@ class EventoForm(forms.ModelForm):
 class VideoForm(forms.ModelForm):
     class Meta:
         model = Video
-        fields = ['titulo', 'autor', 'descripcion', 'ruta', 'carrera', 'evento', 'tipo', 'clase', 'clave', 'tematica']
+        fields = ['titulo', 'autor', 'propietario', 'descripcion', 'ruta', 'carrera', 'evento', 'tipo', 'clase', 'clave', 'tematica']
         widgets = {
             'titulo': forms.TextInput(attrs={'class':'form-control'}),
             'autor': forms.SelectMultiple(attrs={'class':'selectpicker', 'data-width':'100%', 'data-live-search':'true','data-container':'body',"title":"Seleccione los colaboradores"}),
