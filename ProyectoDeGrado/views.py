@@ -181,7 +181,7 @@ class SearchView(View):
             ctx = {"pdfs":pdfs,"textos":textos,"audios":audios,"videos":videos}
             print ctx
             return render(self.request, self.template_name,ctx)
-        else if 'q' in self.request.GET and self.request.GET['q'] or 'c' in self.request.GET and self.request.GET['c']:
+        elif 'q' in self.request.GET and self.request.GET['q'] or 'c' in self.request.GET and self.request.GET['c']:
             pdfs = Pdf.objects.all().filter(Q(nombre__icontains=str(self.request.GET['q'])) | Q(clase_id=self.request.GET.get('c')))
             textos = Texto.objects.all().filter(Q(nombre__icontains=str(self.request.GET['q'])) | Q(clase_id=self.request.GET.get('c')))
             audios = Audio.objects.all().filter(Q(titulo__icontains=str(self.request.GET['q'])) | Q(clase_id=self.request.GET.get('c')))
