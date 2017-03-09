@@ -12,9 +12,8 @@ class AudioAdminForm(forms.ModelForm):
 
 class AudioAdmin(admin.ModelAdmin):
     form = AudioAdminForm
-    list_display = ["__str__","activo","fecha","actualizado"]
+    list_display = ["__str__","fecha","actualizado"]
     list_filter =["fecha"]
-    list_editable =["activo"]
     class Meta:
         model = Audio
 
@@ -29,9 +28,8 @@ class VideoAdminForm(forms.ModelForm):
 
 class VideoAdmin(admin.ModelAdmin):
     form = VideoAdminForm
-    list_display = ["__str__","activo","fecha","actualizado"]
+    list_display = ["__str__","fecha","actualizado"]
     list_filter =["fecha"]
-    list_editable =["activo"]
     class Meta:
         model = Video
 
@@ -40,9 +38,8 @@ admin.site.register(Video,VideoAdmin)
 # Registro del modelo Carrera.
 @admin.register(Carrera)
 class CarreraAdmin(admin.ModelAdmin):
-    list_display = ["nombre","activo","fecha","actualizado",]
+    list_display = ["nombre","fecha","actualizado",]
     list_filter = ["fecha"]
-    list_editable = ["activo"]
     search_fields = ["nombre"]
 
     class Meta:
@@ -51,9 +48,8 @@ class CarreraAdmin(admin.ModelAdmin):
 # Registro del modelo Clase.
 @admin.register(Clase)
 class ClaseAdmin(admin.ModelAdmin):
-    list_display = ["nombre","activo","fecha","actualizado"]
+    list_display = ["nombre","fecha","actualizado"]
     list_filter = ["fecha"]
-    list_editable = ["activo"]
     search_fields = ["nombre"]
     class Meta:
         model = Clase
@@ -61,9 +57,8 @@ class ClaseAdmin(admin.ModelAdmin):
 # Registro del modelo Clave.
 @admin.register(Clave)
 class ClaveAdmin(admin.ModelAdmin):
-    list_display = ["nombre","activo","fecha","actualizado"]
+    list_display = ["nombre","fecha","actualizado"]
     list_filter = ["fecha"]
-    list_editable = ["activo"]
     search_fields = ["nombre"]
     class Meta:
         model = Clave
@@ -71,9 +66,8 @@ class ClaveAdmin(admin.ModelAdmin):
 # Registro del modelo Evento.
 @admin.register(Evento)
 class EventoAdmin(admin.ModelAdmin):
-    list_display = ["nombre","activo","fecha","actualizado"]
+    list_display = ["nombre","fecha","actualizado"]
     list_filter = ["fecha"]
-    list_editable = ["activo"]
     search_fields = ["nombre"]
     class Meta:
         model = Evento
@@ -81,9 +75,8 @@ class EventoAdmin(admin.ModelAdmin):
 # Registro del modelo Facultad.
 @admin.register(Facultad)
 class FacultadAdmin(admin.ModelAdmin):
-    list_display = ["nombre","activo","fecha","actualizado"]
+    list_display = ["nombre","fecha","actualizado"]
     list_filter = ["fecha"]
-    list_editable = ["activo"]
     search_fields = ["nombre"]
     class Meta:
         model = Facultad
@@ -93,13 +86,12 @@ class ImagenAdminForm(forms.ModelForm):
     descripcion = forms.CharField(widget=CKEditorWidget())
     class Meta:
         model = Imagen
-        fields = ['titulo', 'propietario', 'autor', 'carrera', 'descripcion', 'activo', 'tipo', 'clase', 'clave', 'tematica']
+        fields = ['titulo', 'propietario', 'autor', 'carrera', 'descripcion', 'tipo', 'clase', 'clave', 'tematica']
 
 class ImagenAdmin(admin.ModelAdmin):
     form = ImagenAdminForm
-    list_display = ["titulo","activo","fecha","actualizado"]
+    list_display = ["titulo","fecha","actualizado"]
     list_filter = ["fecha"]
-    list_editable = ["activo"]
     search_fields = ["titulo"]
     class Meta:
         model = Imagen
@@ -108,9 +100,8 @@ admin.site.register(Imagen, ImagenAdmin)
 # Registro del modelo Perfil.
 @admin.register(Perfil)
 class PerfilAdmin(admin.ModelAdmin):
-    list_display = ["usuario","activo","fecha","actualizado"]
+    list_display = ["usuario","fecha","actualizado"]
     list_filter = ["fecha"]
-    list_editable = ["activo"]
     search_fields = ["codigo"]
     class Meta:
         model = Perfil
@@ -118,9 +109,9 @@ class PerfilAdmin(admin.ModelAdmin):
 # Registro del modelo Sede.
 @admin.register(Sede)
 class SedeAdmin(admin.ModelAdmin):
-    list_display = ["nombre","pais","ciudad","direccion","activo","fecha","actualizado"]
+    list_display = ["nombre","pais","ciudad","direccion","fecha","actualizado"]
     list_filter = ["fecha"]
-    list_editable = ["pais","ciudad","direccion","activo","activo"]
+    list_editable = ["pais","ciudad","direccion"]
     search_fields = ["nombre"]
     class Meta:
         model = Sede
@@ -128,9 +119,8 @@ class SedeAdmin(admin.ModelAdmin):
 # Registro del modelo Tematica.
 @admin.register(Tematica)
 class ClaveAdmin(admin.ModelAdmin):
-    list_display = ["nombre","activo","fecha","actualizado"]
+    list_display = ["nombre","fecha","actualizado"]
     list_filter = ["fecha"]
-    list_editable = ["activo"]
     search_fields = ["nombre"]
     class Meta:
         model = Tematica
@@ -140,13 +130,12 @@ class TextAdminForm(forms.ModelForm):
     texto = forms.CharField(widget=CKEditorWidget())
     class Meta:
         model = Texto
-        fields = ['nombre', 'propietario', 'colaborador', 'texto', 'carrera', 'activo', 'tipo', 'clase', 'clave', 'tematica']
+        fields = ['nombre', 'propietario', 'colaborador', 'texto', 'carrera', 'tipo', 'clase', 'clave', 'tematica']
 
 class TextoAdmin(admin.ModelAdmin):
     form = TextAdminForm
-    list_display = ["nombre", "activo", "fecha", "actualizado"]
-    list_filter = ["fecha", "activo"]
-    list_editable = ["activo"]
+    list_display = ["nombre", "fecha", "actualizado"]
+    list_filter = ["fecha"]
     search_fields = ["nombre"]
 
     class Meta:
@@ -156,9 +145,8 @@ admin.site.register(Texto, TextoAdmin)
 # Registro del modelo Tipo.
 @admin.register(Tipo)
 class TipoAdmin(admin.ModelAdmin):
-    list_display = ["nombre", "activo", "fecha", "actualizado"]
+    list_display = ["nombre", "fecha", "actualizado"]
     list_filter = ["fecha"]
-    list_editable = ["activo"]
     search_fields = ["nombre"]
     class Meta:
         model = Tipo
@@ -166,9 +154,8 @@ class TipoAdmin(admin.ModelAdmin):
 # Registro del modelo Tipo de evento.
 @admin.register(TipoEvento)
 class TipoEventoAdmin(admin.ModelAdmin):
-    list_display = ["nombre", "activo", "fecha", "actualizado"]
+    list_display = ["nombre", "fecha", "actualizado"]
     list_filter = ["fecha"]
-    list_editable = ["activo"]
     search_fields = ["nombre"]
 
     class Meta:
@@ -177,9 +164,8 @@ class TipoEventoAdmin(admin.ModelAdmin):
 # Registro del modelo Tipo de orador.
 @admin.register(TipoOrador)
 class TipoOradorAdmin(admin.ModelAdmin):
-    list_display = ["__str__", "activo", "fecha", "actualizado"]
+    list_display = ["__str__", "fecha", "actualizado"]
     list_filter = ["fecha"]
-    list_editable = ["activo"]
     search_fields = ["__str__"]
 
     class Meta:
@@ -188,9 +174,8 @@ class TipoOradorAdmin(admin.ModelAdmin):
 # Registro del modelo Tipo de orador.
 @admin.register(AreaConocimiento)
 class AreaConocimientoAdmin(admin.ModelAdmin):
-    list_display = ["__str__", "activo", "fecha", "actualizado"]
+    list_display = ["__str__", "fecha", "actualizado"]
     list_filter = ["fecha"]
-    list_editable = ["activo"]
     search_fields = ["__str__"]
 
     class Meta:
@@ -201,15 +186,14 @@ class PdfAdminForm(forms.ModelForm):
     descripcion = forms.CharField(widget=CKEditorWidget())
     class Meta:
         model = Pdf
-        fields = ['nombre', 'propietario', 'autor', 'carrera', 'descripcion', 'ruta', 'evento', 'descargable', 'activo','tipo', 'clase', 'clave',
+        fields = ['nombre', 'propietario', 'autor', 'carrera', 'descripcion', 'ruta', 'evento', 'descargable'",'tipo', 'clase', 'clave',
                   'tematica']
 
 # Registro del modelo Pdf.
 class PdfAdmin(admin.ModelAdmin):
     form = PdfAdminForm
-    list_display = ["nombre", "activo", "fecha", "actualizado"]
+    list_display = ["nombre", "fecha", "actualizado"]
     list_filter = ["fecha"]
-    list_editable = ["activo"]
     search_fields = ["nombre"]
     class Meta:
         model = Pdf
@@ -219,9 +203,8 @@ admin.site.register(Pdf,PdfAdmin)
 # Registro del modelo Dominios.
 @admin.register(Dominio)
 class DominioAdmin(admin.ModelAdmin):
-    list_display = ["nombre", "activo", "fecha", "actualizado"]
-    list_filter = ["fecha", "activo"]
-    list_editable = ["activo"]
+    list_display = ["nombre", "fecha", "actualizado"]
+    list_filter = ["fecha"]
     search_fields = ["nombre"]
     class Meta:
         model = Dominio
