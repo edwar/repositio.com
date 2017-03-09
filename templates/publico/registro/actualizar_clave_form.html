@@ -21,11 +21,14 @@ Usuario
             <form method="POST" action="" enctype="multipart/form-data">{% csrf_token %}
                 <div class="box-body">
                     <div class="form-group col-xs-12">
+                        <i class="fa fa-asterisk text-danger" aria-hidden="true">
                         <label for="usuario">Contraseña actual</label>
                         <input name="anterior" type="password" class="form-control">
                         <hr>
+                        <i class="fa fa-asterisk text-danger" aria-hidden="true">
                         <label for="usuario">Nueva contraseña</label>
                         <input name="nueva" type="password" class="form-control">
+                        <i class="fa fa-asterisk text-danger" aria-hidden="true">
                         <label for="usuario">Confirmar contraseña</label>
                         <input name="confirmacion" type="password" class="form-control">
                     </div>
