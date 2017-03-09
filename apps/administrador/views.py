@@ -401,7 +401,7 @@ class EventoCreateView(CreateView):
         ctx['tipo'] =  'success'
         ctx['icono'] = 'glyphicon-ok'
         ctx['titulo'] = 'Exito'
-        return ctx
+        return self.render_to_response(ctx)
 
 @method_decorator(decoradores, name='dispatch')
 class EventoListView(ListView):
