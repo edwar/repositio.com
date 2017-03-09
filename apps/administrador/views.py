@@ -393,17 +393,15 @@ class EventoView(TemplateView):
 class EventoCreateView(CreateView):
     form_class = EventoForm
     template_name = 'privado/evento/evento_form.html'
-    success_url = '/administrador/evento/lista/'
 
     def form_valid(self, form):
         super(EventoCreateView, self).form_valid(form)
-        return render(self.request, self.template_name,{'msg': "El evento a sido creado exitosamente, este sera validado para poder ser publicado, por favor se paciente.",'tipo':'success','icono':'glyphicon-ok','titulo':'Exito'})
+        return render(self.request, 'privado/evento/evento.html',{'msg': "El evento a sido creado exitosamente, este sera validado para poder ser publicado, por favor se paciente.",'tipo':'success','icono':'glyphicon-ok','titulo':'Exito'})
 
 @method_decorator(decoradores, name='dispatch')
 class EventoListView(ListView):
     model = Evento
     template_name = 'privado/evento/evento_list.html'
-    success_url = '/administrador/'
 
     def get_queryset(self):
         queryset = Evento.objects.filter(activo=True)
