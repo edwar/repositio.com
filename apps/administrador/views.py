@@ -396,7 +396,7 @@ class EventoCreateView(CreateView):
     success_url = '/administrador/evento/lista/'
 
     def form_valid(self, form):
-        super(CreateCar, self).form_valid(form)
+        super(EventoCreateView, self).form_valid(form)
         return render(self.request, 'privado/evento/evento_list.html',{'msg': "El evento a sido creado exitosamente, este sera validado para poder ser publicado, por favor se paciente.",'tipo':'success','icono':'glyphicon-ok','titulo':'Exito'})
 
 @method_decorator(decoradores, name='dispatch')
