@@ -397,11 +397,8 @@ class EventoCreateView(CreateView):
 
     def form_valid(self, form):
         ctx = self.get_context_data(form=form)
-        ctx['msg'] = "El evento a sido creado exitosamente, este sera validado para poder ser publicado, por favor se paciente."
-        ctx['tipo'] =  'success'
-        ctx['icono'] = 'glyphicon-ok'
-        ctx['titulo'] = 'Exito'
-        return self.render_to_response(ctx)
+        ctx = {'msg': 'El evento a sido creado exitosamente, este sera validado para poder ser publicado, por favor se paciente.','tipo': 'success','icono': 'glyphicon-ok','titulo': 'Exito'}
+        return ctx
 
 @method_decorator(decoradores, name='dispatch')
 class EventoListView(ListView):
