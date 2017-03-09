@@ -126,8 +126,8 @@ class EventoForm(forms.ModelForm):
             'encargado': forms.Select(attrs={'class': 'selectpicker', 'data-width': '100%', 'data-live-search': 'true','data-container': 'body', 'placeholder': 'Encargado'}),
             'colaboradores': forms.SelectMultiple(attrs={'class': 'selectpicker', 'data-width': '100%', 'data-live-search': 'true','data-container': 'body', 'title': 'Seleccione los colaboradores'}),
             'tipo': forms.Select(attrs={'class': 'selectpicker', 'data-width': '100%', 'data-live-search': 'true','data-container': 'body', 'placeholder': 'Seleccione el tipo de evento'}),
-            'inicio': forms.DateInput(attrs={'class':'form-control pull-right', 'placeholder':'Nombre del evento','data-provide':'datepicker'}),
-            'fin': forms.DateInput(attrs={'class':'form-control pull-right', 'placeholder':'Fecha de inicio','data-provide':'datepicker'}),
+            'inicio': forms.DateInput(attrs={'class':'form-control pull-right', 'placeholder':'Fecha de inicio del evento','data-provide':'datepicker', 'readonly':''}),
+            'fin': forms.DateInput(attrs={'class':'form-control pull-right', 'placeholder':'Fecha de finalización del evento','data-provide':'datepicker', 'readonly':''}),
             'cronograma':forms.FileInput(attrs={'class':'file','id':'evento_ruta'}),
             'activo': forms.TextInput(attrs={'class':'form-control', 'placeholder':'Nombre del evento'}),
         }
