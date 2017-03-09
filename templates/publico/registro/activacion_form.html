@@ -1,20 +1,20 @@
 {% extends 'privado/base.html' %}
 {% load staticfiles %}
 {% block titulo %}
-Evento
+Activación
 {% endblock %}
 {% block pagina %}
-Usuario
-<small>Crear</small>
+Cuenta
+<small>Activación</small>
 {% endblock %}
 {% block miga %}
-<li><a href="/"><i class="fa fa-dashboard active"></i> Administración</a></li><li href="#">Usuario</li><li>Crear</li>
+<li><a href="/"><i class="fa fa-dashboard active"></i> Administración</a></li><li href="#"><i class="fa fa-address-card-o"></i> Cuenta</li><li><i class="fa fa-check-square-o"></i> Activar</li>
 {% endblock %}
 {% block contenido %}
     <div class="col-xs-12 col-sm-12 col-lg-6">
         <div class="box box-primary">
             <div class="box-header with-border">
-                <h3 class="box-title">Crear usuario</h3>
+                <h3 class="box-title">Activar Cuenta</h3>
             </div>
             <!-- /.box-header -->
             <!-- form start -->
@@ -131,7 +131,7 @@ Usuario
                 </div>
               <!-- /.box-body -->
                 <div class="box-footer">
-                    <button type="submit" class="btn btn-success col-xs-offset-1 col-xs-4">Registrar <i class="fa fa-send"></i></button>
+                    <button type="submit" class="btn btn-success col-xs-offset-1 col-xs-4">Guardar <i class="fa fa-floppy-o"></i></button>
                     <a href="/" class="btn btn-danger col-xs-offset-2 col-xs-4">Cancelar <i class="ion ion-android-cancel"></i></a>
                 </div>
             </form>
