@@ -74,31 +74,17 @@ Texto<small>Detalle</small>
                         <!-- /.description-block -->
                     </div>
                 </div>
+                <!-- /.row -->
                 <div class="row">
-                    <div class="col-xs-12 border-right">
-                        <div class="description-block">
-                            <div class="row">
-                                <div class="content">
-                                    <div id="id_texto">{{ object.texto }}</div>
-                                </div>
-                            </div>
-                        <!-- /.description-block -->
+                    <div class="col-xs-10 col-xs-offset-1">
+                        <fieldset>
+                            <legend class="lead text-center">Descripción</legend>
+                            {% autoescape off %}{{ object.texto }}{% endautoescape %}
+                        </fieldset>
                     </div>
                 </div>
-            </div>
-            <!-- /.row -->
+                <!-- /.row -->
         </div>
     </div>
     <!-- /.widget-user -->
-    <script src="//cdn.ckeditor.com/4.6.2/full/ckeditor.js"></script>
-    <script>
-        $(function () {
-            CKEDITOR.replace('id_texto');
-            CKEDITOR.config.skin = 'office2013,/static/administrador/plugins/ckeditor/skins/office2013/';
-            var txt = $('<div/>').html("{{ object.texto }}").text()
-            CKEDITOR.instances.id_texto.setData(txt)
-            var element = $("#id_texto");
-            element.attr('disabled', 'disabled')
-        });
-    </script>
 {% endblock %}
