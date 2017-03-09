@@ -141,9 +141,8 @@ class ClaveView(View):
         data = {}
         try:
             data['username'] = request.POST['usuario']
-            print data['username']
             self.restaurar(data)
-            return render(request, self.template_name,{'msg':'Te hemos enviado un correo con una contraseña autogenerada.','tipo':'info','titulo':'Informacion','icono':'glyphicon-info-sign'})
+            return render(request, self.template_name,{'msg':'Te hemos enviado un correo con una contraseña autogenerada al correo'+ str(data['mail']),'tipo':'info','titulo':'Informacion','icono':'glyphicon-info-sign'})
         except Exception as e:
             return render(request, self.template_name,{'msg':'Ha ocurrido algo inesperado.'+str(e),'tipo':'danger','titulo':'Error','icono':'glyphicon-exclamation-sign'})
         
