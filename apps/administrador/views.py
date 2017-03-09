@@ -397,10 +397,8 @@ class EventoCreateView(CreateView):
 
     def get_context_data(self, **kwargs):
         ctx = super(EventoCreateView, self).get_context_data(**kwargs)
-        ctx['msg'] = "El evento a sido creado exitosamente, este sera validado para poder ser publicado, por favor se paciente."
-        ctx['tipo'] = 'success'
-        ctx['icono'] = 'glyphicon-ok'
-        ctx['titulo'] = 'Exito'
+        ctx = {'msg' : "El evento a sido creado exitosamente, este sera validado para poder ser publicado, por favor se paciente.",'tipo': 'success', 'icono': 'glyphicon-ok', 'titulo': 'Exito'}
+        print ctx
         return ctx
 
 
