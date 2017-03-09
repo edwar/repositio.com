@@ -398,7 +398,7 @@ class EventoCreateView(CreateView):
     def form_valid(self, form):
         form.save()
         ctx = {'msg': 'El evento a sido creado exitosamente, este sera validado para poder ser publicado, por favor se paciente.','tipo': 'success','icono': 'glyphicon-ok','titulo': 'Exito'}
-        return render(self.request, self.template_name, ctx)
+        return render(self.request, "privado/evento/evento.html", ctx)
 
 @method_decorator(decoradores, name='dispatch')
 class EventoListView(ListView):
