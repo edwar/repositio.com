@@ -127,7 +127,7 @@ class ClaveView(View):
 
     def enviar(self, data):
         from django.core.mail import EmailMultiAlternatives
-        subject, from_email, to = 'Restaurar clave', 'Repositio <repositio@gmail.com>', data['username']
+        subject, from_email, to = 'Restaurar clave', 'Repositio <repositio@gmail.com>', data['mail']
         message_text = "Para ingregar debes ingresar con estos datos y actualizar tu contraseña:"
         message_html = "</br><b>Usuario: </b> "+data['username']+"</br><b>Usuario: </b>"+data['clave']
         msg = EmailMultiAlternatives(subject, message_text, from_email, [to])
@@ -145,7 +145,7 @@ class ClaveView(View):
             self.restaurar(data)
             return render(request, self.template_name,{'msg':'Te hemos enviado un correo con una contraseña autogenerada.','tipo':'info','titulo':'Informacion','icono':'glyphicon-info-sign'})
         except Exception as e:
-            return render(request, self.template_name,{'msg':'Ha ocurrido algo inesperado.'+str(e),'tipo':'danger','titulo':'Error','icono':'glyphicon-exclamation-sign'})
+            return render(request, self.template_name,{'msg':'Ha ocurrido algo inesperado.','tipo':'danger','titulo':'Error','icono':'glyphicon-exclamation-sign'})
         
 
 class ActualizarClaveView(View):
