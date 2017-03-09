@@ -145,7 +145,7 @@ class ClaveView(View):
             self.restaurar(data)
             return render(request, self.template_name,{'msg':'Te hemos enviado un correo con una contraseña autogenerada.','tipo':'info','titulo':'Informacion','icono':'glyphicon-info-sign'})
         except Exception as e:
-            return render(request, self.template_name,{'msg':'Ha ocurrido algo inesperado.','tipo':'danger','titulo':'Error','icono':'glyphicon-exclamation-sign'})
+            return render(request, self.template_name,{'msg':'Ha ocurrido algo inesperado.'+e,'tipo':'danger','titulo':'Error','icono':'glyphicon-exclamation-sign'})
         
 
 class ActualizarClaveView(View):
