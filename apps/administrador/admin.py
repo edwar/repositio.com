@@ -186,8 +186,7 @@ class PdfAdminForm(forms.ModelForm):
     descripcion = forms.CharField(widget=CKEditorWidget())
     class Meta:
         model = Pdf
-        fields = ['nombre', 'propietario', 'autor', 'carrera', 'descripcion', 'ruta', 'evento', 'descargable'",'tipo', 'clase', 'clave',
-                  'tematica']
+        fields = ['nombre', 'propietario', 'autor', 'carrera', 'descripcion', 'ruta', 'evento', 'descargable','tipo', 'clase', 'clave','tematica']
 
 # Registro del modelo Pdf.
 class PdfAdmin(admin.ModelAdmin):
