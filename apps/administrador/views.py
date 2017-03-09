@@ -396,9 +396,8 @@ class EventoCreateView(CreateView):
     success_url = '/administrador/evento/lista/'
 
     def form_valid(self, form):
-        ctx = self.get_context_data(form=form)
         ctx = {'msg': 'El evento a sido creado exitosamente, este sera validado para poder ser publicado, por favor se paciente.','tipo': 'success','icono': 'glyphicon-ok','titulo': 'Exito'}
-        return ctx
+        return render(self.request, self.template_name, ctx)
 
 @method_decorator(decoradores, name='dispatch')
 class EventoListView(ListView):
