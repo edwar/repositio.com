@@ -135,12 +135,14 @@ class ClaveView(View):
 
     def post(self, request, *args, **kwargs):
         data = {}
-        data['username'] = request.POST['usuario']
-        print data['username']
-        self.restaurar(data)
-        message = ("Te hemos enviado un correo con una contraseña autogenerada.")
-        messages.success(request, message)
-        return redirect('/')
+        try:
+            data['username'] = request.POST['usuario']
+            print data['username']
+            self.restaurar(data)
+            return render(request, self.template_name,{'msg':'Te hemos enviado un correo con una contraseña autogenerada.','tipo':'info','titulo':'Informacion','icono':'glyphicon-info-sign'})
+        except Exception as e:
+            return render(request, self.template_name,{'msg':'Ha ocurrido algo inesperado.','tipo':'danger','titulo':'Error','icono':'glyphicon-exclamation-sign'})
+        
 
 class ActualizarClaveView(View):
     template_name='publico/registro/actualizar_clave_form.html'
