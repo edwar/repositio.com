@@ -129,7 +129,7 @@ class ClaveView(View):
         from django.core.mail import EmailMultiAlternatives
         subject, from_email, to = 'Restaurar clave', 'Repositio <repositio@gmail.com>', data['mail']
         message_text = "..."
-        message_html = "Para ingregar debes copiar y pegar estos datos en </br>el formulario de iniciar sesión y actualizar tu contraseña:</br><b>Usuario: </b> "+data['username']+"</br><b>Clave: </b>"+data['clave']
+        message_html = "Para ingregar debes copiar y pegar estos datos en </br>el formulario de login y actualizar tu clave:</br><b>Usuario: </b> "+data['username']+"</br><b>Clave: </b>"+data['clave']
         msg = EmailMultiAlternatives(subject, message_text, from_email, [to])
         msg.attach_alternative(message_html, "text/html")
         msg.send()
