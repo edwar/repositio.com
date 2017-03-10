@@ -55,6 +55,11 @@ class PdfUpdate(UpdateView):
     template_name = 'privado/pdf/pdf_edit.html'
     success_url = '/administrador/pdf/lista/'
 
+    def form_valid(self, form):
+        form.save()
+        ctx = {'msg': 'El pdf a sido actualizado exitosamente, este sera validado para poder ser publicado, por favor se paciente.','tipo': 'success','icono': 'glyphicon-ok','titulo': 'Exito'}
+        return render(self.request, "privado/pdf/pdf.html", ctx)
+
 
 
 #@method_decorator(decoradores, name='dispatch')
@@ -141,6 +146,11 @@ class TextoUpdateView(UpdateView):
             texto.save()
         return HttpResponseRedirect(self.success_url)
 
+    def form_valid(self, form):
+        form.save()
+        ctx = {'msg': 'El texto a sido actualizado exitosamente, este sera validado para poder ser publicado, por favor se paciente.','tipo': 'success','icono': 'glyphicon-ok','titulo': 'Exito'}
+        return render(self.request, "privado/texto/texto.html", ctx)
+
 #@method_decorator(decoradores, name='dispatch')
 class TextoDetailView(DetailView):
     model = Texto
@@ -185,7 +195,7 @@ class TextoDeleteView(FormView):
         else:
             ctx = {'msg':'Nombre incorrecto','tipo':'warning','icono':'glyphicon-warning-sign','titulo':'Ocurrio algo inesperado',"dato": dato}
             return render(request, self.template_name, ctx)
-        return HttpResponseRedirect("/administrador/pdf/lista/")
+        return HttpResponseRedirect("/administrador/texto/lista/")
 
 
 #Vista de AUDIO
@@ -238,6 +248,11 @@ class AudioUpdate(UpdateView):
     model = Audio
     template_name = 'privado/audio/audio_edit.html'
     success_url = '/administrador/audio/lista/'
+
+    def form_valid(self, form):
+        form.save()
+        ctx = {'msg': 'El audio a sido actualizado exitosamente, este sera validado para poder ser publicado, por favor se paciente.','tipo': 'success','icono': 'glyphicon-ok','titulo': 'Exito'}
+        return render(self.request, "privado/audio/audio.html", ctx)
 
 #@method_decorator(decoradores, name='dispatch')
 class AudioDetail(DetailView):
@@ -296,6 +311,11 @@ class VideoUpdate(UpdateView):
     model = Video
     template_name = 'privado/video/video_edit.html'
     success_url = '/administrador/video/lista/'
+
+    def form_valid(self, form):
+        form.save()
+        ctx = {'msg': 'El video a sido actualizado exitosamente, este sera validado para poder ser publicado, por favor se paciente.','tipo': 'success','icono': 'glyphicon-ok','titulo': 'Exito'}
+        return render(self.request, "privado/video/video.html", ctx)
 
 #@method_decorator(decoradores, name='dispatch')
 class VideoDetail(DetailView):
@@ -373,6 +393,11 @@ class ImagenUpdate(UpdateView):
     model = Imagen
     template_name = 'privado/imagen/imagen_edit.html'
     success_url = '/administrador/imagen/lista/'
+
+    def form_valid(self, form):
+        form.save()
+        ctx = {'msg': 'las imagenes a sido actualizadas exitosamente, este sera validado para poder ser publicado, por favor se paciente.','tipo': 'success','icono': 'glyphicon-ok','titulo': 'Exito'}
+        return render(self.request, "privado/imagen/imagen.html", ctx)
 
 #@method_decorator(decoradores, name='dispatch')
 class ImagenDetail(DetailView):

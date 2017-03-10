@@ -159,9 +159,7 @@ class ActualizarClaveView(View):
             if usuario.check_password(request.POST['anterior'].strip()):
                 usuario.password = make_password(request.POST['nueva'])
                 usuario.save()
-                message = ("Se a actualizado la contraseña con exito. Por seguridad inicie sesión nuevamente")
-                messages.success(request, message)
-                return redirect('/')
+                return render(request, "publico/inicio/index.html",{'msg':'Se a actualizado la contraseña con exito. Por seguridad inicie sesión nuevamente','tipo':'success','titulo':'Exito','icono':'glyphicon-ok'})  
             else:
                 return render(request, self.template_name,{'msg':'La contraseña actual es incorrecta, intenta nuevamente','tipo':'danger','titulo':'Error','icono':'glyphicon-exclamation-sign'})
         else:
