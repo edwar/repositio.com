@@ -105,7 +105,7 @@ class ActivacionView(FormView):
         perfil.codigo = request.POST['codigo']
         perfil.carrera.add(request.POST['carrera'])
         perfil.save()
-        return HttpResponseRedirect("/")
+        return render(request, "publico/inicio/index.html",{'msg':'Se ha realizado la activacion con exito, ya puede iniciar sessión.','tipo':'success','titulo':'Exito','icono':'glyphicon-ok'})  
 
 
 class ClaveView(View):
