@@ -33,6 +33,11 @@ class PdfCreateView(CreateView):
     template_name = 'privado/pdf/pdf_form.html'
     success_url = '/administrador/pdf/lista/'
 
+    def form_valid(self, form):
+        form.save()
+        ctx = {'msg': 'El pdf a sido creado exitosamente, este sera validado para poder ser publicado, por favor se paciente.','tipo': 'success','icono': 'glyphicon-ok','titulo': 'Exito'}
+        return render(self.request, "privado/pdf/pdf.html", ctx)
+
 @method_decorator(decoradores, name='dispatch')
 class PdfListView(ListView):
     model = Pdf
@@ -107,6 +112,11 @@ class TextoCreateView(CreateView):
     form_class = TextoForm
     template_name = 'privado/texto/texto_form.html'
     success_url = '/administrador/texto/lista/'
+
+    def form_valid(self, form):
+        form.save()
+        ctx = {'msg': 'El texto a sido creado exitosamente, este sera validado para poder ser publicado, por favor se paciente.','tipo': 'success','icono': 'glyphicon-ok','titulo': 'Exito'}
+        return render(self.request, "privado/texto/texto.html", ctx)
 
 @method_decorator(decoradores, name='dispatch')
 class TextoListView(ListView):
@@ -189,6 +199,10 @@ class AudioCreateView(CreateView):
     template_name = 'privado/audio/audio_form.html'
     success_url = '/administrador/audio/lista/'
 
+    def form_valid(self, form):
+        form.save()
+        ctx = {'msg': 'El audio a sido creado exitosamente, este sera validado para poder ser publicado, por favor se paciente.','tipo': 'success','icono': 'glyphicon-ok','titulo': 'Exito'}
+        return render(self.request, "privado/audio/audio.html", ctx)
 
 @method_decorator(decoradores, name='dispatch')
 class AudioListView(ListView):
@@ -260,6 +274,11 @@ class VideoCreateView(CreateView):
     form_class = VideoForm
     template_name = 'privado/video/video_form.html'
     success_url = '/administrador/video/lista/'
+
+    def form_valid(self, form):
+        form.save()
+        ctx = {'msg': 'El video a sido creado exitosamente, este sera validado para poder ser publicado, por favor se paciente.','tipo': 'success','icono': 'glyphicon-ok','titulo': 'Exito'}
+        return render(self.request, "privado/video/video.html", ctx)
 
 @method_decorator(decoradores, name='dispatch')
 class VideoListView(ListView):
@@ -333,6 +352,10 @@ class ImagenCreateView(CreateView):
     template_name = 'privado/imagen/imagen_form.html'
     success_url = '/administrador/imagen/lista/'
 
+    def form_valid(self, form):
+        form.save()
+        ctx = {'msg': 'Las imagenes se han guardado exitosamente, este sera validado para poder ser publicado, por favor se paciente.','tipo': 'success','icono': 'glyphicon-ok','titulo': 'Exito'}
+        return render(self.request, "privado/imagen/imagen.html", ctx)
 
 @method_decorator(decoradores, name='dispatch')
 class ImagenListView(ListView):

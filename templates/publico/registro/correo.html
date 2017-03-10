@@ -23,12 +23,12 @@ Usuario
                     <div class="form-group col-xs-12">
                         <i class="fa fa-asterisk text-danger" aria-hidden="true"></i>
                         <label for="usuario">Usuario</label>
-                        <input name="usuario" type="text" class="form-control" placeholder="Ej: juan-perez">
+                        <input name="usuario" type="text" class="form-control" placeholder="Ej: juan-perez" required>
                     </div>
                     <div class="form-group col-xs-12">
                         <i class="fa fa-asterisk text-danger" aria-hidden="true"></i>
                         <label for="dominio">Dominio</label>
-                        <select name="dominio" id="" class="form-control">
+                        <select name="dominio" id="" class="form-control" required>
                             <option value="">Seleccione un dominio</option>
                             {% for dominio in dominios %}
                                 <option value="{{ dominio.nombre }}">{{ dominio.nombre }}</option>
