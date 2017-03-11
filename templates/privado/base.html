@@ -460,7 +460,7 @@ $(document).ready(function(){
    }
 
     document.onmousedown = right;
-
+    $(document).on("contextmenu", function (event) { event.preventDefault(); });
 
 });
 </script>
