@@ -461,6 +461,12 @@ $(document).ready(function(){
 
     document.onmousedown = right;
 
+    document.querySelector('embed').addEventListener('load', function(){
+        this.getSVGDocument().addEventListener('mousedown', function(){
+            alert('hello')
+        });
+    });
+
 });
 </script>
 {% block js %}
